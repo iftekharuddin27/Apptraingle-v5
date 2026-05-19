@@ -27,7 +27,10 @@ import {
   Zap,
 } from "lucide-react"
 import { services } from "@/lib/site"
+import { InteractiveGrid } from "@/components/interactive-grid"
+import { NeuralConstellation } from "@/components/neural-constellation"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
+import { FluidBallAnimation } from "@/components/fluid-ball"
 import { TiltCard } from "@/components/tilt-card"
 import { FloatingImage } from "@/components/floating-image"
 
@@ -52,7 +55,9 @@ export const serviceIcons: Record<string, React.ComponentType<{ className?: stri
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-background">
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-32 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-40">
+      {/* <NeuralConstellation /> */}
+      <InteractiveGrid />
+      <div className="pointer-events-none relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-32 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-40">
         {/* LEFT - copy */}
         <div className="lg:col-span-6">
           <motion.h1
@@ -124,49 +129,43 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT - floating hero image */}
+        {/* RIGHT - hero animation */}
         <div className="lg:col-span-6">
-          <div className="overflow-hidden rounded-3xl border border-primary/15 bg-card">
-            <Image
-              src="/images/hero-showcase.jpg"
-              alt="Apptriangle technology platform"
-              width={1200}
-              height={900}
-              className="h-auto w-full object-cover"
-              priority
-            />
-          </div>
+          <FluidBallAnimation />
         </div>
       </div>
 
-      {/* Trust marquee strip */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="relative mx-auto -mt-10 max-w-6xl px-5 pb-12 sm:px-8"
-      >
-        <div className="rounded-2xl border border-primary/20 bg-card/40 px-6 py-5 backdrop-blur-xl">
-          <div className="flex flex-wrap items-center justify-around gap-6">
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-0.5 text-primary">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={`star-${i}`} className="h-3 w-3 fill-current" />
+      <TiltCard intensity={12} className="w-full max-w-5xl mx-auto">
+        <div className="group flex w-full items-center justify-between rounded-3xl border border-white/10 bg-white/5 px-8 py-6 backdrop-blur-xl transition-all duration-500 hover:border-primary/50 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(41,179,255,0.25)]">
+
+          <div className="flex flex-col">
+            <span className="text-3xl font-display font-bold text-white">200+</span>
+             <span className="text-xs font-semibold tracking-wider text-white/60 uppercase">Customers</span>
+            <div className="mt-1 flex items-center gap-2">
+              <div className="flex items-center gap-0.5 text-primary">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" fill="currentColor" className="h-4 w-4">
+                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                  </svg>
                 ))}
-              </span>
-              <div>
-                <span className="block font-display text-xl font-semibold leading-none">200+</span>
-                <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Customers</span>
               </div>
+             
             </div>
-            <div className="hidden h-10 w-px bg-border sm:block" />
-            <PartnerLabel name="Microsoft" />
-            <PartnerLabel name="DigiCert" />
-            <PartnerLabel name="IceWarp" />
-            <PartnerLabel name="Zoho" />
           </div>
+
+          <div className="mx-8 hidden h-12 w-px bg-white/10 md:block"></div>
+
+          <div className="hidden flex-1 items-center justify-between md:flex">
+            {["Microsoft", "DigiCert", "IceWarp", "Zoho"].map((brand) => (
+              <div key={brand} className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(41,179,255,0.8)]"></div>
+                <span className="text-sm font-medium text-white/80 transition-colors group-hover:text-white">{brand}</span>
+              </div>
+            ))}
+          </div>
+          
         </div>
-      </motion.div>
+      </TiltCard>
     </section>
   )
 }
@@ -180,26 +179,23 @@ function PartnerLabel({ name }: { name: string }) {
   )
 }
 
+
 /* -------- Service card with magnetic icon + reveal layer -------- */
 function ServiceCard({ s }: { s: (typeof services)[number] & { description?: string } }) {
   const Icon = serviceIcons[s.slug] ?? Monitor
 
   return (
-    <TiltCard className="h-full rounded-2xl" intensity={8}>
+    <motion.div
+      whileHover={{
+        y: -8,
+        transition: { repeat: Infinity, repeatType: "reverse", duration: 1.2, ease: "easeInOut" }
+      }}
+      className="h-full rounded-2xl"
+    >
       <Link
         href={`/services/${s.slug}`}
-        className="conic-border group relative block h-full overflow-hidden rounded-2xl border border-primary/15 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:border-primary/40 hover:scale-[1.03] hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]"
+        className="conic-border group relative block h-full min-h-[300px] overflow-hidden rounded-2xl border border-primary/15 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]"
       >
-        {/* Layered ambient glow */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-1/2 left-1/2 h-[140%] w-[140%] -translate-x-1/2 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-          style={{
-            background:
-              "radial-gradient(closest-side, rgba(41,179,255,0.22), transparent 60%)",
-          }}
-        />
-
         <div className="relative inline-flex">
           <span className="relative grid h-14 w-14 place-items-center rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/25 to-primary/5 text-primary shadow-[0_0_30px_-10px_rgba(41,179,255,0.7)]">
             <Icon className="h-6 w-6" />
@@ -235,7 +231,7 @@ function ServiceCard({ s }: { s: (typeof services)[number] & { description?: str
           <span className="h-px flex-1 ml-4 bg-gradient-to-r from-transparent via-primary/30 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </div>
       </Link>
-    </TiltCard>
+    </motion.div>
   )
 }
 
@@ -272,7 +268,7 @@ export function ServicesGrid() {
         </div>
 
         <StaggerGroup
-          className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start"
           staggerChildren={0.08}
           delayChildren={0.1}
         >
@@ -316,26 +312,42 @@ export function ExperienceSection() {
             className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5"
             staggerChildren={0.08}
           >
-            {stats.map((s) => (
+            {stats.map((s, i) => (
               <StaggerItem key={s.label}>
-                <TiltCard intensity={10} className="rounded-2xl">
-                  <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/5 p-7 text-center backdrop-blur-xl transition-all hover:border-white/40 hover:bg-white/10">
-                    <span
-                      aria-hidden="true"
-                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      style={{
-                        background:
-                          "radial-gradient(closest-side, rgba(255,255,255,0.18), transparent 70%)",
-                      }}
-                    />
-                    <p className="relative font-display text-4xl font-semibold text-white sm:text-5xl">
-                      {s.value}
-                    </p>
-                    <p className="relative mt-2 text-xs uppercase tracking-wider text-white/85">
-                      {s.label}
-                    </p>
-                  </div>
-                </TiltCard>
+                <motion.div
+                  animate={{ y: [-6, 6] }}
+                  transition={{
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    duration: 2.5,
+                    ease: "easeInOut",
+                    delay: i * 0.2, // Staggers the floating so they don't all move at the exact same time
+                  }}
+                  whileHover={{
+                    y: 0,
+                    transition: { duration: 0.2, ease: "easeOut" },
+                  }}
+                  className="h-full rounded-2xl"
+                >
+                  <TiltCard intensity={15} className="h-full rounded-2xl">
+                    <div className="group relative h-full overflow-hidden rounded-2xl border border-white/20 bg-white/5 p-7 text-center backdrop-blur-xl transition-all hover:border-white/40 hover:bg-white/10">
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        style={{
+                          background:
+                            "radial-gradient(closest-side, rgba(255,255,255,0.18), transparent 70%)",
+                        }}
+                      />
+                      <p className="relative font-display text-4xl font-semibold text-white sm:text-5xl">
+                        {s.value}
+                      </p>
+                      <p className="relative mt-2 text-xs uppercase tracking-wider text-white/85">
+                        {s.label}
+                      </p>
+                    </div>
+                  </TiltCard>
+                </motion.div>
               </StaggerItem>
             ))}
           </StaggerGroup>

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { InteractiveGrid } from "../components/interactive-grid"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,7 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}>
-      <body className="font-sans antialiased">
+      <body className="relative font-sans antialiased">
+        {/* Background interactive grid (visual only) */}
+        <InteractiveGrid />
+
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
