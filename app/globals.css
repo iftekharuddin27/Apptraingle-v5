@@ -1,0 +1,210 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Apptriangle Brand - Dark Blackish Theme */
+  --background: #222222;
+  --foreground: #f5faff;
+  --card: #141414;
+  --card-foreground: #f5faff;
+  --popover: #141414;
+  --popover-foreground: #f5faff;
+  --primary: #29b3ff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f5faff;
+  --muted: #1a1a1a;
+  --muted-foreground: #93a5bf;
+  --accent: #29b3ff;
+  --accent-foreground: #0a0a0a;
+  --accent-soft: #d7efff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #f5faff;
+  --border: rgba(41, 179, 255, 0.15);
+  --input: #1a1a1a;
+  --ring: #29b3ff;
+  --radius: 0.875rem;
+
+  --brand-navy: #141414;
+  --brand-navy-deep: #222222;
+  --brand-blue: #29b3ff;
+  --brand-blue-soft: #d7efff;
+  --brand-neutral: #93a5bf;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-display: var(--font-display), 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'ui-monospace', 'SFMono-Regular', monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-deep: var(--brand-navy-deep);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-soft: var(--brand-blue-soft);
+  --color-brand-neutral: var(--brand-neutral);
+
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-background;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+
+/* Animated conic border */
+.conic-border {
+  position: relative;
+  isolation: isolate;
+}
+.conic-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0deg,
+    rgba(41, 179, 255, 0.85) 60deg,
+    rgba(215, 239, 255, 0.6) 120deg,
+    transparent 200deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: spin-conic 6s linear infinite;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.conic-border:hover::before,
+.group:hover .conic-border::before {
+  opacity: 1;
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-conic {
+  to { --angle: 360deg; }
+}
+
+/* Magnetic shine sweep */
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.shine-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12) 48%,
+    rgba(255, 255, 255, 0.0) 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.shine-sweep:hover::after {
+  transform: translateX(100%);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(41, 179, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41, 179, 255, 0.1) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+  mask-image: radial-gradient(ellipse at center top, black 30%, transparent 75%);
+}
+
+.card-glow,
+.card-glow-active {
+  background-color: var(--card);
+  background-image: none;
+  transition: background-image 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-glow:hover,
+.card-glow-active:hover {
+  background-image:
+    radial-gradient(120% 100% at 0% 0%, rgba(41, 179, 255, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.005));
+  box-shadow: 0 16px 50px -20px rgba(41, 179, 255, 0.4);
+  border-color: rgba(41, 179, 255, 0.45);
+}
+
+.card-solid {
+  background-color: var(--card);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-solid:hover {
+  border-color: rgba(41, 179, 255, 0.45);
+  box-shadow: 0 16px 50px -20px rgba(41, 179, 255, 0.4);
+}
+
+.section-blue {
+  background:
+    radial-gradient(80% 80% at 50% 0%, rgba(41, 179, 255, 0.45), transparent 60%),
+    linear-gradient(180deg, #1e7fc7 0%, #1167a8 100%);
+}
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
