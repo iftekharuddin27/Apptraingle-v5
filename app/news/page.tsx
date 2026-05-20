@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
@@ -5,41 +6,54 @@ import { SiteFooter } from "@/components/site-footer"
 import { PageHero } from "@/components/page-blocks"
 import { CtaSection } from "@/components/home-sections"
 
+import newsOne from "../../Images/News & Articles/one.png"
+import newsTwo from "../../Images/News & Articles/two.png"
+import newsThree from "../../Images/News & Articles/three.png"
+import eventOne from "../../Images/News and Events Images/pexels-thisisengineering-3862599-1-1024x683.jpg.bv.webp"
+import eventTwo from "../../Images/News and Events Images/pexels-pixabay-38568-1024x680.jpg.bv.webp"
+import eventThree from "../../Images/News and Events Images/pexels-fauxels-3183131-1024x683.jpg.bv.webp"
+
 const news = [
   {
     tag: "Press",
     date: "Mar 2025",
     title: "Apptriangle Featured on News24 TV",
+    image: newsOne,
     desc: "We are a leading technology service company dedicated to empowering businesses and organizations with cutting-edge solutions.",
   },
   {
     tag: "Launch",
     date: "Feb 2025",
     title: "New Cybersecurity Services Launch",
+    image: newsTwo,
     desc: "Comprehensive protection for legacy systems causing slow processing and poor user experience.",
   },
   {
     tag: "Award",
     date: "Jan 2025",
     title: "Apptriangle Wins Best IT Services Award",
+    image: newsThree,
     desc: "Recognised for excellence in delivering enterprise IT solutions across global markets.",
   },
   {
     tag: "Expansion",
     date: "Dec 2024",
     title: "Apptriangle Expands to Canada & Japan",
+    image: eventOne,
     desc: "Continuing our global mission with new offices opening in Canada and Japan to better serve clients worldwide.",
   },
   {
     tag: "Partnership",
     date: "Nov 2024",
     title: "New Partnership with IceWarp",
+    image: eventTwo,
     desc: "Strengthening our reseller and implementation portfolio with the latest IceWarp collaboration suite.",
   },
   {
     tag: "Insights",
     date: "Oct 2024",
     title: "The Future of Business Process Automation",
+    image: eventThree,
     desc: "Our CTO shares perspectives on how AI-driven workflows are reshaping enterprise operations.",
   },
 ]
@@ -62,37 +76,42 @@ export default function NewsPage() {
               {news.map((n, i) => (
                 <article
                   key={n.title}
-                  className={`group flex flex-col rounded-2xl border p-6 transition-colors ${
+                  className={`group flex flex-col overflow-hidden rounded-2xl border transition-colors ${
                     i === 1 ? "card-glow-active border-primary/50" : "card-glow border-border hover:border-primary/40"
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <span
-                      className={`inline-block rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider ${
-                        i === 1 ? "bg-white/20 text-white" : "bg-primary/15 text-primary"
+                  <div className="relative h-48 w-full overflow-hidden border-b border-white/10">
+                    <Image src={n.image} alt={n.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <span
+                        className={`inline-block rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider ${
+                          i === 1 ? "bg-white/20 text-white" : "bg-primary/15 text-primary"
+                        }`}
+                      >
+                        {n.tag}
+                      </span>
+                      <span className={`text-xs ${i === 1 ? "text-white/80" : "text-muted-foreground"}`}>{n.date}</span>
+                    </div>
+                    <h3
+                      className={`mt-6 font-display text-lg font-semibold leading-tight ${
+                        i === 1 ? "text-white" : "text-foreground"
                       }`}
                     >
-                      {n.tag}
-                    </span>
-                    <span className={`text-xs ${i === 1 ? "text-white/80" : "text-muted-foreground"}`}>{n.date}</span>
-                  </div>
-                  <h3
-                    className={`mt-6 font-display text-lg font-semibold leading-tight ${
-                      i === 1 ? "text-white" : "text-foreground"
-                    }`}
-                  >
-                    {n.title}
-                  </h3>
-                  <p className={`mt-2 text-sm ${i === 1 ? "text-white/85" : "text-muted-foreground"}`}>{n.desc}</p>
+                      {n.title}
+                    </h3>
+                    <p className={`mt-2 text-sm ${i === 1 ? "text-white/85" : "text-muted-foreground"}`}>{n.desc}</p>
                     <Link
-                    href="/contact-us"
-                    className={`group mt-6 inline-flex items-center gap-1 text-sm font-medium ${
-                      i === 1 ? "text-white" : "text-primary"
-                    }`}
-                  >
-                    Read More{" "}
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
-                  </Link>
+                      href="/contact-us"
+                      className={`group mt-6 inline-flex items-center gap-1 text-sm font-medium ${
+                        i === 1 ? "text-white" : "text-primary"
+                      }`}
+                    >
+                      Read More{" "}
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </article>
               ))}
             </div>

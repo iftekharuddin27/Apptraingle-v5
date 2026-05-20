@@ -18,7 +18,6 @@ import {
   Mails,
   MessageSquare,
   Monitor,
-  Rocket,
   Settings,
   ShieldCheck,
   Smartphone,
@@ -321,7 +320,7 @@ export function ExperienceSection() {
                     repeatType: "reverse",
                     duration: 2.5,
                     ease: "easeInOut",
-                    delay: i * 0.2, // Staggers the floating so they don't all move at the exact same time
+                    delay: i * 0.2,
                   }}
                   whileHover={{
                     y: 0,
@@ -568,7 +567,7 @@ export function CtaSection() {
               <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
                 <div>
                   <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary backdrop-blur">
-                    <Rocket className="h-3 w-3" /> Let&apos;s build
+                    Let&apos;s build
                   </span>
                   <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
                     Ready to transform{" "}

@@ -6,19 +6,25 @@ export const services = [
     slug: "staff-augmentation",
     title: "Staff Augmentation",
     short:
-      "Extend your in-house capabilities with Apptriangle's Staff Augmentation services. We provide skilled developers, engineers, and IT specialists who seamlessly integrate with your team to speed up project delivery.",
+      "Extend your in-house capabilities with on-demand senior engineers and specialists who integrate seamlessly with your teams to accelerate delivery and maintain quality.",
+    description:
+      "We pair you with vetted developers, DevOps engineers, QA specialists, and architects to plug skill gaps, scale rapidly during peak demand, and transfer knowledge back to your internal teams. Flexible engagement models, rapid onboarding, and performance oversight ensure velocity without compromising standards.",
   },
   {
     slug: "managed-it-services",
     title: "Managed IT Services",
     short:
-      "Focus on your business while we handle your IT operations. Our Managed IT Services ensure your systems run smoothly, securely, and reliably.",
+      "Reliable, proactive IT operations management that keeps systems secure, performant, and aligned with business goals.",
+    description:
+      "From 24/7 monitoring and incident response to patching, backups, and capacity planning, our Managed IT Services deliver predictable uptime and rapid recovery. We combine automation, security best practices, and expert support to lower operational risk, reduce costs, and free your team to focus on innovation.",
   },
   {
     slug: "business-process-automation",
     title: "Process Automation",
     short:
-      "At Apptriangle, we help businesses eliminate repetitive tasks, reduce human error, and improve operational efficiency through advanced Business Process Automation (BPA).",
+      "Automate manual workflows to boost accuracy, throughput, and employee productivity.",
+    description:
+      "We design and build intelligent automation solutions—RPA, workflow orchestration, and integrations with SaaS and legacy systems—that eliminate manual handoffs, enforce business rules, and surface actionable insights. Our approach prioritizes quick wins and measurable ROI, then scales to automate end-to-end processes across the enterprise.",
   },
   {
     slug: "app-development",

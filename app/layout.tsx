@@ -33,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}>
-      <body className="relative font-sans antialiased">
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} bg-black`}>
+      <body className="relative font-sans antialiased bg-black">
         {/* Background interactive grid (visual only) */}
         <InteractiveGrid />
 
