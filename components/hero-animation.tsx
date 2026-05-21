@@ -52,10 +52,7 @@ void main(){
   // Blend less with the iridescent rainbow, favouring the blue base
   vec3 col = mix(baseColor, iridescent, 0.25 + fresnel * 0.18);
 
-  float rimLight = pow(fresnel, 1.0);
-  col += rimLight * vec3(0.18, 0.28, 0.55) * 0.35;
-
-  float alpha = mix(0.88, 1.0, fresnel);
+  float alpha = mix(0.25, 0.4, fresnel);
   gl_FragColor = vec4(col, clamp(alpha, 0.0, 1.0));
 }
 `
@@ -114,11 +111,11 @@ export function HeroAnimation() {
 
     const rings = [
       // Cohesive blue-focused palettes for smooth flowing transitions
-      makeRing(1.00, 0.082, "#2EA8FF", "#5FD0FF", "#00CFFD"),
-      makeRing(1.00, 0.082, "#1E7BFF", "#4BAEFF", "#48D1FF"),
-      makeRing(0.80, 0.068, "#2C9BFF", "#66C3FF", "#2ED0FF"),
-      makeRing(0.63, 0.058, "#1A6EFF", "#3E9EFF", "#2AAEFF"),
-      makeRing(0.63, 0.058, "#1B5CFF", "#4A88FF", "#36B8FF"),
+      makeRing(0.15, 0.008, "#2EA8FF", "#5FD0FF", "#00CFFD"),
+      makeRing(0.15, 0.008, "#1E7BFF", "#4BAEFF", "#48D1FF"),
+      makeRing(0.12, 0.006, "#2C9BFF", "#66C3FF", "#2ED0FF"),
+      makeRing(0.10, 0.005, "#1A6EFF", "#3E9EFF", "#2AAEFF"),
+      makeRing(0.10, 0.005, "#1B5CFF", "#4A88FF", "#36B8FF"),
     ]
 
     const rotations: [number, number, number][] = [
@@ -136,6 +133,38 @@ export function HeroAnimation() {
       r.rotation.set(...rotations[i])
       group.add(r)
     })
+
+    // Add connection lines between rings
+    const lineGeometry = new THREE.BufferGeometry()
+    const linePositions: number[] = []
+    
+    for (let i = 0; i < rings.length - 1; i++) {
+      const points = 12 // number of connection points per ring pair
+      for (let j = 0; j < points; j++) {
+        const angle = (j / points) * Math.PI * 2
+        const x1 = Math.cos(angle) * 0.55 * 0.4
+        const y1 = Math.sin(angle) * 0.55 * 0.4
+        const z1 = 0
+        
+        const x2 = Math.cos(angle + Math.PI / 6) * 0.44 * 0.3
+        const y2 = Math.sin(angle + Math.PI / 6) * 0.44 * 0.3
+        const z2 = Math.cos(angle) * 0.3
+        
+        linePositions.push(x1, y1, z1, x2, y2, z2)
+      }
+    }
+    
+    lineGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3))
+    
+    const lineMaterial = new THREE.LineBasicMaterial({
+      color: 0x5FD0FF,
+      transparent: true,
+      opacity: 0.4,
+      linewidth: 1,
+    })
+    
+    const lines = new THREE.LineSegments(lineGeometry, lineMaterial)
+    group.add(lines)
 
     const clock = new THREE.Clock()
     let animId: number

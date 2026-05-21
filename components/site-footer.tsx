@@ -67,8 +67,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border/40 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Apptriangle Limited. All rights reserved.</p>
+        <div className="mt-14 flex items-center justify-center gap-4 border-t border-border/40 pt-6 text-xs text-muted-foreground">
+          <p className="text-center">© {new Date().getFullYear()} Apptriangle Limited. All rights reserved.</p>
         </div>
       </div>
     </footer>

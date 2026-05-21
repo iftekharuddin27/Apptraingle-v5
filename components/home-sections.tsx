@@ -68,7 +68,7 @@ export function Hero() {
                 technology
               </span>
             </span>
-            {" "}of tomorrow.
+            {" "}of tomorrow
           </motion.h1>
 
           <motion.p
@@ -78,7 +78,7 @@ export function Hero() {
             className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
             7+ years of crafting cutting-edge software, AI, and cloud solutions.
-            Our experts are on call 24/7, turning ambitious ideas into shipped products.
+            Our experts are on call 24/7, turning ambitious ideas into shipped products
           </motion.p>
 
           <motion.div
@@ -135,10 +135,10 @@ export function Hero() {
 
             <span className="ml-42 mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
               <span className="h-1 w-1 rounded-full bg-primary" />
-              Hero products
+              Core products
             </span>
 
-      <TiltCard intensity={12} className="w-full max-w-5xl mx-auto">
+      <TiltCard intensity={12} className="z-10 w-full max-w-5xl mx-auto">
         <div className="group flex w-full items-center justify-between rounded-3xl border border-white/10 bg-white/5 px-8 py-6 backdrop-blur-xl transition-all duration-500 hover:border-primary/50 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(41,179,255,0.25)]">
 
           <div className="flex flex-col items-start">

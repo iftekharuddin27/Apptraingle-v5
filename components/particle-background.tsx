@@ -11,15 +11,14 @@ interface Particle {
   opacity: number;
 }
 
-const PARTICLE_COUNT = 36;
+const PARTICLE_COUNT = 30;
 const PARTICLE_SPEED = 0.45;
-const PARTICLE_RADIUS_MIN = 1.5;
-const PARTICLE_RADIUS_MAX = 3.0;
+const PARTICLE_RADIUS_MIN = 1;
+const PARTICLE_RADIUS_MAX = 2;
 
-// Bright blue — higher RGB values = lighter/more luminous glow on black
-const PARTICLE_COLOR = "41, 179, 255"; // brand primary blue
-const GLOW_COLOR = "41, 179, 255"; // brand primary blue
-const BG_COLOR = "#000000"; // pure black
+// Lighter cyan-blue for smaller, subtle particles
+const PARTICLE_COLOR = "150, 225, 255";
+const BG_COLOR = "#000000";
 
 function createParticle(width: number, height: number): Particle {
   const angle = Math.random() * Math.PI * 2;
@@ -30,7 +29,7 @@ function createParticle(width: number, height: number): Particle {
     vx: Math.cos(angle) * speed,
     vy: Math.sin(angle) * speed,
     radius: Math.random() * (PARTICLE_RADIUS_MAX - PARTICLE_RADIUS_MIN) + PARTICLE_RADIUS_MIN,
-    opacity: Math.random() * 0.35 + 0.65,
+    opacity: Math.random() * 0.4 + 0.4,
   };
 }
 
@@ -49,7 +48,7 @@ function createParticleInCell(
     vx: Math.cos(angle) * speed,
     vy: Math.sin(angle) * speed,
     radius: Math.random() * (PARTICLE_RADIUS_MAX - PARTICLE_RADIUS_MIN) + PARTICLE_RADIUS_MIN,
-    opacity: Math.random() * 0.35 + 0.65,
+    opacity: Math.random() * 0.4 + 0.4,
   };
 }
 
@@ -112,53 +111,71 @@ export default function ParticleBackground() {
       ctx.fillStyle = BG_COLOR;
       ctx.fillRect(0, 0, width, height);
 
-      for (const p of particles) {
-        // Move
-        p.x += p.vx;
-        p.y += p.vy;
+          // Update positions first
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
 
-        // Cursor interaction (gentle repel)
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const distance = Math.sqrt(dx * dx + dy * dy) || 1;
-        const interactionRadius = 140;
+            // Cursor interaction (gentle repel)
+            const dx = p.x - mouse.x;
+            const dy = p.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy) || 1;
+            const interactionRadius = 140;
 
-        if (distance < interactionRadius) {
-          const force = (interactionRadius - distance) / interactionRadius;
-          p.x += (dx / distance) * force * 3.5;
-          p.y += (dy / distance) * force * 3.5;
-        }
+            if (distance < interactionRadius) {
+              const force = (interactionRadius - distance) / interactionRadius;
+              p.x += (dx / distance) * force * 3.5;
+              p.y += (dy / distance) * force * 3.5;
+            }
 
-        // Wrap edges
-        if (p.x < -10) p.x = width + 10;
-        else if (p.x > width + 10) p.x = -10;
-        if (p.y < -10) p.y = height + 10;
-        else if (p.y > height + 10) p.y = -10;
+            // Wrap edges
+            if (p.x < -10) p.x = width + 10;
+            else if (p.x > width + 10) p.x = -10;
+            if (p.y < -10) p.y = height + 10;
+            else if (p.y > height + 10) p.y = -10;
+          }
 
-        // Outer glow halo (large, very soft)
-        const halo = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 7);
-        halo.addColorStop(0, `rgba(${GLOW_COLOR}, ${p.opacity * 0.25})`);
-        halo.addColorStop(1, `rgba(${GLOW_COLOR}, 0)`);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 7, 0, Math.PI * 2);
-        ctx.fillStyle = halo;
-        ctx.fill();
+          // Draw thin connecting lines to up to 3 nearest neighbors
+          const LINK_DISTANCE = 200;
+          const MAX_CONNECTIONS = 3;
+          const LINE_WIDTH = 1;
+          const drawn = new Set<string>();
 
-        // Mid glow
-        const midGlow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 3.5);
-        midGlow.addColorStop(0, `rgba(${PARTICLE_COLOR}, ${p.opacity * 0.7})`);
-        midGlow.addColorStop(1, `rgba(${PARTICLE_COLOR}, 0)`);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 3.5, 0, Math.PI * 2);
-        ctx.fillStyle = midGlow;
-        ctx.fill();
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            // build neighbor list
+            const neighbors = particles
+              .map((q, idx) => ({ idx, dist: Math.hypot(p.x - q.x, p.y - q.y) }))
+              .filter((n) => n.idx !== i)
+              .sort((a, b) => a.dist - b.dist)
+              .slice(0, MAX_CONNECTIONS);
 
-        // Bright crisp core dot
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${PARTICLE_COLOR}, ${p.opacity * 0.9})`;
-        ctx.fill();
-      }
+            for (const n of neighbors) {
+              if (n.dist > LINK_DISTANCE) continue;
+              const a = Math.min(i, n.idx);
+              const b = Math.max(i, n.idx);
+              const key = `${a}-${b}`;
+              if (drawn.has(key)) continue;
+              drawn.add(key);
+
+              const alpha = Math.max(0, 1 - n.dist / LINK_DISTANCE) * 0.18;
+              ctx.beginPath();
+              ctx.lineWidth = LINE_WIDTH;
+              ctx.strokeStyle = `rgba(${PARTICLE_COLOR}, ${alpha})`;
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(particles[n.idx].x, particles[n.idx].y);
+              ctx.stroke();
+            }
+          }
+
+          // Draw particle cores on top of lines
+          for (const p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${PARTICLE_COLOR}, ${p.opacity})`;
+            ctx.fill();
+          }
 
       animId = requestAnimationFrame(draw);
     };
