@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero, ServiceCta } from "@/components/page-blocks"
 import { Check } from "lucide-react"
+import { CountUp } from "@/components/count-up"
 
 const team = [
   {
@@ -65,7 +66,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="relative h-100 w-full max-w-md justify-self-end overflow-hidden rounded-2xl border border-border card-glow">
+              <div className="air-float-wrap relative h-100 w-full max-w-md justify-self-end overflow-hidden rounded-2xl border border-border">
                 <Image
                   src="/images/about-us/pexels-chuck-3109168-1-1024x683.webp"
                   alt="Our Story"
@@ -82,7 +83,7 @@ export default function AboutPage() {
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-10 lg:grid-cols-[1.05fr_1.2fr] lg:items-start">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border card-glow">
+              <div className="air-float-wrap relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
                 <Image
                   src="/images/about-us/Gray-Minimalist-Line-Simple-A4-Stationery-Paper-Document-3-1024x910.webp.bv.webp"
                   alt="The Beginning"
@@ -118,7 +119,7 @@ export default function AboutPage() {
                   ability to serve customers worldwide.
                 </p>
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border card-glow">
+              <div className="air-float-wrap relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
                 <Image
                   src="/images/about-us/pexels-diva-plavalaguna-6147381-1024x683.jpg.bv.webp"
                   alt="Global Breakthrough"
@@ -135,7 +136,7 @@ export default function AboutPage() {
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-10 lg:grid-cols-[1.05fr_1.2fr] lg:items-start">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border card-glow">
+              <div className="air-float-wrap relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
                 <Image
                   src="/images/about-us/pexels-dream-3381066-1-1024x768.webp"
                   alt="Expanding Horizons"
@@ -166,31 +167,28 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {team.map((m, i) => (
+              {team.map((m) => (
                 <article
                   key={m.name}
-                  className={`rounded-2xl border p-7 ${
-                    i === 1 ? "card-glow-active border-primary/50" : "card-glow border-border"
-                  }`}
+                  className="card-glow rounded-2xl border border-border p-7 transition-colors hover:border-primary/40"
                 >
                   <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border border-border">
                     <Image
                       src={`/images/about-us/${m.photo}`}
                       alt={m.name}
                       fill
+                      data-floating="true"
                       className="object-cover"
                       sizes="96px"
                     />
                   </div>
                   <h3
-                    className={`mt-6 text-center font-display text-lg font-semibold leading-tight ${
-                      i === 1 ? "text-white" : "text-foreground"
-                    }`}
+                    className="mt-6 text-center font-display text-lg font-semibold leading-tight text-foreground"
                   >
                     {m.name}
                   </h3>
-                  <p className={`text-center text-sm font-medium ${i === 1 ? "text-white/90" : "text-primary"}`}>{m.role}</p>
-                  <p className={`mt-3 text-center text-sm leading-relaxed ${i === 1 ? "text-white/85" : "text-muted-foreground"}`}>
+                  <p className="text-center text-sm font-medium text-primary">{m.role}</p>
+                  <p className="mt-3 text-center text-sm leading-relaxed text-muted-foreground">
                     {m.bio}
                   </p>
                 </article>
@@ -226,7 +224,9 @@ export default function AboutPage() {
               <div className="grid grid-cols-3 gap-4">
                 {stats.map((s) => (
                   <div key={s.label} className="card-glow rounded-2xl border border-border p-6 text-center">
-                    <p className="font-display text-3xl font-semibold sm:text-4xl">{s.value}</p>
+                    <p className="font-display text-3xl font-semibold sm:text-4xl">
+                      <CountUp value={s.value} />
+                    </p>
                     <p className="mt-1 text-xs text-muted-foreground">{s.label}</p>
                   </div>
                 ))}

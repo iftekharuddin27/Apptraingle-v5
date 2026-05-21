@@ -26,12 +26,11 @@ import {
   Zap,
 } from "lucide-react"
 import { services } from "@/lib/site"
-import { InteractiveGrid } from "@/components/interactive-grid"
-import { NeuralConstellation } from "@/components/neural-constellation"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
-import { FluidBallAnimation } from "@/components/fluid-ball"
+import { Apptriangle3DLogo } from "@/components/apptriangle-3d-logo"
 import { TiltCard } from "@/components/tilt-card"
 import { FloatingImage } from "@/components/floating-image"
+import { CountUp } from "@/components/count-up"
 
 export const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   "staff-augmentation": Users,
@@ -53,10 +52,8 @@ export const serviceIcons: Record<string, React.ComponentType<{ className?: stri
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background">
-      {/* <NeuralConstellation /> */}
-      <InteractiveGrid />
-      <div className="pointer-events-none relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-32 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-40">
+    <section className="relative overflow-hidden">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-32 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-40">
         {/* LEFT - copy */}
         <div className="lg:col-span-6">
           <motion.h1
@@ -92,18 +89,18 @@ export function Hero() {
           >
             <Link
               href="/contact-us"
-              className="shine-sweep group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_rgba(41,179,255,0.8)] transition-transform hover:scale-[1.03]"
+              className="shine-sweep group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_rgba(41,179,255,0.8)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_10px_50px_-5px_rgba(41,179,255,1)]"
             >
               <span className="relative z-10">Get a Consultation</span>
-                  <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+              <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45" />
             </Link>
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-primary/60 hover:bg-card/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-all duration-300 hover:border-primary/60 hover:bg-card/60 hover:shadow-[0_0_30px_-5px_rgba(41,179,255,0.5)]"
             >
               Explore Services
-              <span className="relative flex h-5 w-5 items-center justify-center overflow-hidden rounded-full bg-primary/20 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1">
-                <ArrowUpRight className="h-3 w-3 text-primary transition-transform duration-300 " />
+              <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 transition-transform duration-300 group-hover:translate-x-1">
+                <ArrowUpRight className="h-3.5 w-3.5 text-primary transition-transform duration-300 group-hover:rotate-45" />
               </span>
             </Link>
           </motion.div>
@@ -121,7 +118,9 @@ export function Hero() {
               { v: "24/7", l: "Support" },
             ].map((s) => (
               <div key={s.l} className="border-l border-primary/30 pl-4">
-                <p className="font-display text-3xl font-semibold text-foreground">{s.v}</p>
+                <p className="font-display text-3xl font-semibold text-foreground">
+                  <CountUp value={s.v} />
+                </p>
                 <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.l}</p>
               </div>
             ))}
@@ -130,16 +129,23 @@ export function Hero() {
 
         {/* RIGHT - hero animation */}
         <div className="lg:col-span-6">
-          <FluidBallAnimation />
+          <Apptriangle3DLogo className="mx-auto h-[320px] w-full max-w-[480px] md:h-[480px]" />
         </div>
       </div>
+
+            <span className="ml-42 mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+              <span className="h-1 w-1 rounded-full bg-primary" />
+              Hero products
+            </span>
 
       <TiltCard intensity={12} className="w-full max-w-5xl mx-auto">
         <div className="group flex w-full items-center justify-between rounded-3xl border border-white/10 bg-white/5 px-8 py-6 backdrop-blur-xl transition-all duration-500 hover:border-primary/50 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(41,179,255,0.25)]">
 
-          <div className="flex flex-col">
-            <span className="text-3xl font-display font-bold text-white">200+</span>
-             <span className="text-xs font-semibold tracking-wider text-white/60 uppercase">Customers</span>
+          <div className="flex flex-col items-start">
+            <div className="flex items-baseline gap-2">
+              <CountUp value="200+" className="text-3xl font-display font-bold text-white" />
+              <span className="text-xs font-semibold tracking-wider text-white/60 uppercase">Customers</span>
+            </div>
             <div className="mt-1 flex items-center gap-2">
               <div className="flex items-center gap-0.5 text-primary">
                 {[...Array(5)].map((_, i) => (
@@ -155,10 +161,18 @@ export function Hero() {
           <div className="mx-8 hidden h-12 w-px bg-white/10 md:block"></div>
 
           <div className="hidden flex-1 items-center justify-between md:flex">
-            {["Microsoft", "DigiCert", "IceWarp", "Zoho"].map((brand) => (
-              <div key={brand} className="flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(41,179,255,0.8)]"></div>
-                <span className="text-sm font-medium text-white/80 transition-colors group-hover:text-white">{brand}</span>
+            {[
+              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/Microsoft-Logo.wine_-300x75.webp.bv.webp?bv_host=apptriangle.com" },
+              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/DigiCert_logo.svg-300x68.webp.bv.webp?bv_host=apptriangle.com" },
+              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/1_Trend-Micro-Logo-white-1024x351-1-300x103.webp.bv.webp?bv_host=apptriangle.com" },
+              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ZOHO.svg-300x103.png.bv.webp?bv_host=apptriangle.com" },
+            ].map((brand, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <img
+                  src={brand.logo}
+                  alt="Partner logo"
+                  className="h-4 w-auto object-contain opacity-80 transition-opacity group-hover:opacity-100 sm:h-5"
+                />
               </div>
             ))}
           </div>
@@ -216,10 +230,12 @@ function ServiceCard({ s }: { s: (typeof services)[number] & { description?: str
         <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2 group-hover:line-clamp-none transition-all duration-500">{s.short}</p>
 
         {/* Expanded description on hover */}
-        <div className="relative mt-3 max-h-0 opacity-0 overflow-hidden transition-all duration-500 group-hover:max-h-[200px] group-hover:opacity-100">
-          <p className="text-xs leading-relaxed text-muted-foreground/80 pt-2 border-t border-primary/10">
-            {s.description || "Comprehensive solutions tailored to your business needs with cutting-edge technology and expert guidance."}
-          </p>
+        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100">
+          <div className="overflow-hidden">
+            <p className="mt-3 border-t border-primary/10 pt-2 text-xs leading-relaxed text-muted-foreground/80">
+              {s.description || "Comprehensive solutions tailored to your business needs with cutting-edge technology and expert guidance."}
+            </p>
+          </div>
         </div>
 
         <div className="relative mt-6 flex items-center justify-between">
@@ -291,66 +307,65 @@ export function ExperienceSection() {
     { value: "7+", label: "Years Experience" },
   ]
   return (
-    <section className="relative">
-      <div className="section-blue relative overflow-hidden py-28">
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-          <ScrollReveal className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
-              By the numbers
-            </span>
-            <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-white text-balance sm:text-5xl">
-              Experience that{" "}
-              <span className="italic text-brand-blue-soft">delivers.</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-white/85">
-              Years of excellence and results you can count on.
-            </p>
-          </ScrollReveal>
+    <section className="relative overflow-hidden py-28">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+            <span className="h-1 w-1 rounded-full bg-primary" />
+            By the numbers
+          </span>
+          <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-foreground text-balance sm:text-5xl">
+            Experience that{" "}
+            <span className="italic text-primary">delivers.</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground">
+            Years of excellence and results you can count on.
+          </p>
+        </ScrollReveal>
 
-          <StaggerGroup
-            className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5"
-            staggerChildren={0.08}
-          >
-            {stats.map((s, i) => (
-              <StaggerItem key={s.label}>
-                <motion.div
-                  animate={{ y: [-6, 6] }}
-                  transition={{
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    duration: 2.5,
-                    ease: "easeInOut",
-                    delay: i * 0.2,
-                  }}
-                  whileHover={{
-                    y: 0,
-                    transition: { duration: 0.2, ease: "easeOut" },
-                  }}
-                  className="h-full rounded-2xl"
-                >
-                  <TiltCard intensity={15} className="h-full rounded-2xl">
-                    <div className="group relative h-full overflow-hidden rounded-2xl border border-white/20 bg-white/5 p-7 text-center backdrop-blur-xl transition-all hover:border-white/40 hover:bg-white/10">
-                      <span
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        style={{
-                          background:
-                            "radial-gradient(closest-side, rgba(255,255,255,0.18), transparent 70%)",
-                        }}
-                      />
-                      <p className="relative font-display text-4xl font-semibold text-white sm:text-5xl">
-                        {s.value}
-                      </p>
-                      <p className="relative mt-2 text-xs uppercase tracking-wider text-white/85">
-                        {s.label}
-                      </p>
-                    </div>
-                  </TiltCard>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </div>
+        <StaggerGroup
+          className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5"
+          staggerChildren={0.08}
+        >
+          {stats.map((s, i) => (
+            <StaggerItem key={s.label}>
+              <motion.div
+                animate={{ y: [-6, 6] }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  duration: 2.5,
+                  ease: "easeInOut",
+                  delay: i * 0.2,
+                }}
+                whileHover={{
+                  y: 0,
+                  transition: { duration: 0.2, ease: "easeOut" },
+                }}
+                className="h-full rounded-2xl"
+              >
+                <TiltCard intensity={15} className="h-full rounded-2xl">
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-primary/15 bg-card/60 p-7 text-center backdrop-blur-xl transition-all hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]">
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      style={{
+                        background:
+                          "radial-gradient(closest-side, rgba(41,179,255,0.15), transparent 70%)",
+                      }}
+                    />
+                    <p className="relative font-display text-4xl font-semibold text-foreground sm:text-5xl">
+                      <CountUp value={s.value} />
+                    </p>
+                    <p className="relative mt-2 text-xs uppercase tracking-wider text-muted-foreground">
+                      {s.label}
+                    </p>
+                  </div>
+                </TiltCard>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
       </div>
     </section>
   )
@@ -514,7 +529,7 @@ export function NewsSection() {
             <StaggerItem as="article" key={n.title}>
               <TiltCard intensity={6} className="h-full rounded-2xl">
                 <div className="conic-border group flex h-full flex-col overflow-hidden rounded-2xl border border-primary/15 bg-card/60 backdrop-blur-xl transition-colors hover:border-primary/40">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-primary/15">
+                  <div className="air-float-wrap relative aspect-16/10 w-full overflow-hidden border-b border-primary/15">
                     <Image
                       src={n.image}
                       alt={`${n.tag} cover`}

@@ -181,31 +181,6 @@
   border-color: rgba(41, 179, 255, 0.45);
 }
 
-/* Make the active card glow by default (no hover required) */
-.card-glow-active {
-  background-image:
-    radial-gradient(120% 100% at 0% 0%, rgba(41, 179, 255, 0.18), transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.005));
-  /* stronger multi-layer glow for visible, permanent effect */
-  box-shadow:
-    0 10px 60px -10px rgba(41,179,255,0.55),
-    0 6px 30px -6px rgba(41,179,255,0.45),
-    0 0 60px 12px rgba(41,179,255,0.18) !important;
-  /* ensure this appears above nearby elements */
-  position: relative;
-  z-index: 1;
-  /* additive filter glow in case box-shadow is being overridden or clipped */
-  filter: drop-shadow(0 12px 30px rgba(41,179,255,0.45)) drop-shadow(0 0 40px rgba(41,179,255,0.16));
-  border-color: rgba(41, 179, 255, 0.75) !important;
-  /* enforce a visible blue border */
-  border-style: solid !important;
-  border-width: 1.5px !important;
-  border: 1.5px solid var(--primary) !important;
-  /* a subtle outer outline to guarantee visibility */
-  outline: 2px solid rgba(41,179,255,0.12) !important;
-  outline-offset: 6px !important;
-}
-
 .card-solid {
   background-color: var(--card);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
@@ -231,6 +206,21 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+@keyframes air-float {
+  0%,
+  100% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(-10px) translateZ(0);
+  }
+}
+
+.air-float-wrap {
+  animation: air-float 8s ease-in-out infinite;
+  will-change: transform;
 }
 
 .marquee-track {

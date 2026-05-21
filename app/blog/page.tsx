@@ -72,39 +72,31 @@ export default function BlogPage() {
         <section className="pb-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((p, i) => (
+              {posts.map((p) => (
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className={`group flex flex-col overflow-hidden rounded-2xl border transition-colors ${
-                    i === 1 ? "card-glow-active border-primary/50" : "card-glow border-border hover:border-primary/40"
-                  }`}
+                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors hover:border-primary/40"
                 >
-                  <div className="relative h-48 w-full overflow-hidden border-b border-white/10">
+                  <div className="air-float-wrap relative h-48 w-full overflow-hidden border-b border-white/10">
                     <Image src={p.image} alt={p.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
                   </div>
                   <div className="p-6">
                     <span
-                      className={`inline-block self-start rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider ${
-                        i === 1 ? "bg-white/20 text-white" : "bg-primary/15 text-primary"
-                      }`}
+                      className="inline-block self-start rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary"
                     >
                       Article
                     </span>
                     <h2
-                      className={`mt-6 font-display text-lg font-semibold leading-tight ${
-                        i === 1 ? "text-white" : "text-foreground"
-                      }`}
+                      className="mt-6 font-display text-lg font-semibold leading-tight text-foreground"
                     >
                       {p.title}
                     </h2>
-                    <p className={`mt-3 text-sm leading-relaxed ${i === 1 ? "text-white/85" : "text-muted-foreground"}`}>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                       {p.excerpt}
                     </p>
                     <span
-                      className={`mt-6 inline-flex items-center gap-1 text-sm font-medium ${
-                        i === 1 ? "text-white" : "text-primary"
-                      }`}
+                      className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary"
                     >
                       Read more
                       <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />

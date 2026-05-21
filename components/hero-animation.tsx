@@ -53,9 +53,9 @@ void main(){
   vec3 col = mix(baseColor, iridescent, 0.25 + fresnel * 0.18);
 
   float rimLight = pow(fresnel, 1.0);
-  col += rimLight * vec3(0.45, 0.55, 0.9) * 0.6;
+  col += rimLight * vec3(0.18, 0.28, 0.55) * 0.35;
 
-  float alpha = mix(0.6, 0.95, fresnel);
+  float alpha = mix(0.88, 1.0, fresnel);
   gl_FragColor = vec4(col, clamp(alpha, 0.0, 1.0));
 }
 `

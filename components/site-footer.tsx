@@ -16,7 +16,7 @@ export function SiteFooter() {
             <div className="mt-6 flex gap-2">
               <Link
                 href="/contact-us"
-                className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+                className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_-6px_rgba(41,179,255,0.75)]"
               >
                 Start a Project
               </Link>

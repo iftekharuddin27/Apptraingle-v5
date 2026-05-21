@@ -59,21 +59,20 @@ export default function ContactPage() {
                   region="Bangladesh Office"
                   address="House 54, Road 8, Block D, Niketan, Gulshan-1, Dhaka-1212, Bangladesh."
                   phones={["+880 1717 888 388", "+880 1712 152 715"]}
-                  highlighted
                 />
                 <Office
                   region="Australia Office"
                   address="2-10 Mount Street, North Sydney, NSW, 2060, Australia."
                   phones={["+61 427 927 466"]}
                 />
-                <div className="card-glow rounded-2xl border border-border p-6">
+                <div className="card-glow rounded-2xl border border-border p-6 transition-colors hover:border-primary/40">
                   <div className="flex items-center gap-3">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
                       <Mail className="h-4 w-4" />
                     </span>
                     <div className="min-w-0">
                       <p className="text-xs uppercase tracking-wider text-muted-foreground">General Enquiries</p>
-                      <p className="font-display text-base font-semibold break-words">hello@apptriangle.com</p>
+                      <p className="font-display text-base font-semibold wrap-break-word">hello@apptriangle.com</p>
                     </div>
                   </div>
                 </div>
@@ -119,38 +118,24 @@ function Office({
   region,
   address,
   phones,
-  highlighted,
 }: {
   region: string
   address: string
   phones: string[]
-  highlighted?: boolean
 }) {
   return (
-    <div
-      className={`rounded-2xl border p-6 ${
-        highlighted ? "card-glow-active border-primary/50" : "card-glow border-border"
-      }`}
-    >
-      <p
-        className={`text-xs font-semibold uppercase tracking-wider ${
-          highlighted ? "text-white/85" : "text-primary"
-        }`}
-      >
+    <div className="card-glow rounded-2xl border border-border p-6 transition-colors hover:border-primary/40">
+      <p className="text-xs font-semibold uppercase tracking-wider text-primary">
         {region}
       </p>
-      <p
-        className={`mt-3 flex items-start gap-2 text-sm leading-relaxed ${
-          highlighted ? "text-white/95" : "text-foreground"
-        }`}
-      >
-        <MapPin className={`mt-0.5 h-4 w-4 shrink-0 ${highlighted ? "text-white" : "text-primary"}`} />
+      <p className="mt-3 flex items-start gap-2 text-sm leading-relaxed text-foreground">
+        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
         <span>{address}</span>
       </p>
-      <div className={`mt-4 space-y-1.5 text-sm ${highlighted ? "text-white/95" : "text-foreground"}`}>
+      <div className="mt-4 space-y-1.5 text-sm text-foreground">
         {phones.map((p) => (
           <p key={p} className="flex items-center gap-2">
-            <Phone className={`h-3.5 w-3.5 shrink-0 ${highlighted ? "text-white" : "text-primary"}`} /> {p}
+            <Phone className="h-3.5 w-3.5 shrink-0 text-primary" /> {p}
           </p>
         ))}
       </div>

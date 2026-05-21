@@ -77,12 +77,13 @@ export function FloatingImage({
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className={`relative overflow-hidden border border-primary/25 bg-card ${rounded} shadow-[0_30px_120px_-30px_rgba(41,179,255,0.6)]`}
         >
-          <div className="relative aspect-[16/10] w-full">
+          <div className="relative aspect-16/10 w-full">
             <Image
               src={src}
               alt={alt}
               fill
               priority={priority}
+              data-floating="true"
               className="object-cover"
               sizes="(max-width: 1024px) 90vw, 60vw"
             />

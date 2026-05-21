@@ -497,7 +497,7 @@ function HeroSplit({ title, highlight, description, image }: { title: string; hi
             {description}
           </p>
         </div>
-        <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+        <div className="air-float-wrap relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
           <Image src={image} alt="Service visual" width={760} height={420} className="h-full w-full object-cover" />
         </div>
       </div>
@@ -511,7 +511,7 @@ function BenefitsImageList({ title, image, items }: { title: string; image: stri
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <h2 className="text-left text-lg font-semibold text-foreground sm:text-xl">{title}</h2>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-          <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/40">
+          <div className="air-float-wrap relative overflow-hidden rounded-2xl border border-border/60 bg-card/40">
             <Image src={image} alt={title} width={760} height={500} className="h-full w-full object-cover" />
           </div>
           <div className="space-y-4">
@@ -520,7 +520,7 @@ function BenefitsImageList({ title, image, items }: { title: string; image: stri
               return (
               <div
                 key={item.title}
-                className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 px-4 py-3"
+                className="card-glow flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 px-4 py-3 transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--sky),rgba(41,179,255,0.2))] text-(--blue)">
                   <Icon size={24} />
@@ -547,7 +547,10 @@ function BenefitsCardsGrid({ title, items }: { title: string; items: StepItem[] 
           {items.map((item) => {
             const Icon = item.icon
             return (
-              <div key={item.title} className="rounded-xl border border-border/60 bg-card/40 px-4 py-5 text-center">
+              <div
+                key={item.title}
+                className="card-glow rounded-xl border border-border/60 bg-card/40 px-4 py-5 text-center transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
+              >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--sky),rgba(41,179,255,0.2))] text-(--blue)">
                   <Icon size={24} />
                 </div>
