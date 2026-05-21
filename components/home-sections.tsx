@@ -62,13 +62,11 @@ export function Hero() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="mt-0 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl xl:text-7xl"
           >
-            Architecting the{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-br from-primary via-brand-blue-soft to-primary bg-clip-text text-transparent">
-                technology
-              </span>
+            <span className="whitespace-nowrap">
+              With More Than <span className="relative inline-block">
+                  <span className="text-blue-400 font-semibold">7 Years</span>
+              </span> <br /> of Experience
             </span>
-            {" "}of tomorrow
           </motion.h1>
 
           <motion.p
@@ -77,8 +75,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            7+ years of crafting cutting-edge software, AI, and cloud solutions.
-            Our experts are on call 24/7, turning ambitious ideas into shipped products
+           Our expert team is available 24/7 to attend to your problems promptly and competently.
           </motion.p>
 
           <motion.div
