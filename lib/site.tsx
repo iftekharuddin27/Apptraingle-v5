@@ -6,23 +6,23 @@ export const services = [
     slug: "staff-augmentation",
     title: "Staff Augmentation",
     short:
-      "Extend your in-house capabilities with on-demand senior engineers and specialists who integrate seamlessly with your teams to accelerate delivery and maintain quality.",
+      "Extend your in-house capabilities with Apptriangle’s Staff Augmentation services. We provide skilled developers, engineers, and IT specialists who seamlessly integrate with your team to speed up project delivery.",
     description:
-      "We pair you with vetted developers, DevOps engineers, QA specialists, and architects to plug skill gaps, scale rapidly during peak demand, and transfer knowledge back to your internal teams. Flexible engagement models, rapid onboarding, and performance oversight ensure velocity without compromising standards.",
+      "We pair you with vetted developers, DevOps engineers, QA specialists, and architects to plug skill gaps, scale rapidly during peak demand, and transfer knowledge back to your internal teams. Flexible engagement models, rapid onboarding, and performance oversight ensure velocity without compromising standards",
   },
   {
     slug: "managed-it-services",
     title: "Managed IT Services",
     short:
-      "Reliable, proactive IT operations management that keeps systems secure, performant, and aligned with business goals.",
+      "Focus on your business while we handle your IT operations. Our Managed IT Services ensure your systems run smoothly, securely, and reliably.",
     description:
-      "From 24/7 monitoring and incident response to patching, backups, and capacity planning, our Managed IT Services deliver predictable uptime and rapid recovery. We combine automation, security best practices, and expert support to lower operational risk, reduce costs, and free your team to focus on innovation.",
+      "From 24/7 monitoring and incident response to patching, backups, and capacity planning, our Managed IT Services deliver predictable uptime and rapid recovery. We combine automation, security best practices, and expert support to lower operational risk, reduce costs, and free your team to focus on innovation",
   },
   {
     slug: "business-process-automation",
     title: "Process Automation",
     short:
-      "Automate manual workflows to boost accuracy, throughput, and employee productivity.",
+      "At Apptriangle, we help businesses eliminate repetitive tasks, reduce human error, and improve operational efficiency through advanced Business Process Automation (BPA)",
     description:
       "We design and build intelligent automation solutions—RPA, workflow orchestration, and integrations with SaaS and legacy systems—that eliminate manual handoffs, enforce business rules, and surface actionable insights. Our approach prioritizes quick wins and measurable ROI, then scales to automate end-to-end processes across the enterprise.",
   },
@@ -30,7 +30,7 @@ export const services = [
     slug: "app-development",
     title: "Web & Mobile Development",
     short:
-      "Deliver exceptional digital experiences with Web & Mobile App Development services. From responsive web apps to cross-platform mobile solutions.",
+      "Deliver exceptional digital experiences with Web & Mobile App Development services. From responsive web apps to cross-platform mobile solutions",
     description:
       "We craft responsive web applications and cross-platform mobile solutions tailored to your unique business needs. From initial prototyping to final deployment, our agile development process ensures scalable architectures, intuitive user interfaces, and robust performance that engages customers and drives measurable business growth.",
   },
@@ -38,7 +38,7 @@ export const services = [
     slug: "power-platform",
     title: "Power Platform",
     short:
-      "Leverage Microsoft Power Platform to create tailored business apps, automate processes, and gain actionable insights from your data.",
+      "Leverage Microsoft Power Platform to create tailored business apps, automate processes, and gain actionable insights from your data",
     description:
       "Accelerate digital transformation using Microsoft Power Platform to build custom applications and automated workflows without extensive coding. We help you securely connect diverse data sources, streamline complex daily operations, and deploy interactive dashboards that empower your workforce to make rapid, data-driven decisions.",
   },
@@ -46,7 +46,7 @@ export const services = [
     slug: "technology-consulting",
     title: "Technology Consulting",
     short:
-      "Align your technology initiatives with business objectives through Technology Consulting. Our experts provide insights, strategies, and roadmaps.",
+      "Align your technology initiatives with business objectives through Technology Consulting. Our experts provide insights strategies, and roadmaps",
     description:
       "Navigate complex digital landscapes with our strategic technology consulting tailored to your enterprise goals. We assess your current infrastructure, identify critical technological gaps, and provide actionable roadmaps that modernize legacy systems, optimize IT investments, and align future innovations with your core business objectives.",
   },
@@ -146,6 +146,7 @@ export const navItems: NavItem[] = [
     })),
   },
   { kind: "link", href: "/products", label: "Products" },
+  { kind: "link", href: "/career", label: "Career" },
   {
     kind: "dropdown",
     label: "Resources",

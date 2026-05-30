@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react"
 import type { ReactNode } from "react"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
+import { TiltCard } from "@/components/tilt-card"
 
 export function PageHero({
   eyebrow,
@@ -149,6 +150,7 @@ export function ServiceCta({ title, href = "/contact-us", cta = "Talk to Our Exp
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal>
+          <TiltCard intensity={4} className="rounded-3xl">
           <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/20 via-card to-card p-10 sm:p-16">
             <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
@@ -163,6 +165,7 @@ export function ServiceCta({ title, href = "/contact-us", cta = "Talk to Our Exp
               </Link>
             </div>
           </div>
+          </TiltCard>
         </ScrollReveal>
       </div>
     </section>

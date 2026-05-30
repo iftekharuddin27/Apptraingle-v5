@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowUpRight, AudioWaveform, Bot, Brain, ChartNoAxesCombined, FileText, FolderCode, Headset, Lock, Mails, Monitor, Rocket, Settings, ShieldCheck, Smartphone, Users, Zap } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
@@ -5,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { PageHero } from "@/components/page-blocks"
 import { CtaSection } from "@/components/home-sections"
 import { services } from "@/lib/site"
+import { TiltCard } from "@/components/tilt-card"
 
 const icons: Record<string, React.ComponentType<{ className?: string }>> = {
   "staff-augmentation": Users,
@@ -42,10 +45,10 @@ export default function ServicesIndex() {
               {services.map((s) => {
                 const Icon = icons[s.slug] ?? Monitor
                 return (
+                  <TiltCard key={s.slug} intensity={8} className="rounded-2xl">
                   <Link
-                    key={s.slug}
                     href={`/services/${s.slug}`}
-                    className="card-glow group relative overflow-hidden rounded-2xl border border-border p-7 transition-all duration-300 hover:border-primary/40"
+                    className="card-glow group relative flex flex-col overflow-hidden rounded-2xl border border-border p-7 h-full transition-all duration-300 hover:border-primary/40"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
@@ -56,16 +59,17 @@ export default function ServicesIndex() {
                       />
                     </div>
                     <h3
-                      className="mt-12 font-display text-lg font-semibold leading-tight text-foreground"
+                      className="mt-12 font-display text-lg font-semibold leading-tight text-primary"
                     >
                       {s.title}
                     </h3>
                     <p
-                      className="mt-2 text-sm leading-relaxed text-muted-foreground"
+                      className="mt-2 text-sm leading-relaxed text-white"
                     >
                       {s.short}
                     </p>
                   </Link>
+                  </TiltCard>
                 )
               })}
             </div>

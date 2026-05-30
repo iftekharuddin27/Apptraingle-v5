@@ -1,7 +1,10 @@
+"use client"
+
 import { Mail, MapPin, Phone } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero } from "@/components/page-blocks"
+import { TiltCard } from "@/components/tilt-card"
 
 export default function ContactPage() {
   return (
@@ -55,16 +58,21 @@ export default function ContactPage() {
 
               {/* Offices */}
               <div className="lg:col-span-5 flex flex-col gap-5">
+                <TiltCard intensity={8} className="rounded-2xl">
                 <Office
                   region="Bangladesh Office"
                   address="House 54, Road 8, Block D, Niketan, Gulshan-1, Dhaka-1212, Bangladesh."
                   phones={["+880 1717 888 388", "+880 1712 152 715"]}
                 />
+                </TiltCard>
+                <TiltCard intensity={8} className="rounded-2xl">
                 <Office
                   region="Australia Office"
                   address="2-10 Mount Street, North Sydney, NSW, 2060, Australia."
                   phones={["+61 427 927 466"]}
                 />
+                </TiltCard>
+                <TiltCard intensity={8} className="rounded-2xl">
                 <div className="card-glow rounded-2xl border border-border p-6 transition-colors hover:border-primary/40">
                   <div className="flex items-center gap-3">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -76,6 +84,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+                </TiltCard>
               </div>
             </div>
           </div>

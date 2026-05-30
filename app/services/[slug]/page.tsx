@@ -48,6 +48,7 @@ import {
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ServiceCta } from "@/components/page-blocks"
+import { TiltCard } from "@/components/tilt-card"
 import { services } from "@/lib/site"
 
 type ServiceContent = {
@@ -518,8 +519,8 @@ function BenefitsImageList({ title, image, items }: { title: string; image: stri
             {items.map((item) => {
               const Icon = item.icon
               return (
+              <TiltCard key={item.title} intensity={8} className="rounded-xl">
               <div
-                key={item.title}
                 className="card-glow flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 px-4 py-3 transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--sky),rgba(41,179,255,0.2))] text-(--blue)">
@@ -530,6 +531,7 @@ function BenefitsImageList({ title, image, items }: { title: string; image: stri
                   {item.desc && <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>}
                 </div>
               </div>
+              </TiltCard>
             )})}
           </div>
         </div>
@@ -547,9 +549,9 @@ function BenefitsCardsGrid({ title, items }: { title: string; items: StepItem[] 
           {items.map((item) => {
             const Icon = item.icon
             return (
+              <TiltCard key={item.title} intensity={10} className="rounded-xl">
               <div
-                key={item.title}
-                className="card-glow rounded-xl border border-border/60 bg-card/40 px-4 py-5 text-center transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
+                className="card-glow rounded-xl border border-border/60 bg-card/40 px-4 py-5 text-center h-full transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
               >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--sky),rgba(41,179,255,0.2))] text-(--blue)">
                   <Icon size={24} />
@@ -557,6 +559,7 @@ function BenefitsCardsGrid({ title, items }: { title: string; items: StepItem[] 
                 <p className="mt-3 text-xs font-semibold text-foreground sm:text-sm">{item.title}</p>
                 {item.desc && <p className="mt-2 text-[11px] text-muted-foreground">{item.desc}</p>}
               </div>
+              </TiltCard>
             )
           })}
         </div>

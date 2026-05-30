@@ -26,10 +26,18 @@ function parseValue(value: string | number) {
 
 export function CountUp({ value, className = "", duration = 1400 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
+  const mountedRef = useRef(false)
   const [displayValue, setDisplayValue] = useState("0")
   const [hasAnimated, setHasAnimated] = useState(false)
 
   const { target, suffix } = parseValue(value)
+
+  useEffect(() => {
+    mountedRef.current = true
+    return () => {
+      mountedRef.current = false
+    }
+  }, [])
 
   useEffect(() => {
     const element = ref.current
@@ -45,6 +53,8 @@ export function CountUp({ value, className = "", duration = 1400 }: CountUpProps
         const startValue = 0
 
         const animate = (currentTime: number) => {
+          if (!mountedRef.current) return
+
           const progress = Math.min((currentTime - startTime) / duration, 1)
           const eased = 1 - Math.pow(1 - progress, 3)
           const currentValue = startValue + (target - startValue) * eased

@@ -1,9 +1,12 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero, ServiceCta } from "@/components/page-blocks"
+import { TiltCard } from "@/components/tilt-card"
 
 import staffAugImage from "../../Images/Blog-Images/pexels-mikhail-nilov-7681302-1024x683.jpg"
 import bpaImage from "../../Images/Blog-Images/pexels-divinetechygirl-1181244-1024x684.jpg"
@@ -73,10 +76,10 @@ export default function BlogPage() {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((p) => (
+                <TiltCard key={p.slug} intensity={8} className="rounded-2xl">
                 <Link
-                  key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors hover:border-primary/40"
+                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors hover:border-primary/40 h-full"
                 >
                   <div className="air-float-wrap relative h-48 w-full overflow-hidden border-b border-white/10">
                     <Image src={p.image} alt={p.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -103,6 +106,7 @@ export default function BlogPage() {
                     </span>
                   </div>
                 </Link>
+                </TiltCard>
               ))}
             </div>
           </div>

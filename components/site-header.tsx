@@ -32,8 +32,8 @@ export function SiteHeader() {
                   aria-current={active ? "page" : undefined}
                   className={
                     active
-                      ? "rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary shadow-[0_0_0_1px_rgba(41,179,255,0.45),0_0_22px_-4px_rgba(41,179,255,0.6)]"
-                      : "rounded-full px-4 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
+                      ? "rounded-full px-4 py-1.5 text-sm font-semibold text-primary"
+                      : "rounded-full px-4 py-1.5 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-primary/15 hover:text-primary hover:shadow-[0_0_0_1px_rgba(41,179,255,0.45),0_0_22px_-4px_rgba(41,179,255,0.6)]"
                   }
                 >
                   {item.label}
@@ -87,8 +87,8 @@ export function SiteHeader() {
                     aria-current={active ? "page" : undefined}
                     className={
                       active
-                        ? "rounded-lg bg-primary/15 px-4 py-3 text-sm font-semibold text-primary"
-                        : "rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+                        ? "rounded-lg px-4 py-3 text-sm font-semibold text-primary"
+                        : "rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-primary/15 hover:text-primary hover:shadow-[0_0_0_1px_rgba(41,179,255,0.45),0_0_18px_-4px_rgba(41,179,255,0.5)]"
                     }
                   >
                     {item.label}
@@ -103,8 +103,8 @@ export function SiteHeader() {
                     onClick={() => setMobileExpanded((cur) => (cur === item.label ? null : item.label))}
                     className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-medium ${
                       sectionActive
-                        ? "bg-primary/15 text-primary"
-                        : "text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+                        ? "text-primary"
+                        : "text-muted-foreground transition-all duration-200 hover:bg-primary/15 hover:text-primary hover:shadow-[0_0_0_1px_rgba(41,179,255,0.45),0_0_18px_-4px_rgba(41,179,255,0.5)]"
                     }`}
                     aria-expanded={mobileExpanded === item.label}
                   >
@@ -172,8 +172,8 @@ function DesktopDropdown({
         type="button"
         className={
           sectionActive
-            ? "flex items-center gap-1 rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary shadow-[0_0_0_1px_rgba(41,179,255,0.45),0_0_22px_-4px_rgba(41,179,255,0.6)]"
-            : "flex items-center gap-1 rounded-full px-4 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
+            ? "flex items-center gap-1 rounded-full px-4 py-1.5 text-sm font-semibold text-primary"
+            : "flex items-center gap-1 rounded-full px-4 py-1.5 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-primary/15 hover:text-primary hover:shadow-[0_0_0_1px_rgba(41,179,255,0.45),0_0_22px_-4px_rgba(41,179,255,0.6)]"
         }
         aria-expanded={hover}
       >

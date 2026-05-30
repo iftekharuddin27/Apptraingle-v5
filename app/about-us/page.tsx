@@ -1,9 +1,12 @@
+"use client"
+
 import Image from "next/image"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero, ServiceCta } from "@/components/page-blocks"
 import { Check } from "lucide-react"
 import { CountUp } from "@/components/count-up"
+import { TiltCard } from "@/components/tilt-card"
 
 const team = [
   {
@@ -27,9 +30,9 @@ const team = [
 ]
 
 const stats = [
-  { value: "50+", label: "Certified Resources" },
   { value: "50+", label: "Professionals" },
-  { value: "6+", label: "Countries Covered" },
+  { value: "40+", label: "Certified Resources" },
+  { value: "20+", label: "Countries Covered" },
 ]
 
 export default function AboutPage() {
@@ -39,30 +42,20 @@ export default function AboutPage() {
       <main>
         <PageHero
           eyebrow="About Apptriangle"
-          title="Empowering businesses through people, apps,"
-          highlight="and innovation."
-          description="A global leading technology service provider dedicated to empowering businesses and organizations with cutting-edge solutions. With a dynamic team of industry experts and a passion for innovation, we deliver top-notch services that propel our clients towards success."
+          title="About"
+          highlight="Apptriangle"
+          description="We are a global leading technology service provider dedicated to empowering businesses and organizations with cutting-edge solutions. With a dynamic team of industry experts and a passion for innovation, we strive to deliver top-notch services that propel our clients towards success."
         />
 
         {/* Our Story */}
-        <section className="py-20">
+        <section className="py-10">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid items-stretch gap-10 lg:grid-cols-[1.2fr_1.05fr]">
-              <div className="flex h-full flex-col rounded-2xl border border-border bg-card/60 p-8 backdrop-blur">
+              <div className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-8 backdrop-blur transition-all duration-500 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.4)]">
                 <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Our Story</h2>
                 <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
                   <p>
-                    Every great idea begins with a spark — and for Apptriangle Limited, that spark ignited in 2018, when
-                    three passionate engineers — Ali Mortuza Bilash, Moshiur Rahman Oly, and another like-minded colleague
-                    — shared a common dream: to deliver world-class apps and technology services that transform how
-                    businesses work.
-                  </p>
-                  <p>
-                    All three came from strong engineering backgrounds, with years of experience working with multinational
-                    tech companies serving enterprise clients. Bilash and Oly took the bold step of leaving their secure
-                    jobs to bring the Apptriangle vision to life. The third co-founder chose to continue his professional
-                    journey elsewhere, but his place in the original idea remained — symbolized in the name itself,
-                    Apptriangle — representing the three points of innovation that sparked the journey.
+                    Every great idea begins with a spark — and for Apptriangle Limited, that spark ignited in 2018, when three passionate engineers — Ali Mortuza Bilash, Moshiur Rahman Oly, and another like-minded colleague — shared a common dream: To deliver world-class apps and technology services that transform how businesses work. All three came from strong engineering backgrounds, with years of experience working with multinational tech companies serving enterprise clients. But soon, Bilash &amp; Moshiur took the bold step of leaving their secure jobs, stepping out of their comfort zones to bring the Apptriangle vision to life. The third co-founder chose to continue his professional journey elsewhere, but his place in the original idea remained — symbolized in the name itself, Apptriangle — representing the three points of innovation that sparked the journey.
                   </p>
                 </div>
               </div>
@@ -83,24 +76,25 @@ export default function AboutPage() {
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-10 lg:grid-cols-[1.05fr_1.2fr] lg:items-start">
-              <div className="air-float-wrap relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
+              <div className="air-float-wrap relative aspect-4/3 overflow-hidden rounded-2xl border border-border md:aspect-[16/10]">
                 <Image
-                  src="/images/about-us/Gray-Minimalist-Line-Simple-A4-Stationery-Paper-Document-3-1024x910.webp.bv.webp"
+                  src="/images/about-us/about-us-3.jpg"
                   alt="The Beginning"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
-              <div className="rounded-2xl border border-border bg-card/60 p-8 backdrop-blur">
-                <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">The Beginning</h2>
-                <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                  Apptriangle's first product, ShopManager, empowered small retailers with tools for managing inventory,
-                  tracking sales, and generating automated SMS invoices. The founders personally visited local markets,
-                  listened to shop owners, and refined the product through real-world feedback. Over time, Apptriangle
-                  expanded with TREAL, OMS, GuestPro, and GlamPro — solving real business challenges and improving
-                  operational efficiency.
-                </p>
+              <div className="group rounded-2xl border border-border bg-card/60 p-8 backdrop-blur transition-all duration-500 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.4)]">
+                <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">The <span className="text-primary">Beginning</span></h2>
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
+                  <p>
+                    Apptriangle&apos;s first product, ShopManager, was built to empower small retailers with tools for managing inventory, tracking sales, and generating automated SMS invoices. They personally visited local markets, listened to shop owners, and refined the product through real-world feedback — proving that genuine innovation starts with understanding real customer needs.
+                  </p>
+                  <p>
+                    Over time, Apptriangle expanded its product portfolio, developing several innovative solutions such as TREAL, OMS, GuestPro, and GlamPro — each designed to solve real business challenges and enhance operational efficiency. And this journey of innovation continues.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -110,14 +104,19 @@ export default function AboutPage() {
         <section className="py-20">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-10 lg:grid-cols-[1.2fr_1.05fr] lg:items-start">
-              <div className="rounded-2xl border border-border bg-card/60 p-8 backdrop-blur">
-                <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Global Breakthrough</h2>
-                <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                  In 2020, amid the pandemic, Microsoft's global support team reached out to Bilash to provide remote
-                  assistance for Microsoft 365 customers. Apptriangle secured its first international contract — one that
-                  continues to this day. In 2021, the company opened a second office in Australia, strengthening its
-                  ability to serve customers worldwide.
-                </p>
+              <div className="group rounded-2xl border border-border bg-card/60 p-8 backdrop-blur transition-all duration-500 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.4)]">
+                <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Global <span className="text-primary">Breakthrough</span></h2>
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
+                  <p>
+                    In 2020, amid the global pandemic, an opportunity arrived that changed everything. Microsoft&apos;s global support team reached out to Bilash with an offer to provide remote assistance for Microsoft 365 customers. With Oly joining in, Apptriangle secured its first international contract — one that continues to this day.
+                  </p>
+                  <p>
+                    That moment marked the beginning of Apptriangle&apos;s global journey. In 2021, the company expanded internationally by opening a second office in Australia, strengthening its ability to serve customers worldwide.
+                  </p>
+                  <p>
+                    Moshiur began working in the global market in 2022, securing its first contract from the USA. Since then, they have built a strong international team and successfully partnered with clients from Canada, Australia, Dubai, Latvia, Brunei, and other regions. Currently, they are successfully providing ongoing support to all these global clients while maintaining high-quality service and effectively managing the entire support system.
+                  </p>
+                </div>
               </div>
               <div className="air-float-wrap relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
                 <Image
@@ -145,20 +144,32 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
-              <div className="rounded-2xl border border-border bg-card/60 p-8 backdrop-blur">
-                <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Expanding Horizons</h2>
-                <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                  Today, Apptriangle Limited proudly serves 200+ unique customers across Bangladesh, USA, Australia,
-                  Canada, UAE, and Brunei. We've built strong partnerships with Microsoft, DigiCert, IceWarp, Zoho and
-                  more. Very soon, Apptriangle will open its third office in Canada and fourth in Japan.
-                </p>
+              <div className="group rounded-2xl border border-border bg-card/60 p-8 backdrop-blur transition-all duration-500 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.4)]">
+                <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Expanding <span className="text-primary">Horizons</span></h2>
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
+                  <p>
+                    Today, Apptriangle Limited proudly serves 200+ unique customers across Bangladesh, USA, Australia, Canada, UAE, and Brunei — providing top-tier AI, BI, Automation, Staff Augmentation, Consulting, and Managed IT Services.
+                  </p>
+                  <p>
+                    Apptriangle has also built strong partnerships with industry leaders such as Microsoft, DigiCert, IceWarp, Zoho, and many more — offering comprehensive implementation, software licensing, and subscription services that help businesses grow and stay secure.
+                  </p>
+                  <p>
+                    Very soon, Apptriangle will open its third office in Canada and fourth in Japan — continuing its mission of global expansion.
+                  </p>
+                  <p>
+                    From a small team with a big dream to a globally recognized technology partner, Apptriangle continues its mission:
+                  </p>
+                  <p className="italic">
+                    &quot;Empowering businesses through people, apps, and innovation.&quot;
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Team */}
-        <section className="py-24">
+        <section className="py-12">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="text-center">
               <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Leadership Team</h2>
@@ -166,11 +177,11 @@ export default function AboutPage() {
                 Meet the people driving our vision forward.
               </p>
             </div>
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-14 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {team.map((m) => (
+                <TiltCard key={m.name} intensity={8} className="h-full rounded-2xl">
                 <article
-                  key={m.name}
-                  className="card-glow rounded-2xl border border-border p-7 transition-colors hover:border-primary/40"
+                  className="card-glow flex h-full flex-col rounded-2xl border border-border p-7 transition-colors hover:border-primary/40"
                 >
                   <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border border-border">
                     <Image
@@ -183,22 +194,23 @@ export default function AboutPage() {
                     />
                   </div>
                   <h3
-                    className="mt-6 text-center font-display text-lg font-semibold leading-tight text-foreground"
+                    className="mt-6 text-center font-display text-lg font-semibold leading-tight text-primary"
                   >
                     {m.name}
                   </h3>
                   <p className="text-center text-sm font-medium text-primary">{m.role}</p>
-                  <p className="mt-3 text-center text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-center text-sm leading-relaxed text-white">
                     {m.bio}
                   </p>
                 </article>
+                </TiltCard>
               ))}
             </div>
           </div>
         </section>
 
         {/* Our Team */}
-        <section className="border-y border-border/40 py-24">
+        <section className="border-y border-border/40 py-10">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
               <div>
@@ -223,12 +235,14 @@ export default function AboutPage() {
               </div>
               <div className="grid grid-cols-3 gap-4">
                 {stats.map((s) => (
-                  <div key={s.label} className="card-glow rounded-2xl border border-border p-6 text-center">
+                  <TiltCard key={s.label} intensity={10} className="rounded-2xl">
+                  <div className="card-glow rounded-2xl border border-border p-6 text-center">
                     <p className="font-display text-3xl font-semibold sm:text-4xl">
                       <CountUp value={s.value} />
                     </p>
-                    <p className="mt-1 text-xs text-muted-foreground">{s.label}</p>
+                    <p className="mt-1 text-xs text-white">{s.label}</p>
                   </div>
+                  </TiltCard>
                 ))}
               </div>
             </div>

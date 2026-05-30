@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
@@ -5,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero } from "@/components/page-blocks"
 import { CtaSection } from "@/components/home-sections"
+import { TiltCard } from "@/components/tilt-card"
 
 import newsThree from "../../Images/News & Articles/three.png"
 import newsImageOne from "../../Images/News and Events Images/285a31ee0fbd58dcc2e7b7ad99c0fdf7.jpg"
@@ -74,9 +77,9 @@ export default function NewsPage() {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {news.map((n) => (
+                <TiltCard key={n.title} intensity={8} className="rounded-2xl">
                 <article
-                  key={n.title}
-                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors hover:border-primary/40"
+                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors hover:border-primary/40 h-full"
                 >
                   <div className="air-float-wrap relative h-48 w-full overflow-hidden border-b border-white/10">
                     <Image src={n.image} alt={n.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -103,6 +106,7 @@ export default function NewsPage() {
                     </Link>
                   </div>
                 </article>
+                </TiltCard>
               ))}
             </div>
           </div>

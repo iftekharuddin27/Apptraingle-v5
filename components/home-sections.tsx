@@ -21,13 +21,12 @@ import {
   Settings,
   ShieldCheck,
   Smartphone,
-  Star,
   Users,
   Zap,
 } from "lucide-react"
 import { services } from "@/lib/site"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
-import { Apptriangle3DLogo } from "@/components/apptriangle-3d-logo"
+import { ProgrammerIllustration } from "@/components/programmer-illustration"
 import { TiltCard } from "@/components/tilt-card"
 import { FloatingImage } from "@/components/floating-image"
 import { CountUp } from "@/components/count-up"
@@ -53,7 +52,7 @@ export const serviceIcons: Record<string, React.ComponentType<{ className?: stri
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-32 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-40">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-12 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-16">
         {/* LEFT - copy */}
         <div className="lg:col-span-6">
           <motion.h1
@@ -86,7 +85,7 @@ export function Hero() {
           >
             <Link
               href="/contact-us"
-              className="shine-sweep group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_rgba(41,179,255,0.8)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_10px_50px_-5px_rgba(41,179,255,1)]"
+              className=" group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground  transition-all duration-300 hover:scale-[1.03] hover:shadow-[10_10px_10px_-5px_rgba(41,179,255,1)]"
             >
               <span className="relative z-10">Get a Consultation</span>
               <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45" />
@@ -126,56 +125,9 @@ export function Hero() {
 
         {/* RIGHT - hero animation */}
         <div className="lg:col-span-6">
-          <Apptriangle3DLogo className="mx-auto h-[320px] w-full max-w-[480px] md:h-[480px]" />
+          <ProgrammerIllustration className="mx-auto w-full max-w-[520px]" />
         </div>
       </div>
-
-            <span className="ml-42 mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
-              <span className="h-1 w-1 rounded-full bg-primary" />
-              Core products
-            </span>
-
-      <TiltCard intensity={12} className="z-10 w-full max-w-5xl mx-auto">
-        <div className="group flex w-full items-center justify-between rounded-3xl border border-white/10 bg-white/5 px-8 py-6 backdrop-blur-xl transition-all duration-500 hover:border-primary/50 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(41,179,255,0.25)]">
-
-          <div className="flex flex-col items-start">
-            <div className="flex items-baseline gap-2">
-              <CountUp value="200+" className="text-3xl font-display font-bold text-white" />
-              <span className="text-xs font-semibold tracking-wider text-white/60 uppercase">Customers</span>
-            </div>
-            <div className="mt-1 flex items-center gap-2">
-              <div className="flex items-center gap-0.5 text-primary">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" fill="currentColor" className="h-4 w-4">
-                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                  </svg>
-                ))}
-              </div>
-             
-            </div>
-          </div>
-
-          <div className="mx-8 hidden h-12 w-px bg-white/10 md:block"></div>
-
-          <div className="hidden flex-1 items-center justify-between md:flex">
-            {[
-              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/Microsoft-Logo.wine_-300x75.webp.bv.webp?bv_host=apptriangle.com" },
-              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/DigiCert_logo.svg-300x68.webp.bv.webp?bv_host=apptriangle.com" },
-              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/1_Trend-Micro-Logo-white-1024x351-1-300x103.webp.bv.webp?bv_host=apptriangle.com" },
-              { logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ZOHO.svg-300x103.png.bv.webp?bv_host=apptriangle.com" },
-            ].map((brand, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <img
-                  src={brand.logo}
-                  alt="Partner logo"
-                  className="h-4 w-auto object-contain opacity-80 transition-opacity group-hover:opacity-100 sm:h-5"
-                />
-              </div>
-            ))}
-          </div>
-          
-        </div>
-      </TiltCard>
     </section>
   )
 }
@@ -202,38 +154,21 @@ function ServiceCard({ s }: { s: (typeof services)[number] & { description?: str
       }}
       className="h-full rounded-2xl"
     >
+      <TiltCard intensity={10} className="h-full rounded-2xl">
       <Link
         href={`/services/${s.slug}`}
         className="conic-border group relative block h-full min-h-[300px] overflow-hidden rounded-2xl border border-primary/15 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]"
       >
         <div className="relative inline-flex">
-          <span className="relative grid h-14 w-14 place-items-center rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/25 to-primary/5 text-primary shadow-[0_0_30px_-10px_rgba(41,179,255,0.7)]">
+          <span className="grid h-14 w-14 place-items-center rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/25 to-primary/5 text-primary group-hover:shadow-[0_0_14px_-4px_rgba(41,179,255,0.35)] transition-shadow duration-300">
             <Icon className="h-6 w-6" />
-            <motion.span
-              aria-hidden="true"
-              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
-              style={{
-                background:
-                  "conic-gradient(from 0deg, rgba(41,179,255,0.6), transparent 50%, rgba(41,179,255,0.6))",
-                filter: "blur(8px)",
-              }}
-            />
           </span>
         </div>
 
-        <h3 className="relative mt-8 font-display text-lg font-semibold leading-tight text-foreground">
+        <h3 className="relative mt-8 font-display text-lg font-semibold leading-tight text-primary">
           {s.title}
         </h3>
-        <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2 group-hover:line-clamp-none transition-all duration-500">{s.short}</p>
-
-        {/* Expanded description on hover */}
-        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100">
-          <div className="overflow-hidden">
-            <p className="mt-3 border-t border-primary/10 pt-2 text-xs leading-relaxed text-muted-foreground/80">
-              {s.description || "Comprehensive solutions tailored to your business needs with cutting-edge technology and expert guidance."}
-            </p>
-          </div>
-        </div>
+        <p className="relative mt-2 text-sm leading-relaxed text-white line-clamp-2 transition-all duration-300 group-hover:line-clamp-none">{s.short}</p>
 
         <div className="relative mt-6 flex items-center justify-between">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary">
@@ -243,6 +178,7 @@ function ServiceCard({ s }: { s: (typeof services)[number] & { description?: str
           <span className="h-px flex-1 ml-4 bg-gradient-to-r from-transparent via-primary/30 to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </div>
       </Link>
+      </TiltCard>
     </motion.div>
   )
 }
@@ -250,12 +186,12 @@ function ServiceCard({ s }: { s: (typeof services)[number] & { description?: str
 export function ServicesGrid() {
   const featured = services.slice(0, 6)
   return (
-    <section className="relative overflow-hidden py-28">
+    <section className="relative overflow-hidden py-16">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <ScrollReveal className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
-              <span className="h-1 w-1 rounded-full bg-primary" />
+            <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
+              <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
               What we do
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
@@ -304,12 +240,13 @@ export function ExperienceSection() {
     { value: "7+", label: "Years Experience" },
   ]
   return (
-    <section className="relative overflow-hidden py-28">
+    <section className="relative overflow-hidden py-16">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
-            <span className="h-1 w-1 rounded-full bg-primary" />
+          <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
+            <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
             By the numbers
+            <span className="block h-px w-6 bg-gradient-to-l from-transparent to-primary" aria-hidden="true" />
           </span>
           <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-foreground text-balance sm:text-5xl">
             Experience that{" "}
@@ -351,10 +288,10 @@ export function ExperienceSection() {
                           "radial-gradient(closest-side, rgba(41,179,255,0.15), transparent 70%)",
                       }}
                     />
-                    <p className="relative font-display text-4xl font-semibold text-foreground sm:text-5xl">
+                    <p className="relative font-display text-2xl font-semibold text-foreground sm:text-3xl">
                       <CountUp value={s.value} />
                     </p>
-                    <p className="relative mt-2 text-xs uppercase tracking-wider text-muted-foreground">
+                    <p className="relative mt-2 text-xs uppercase tracking-wider text-white">
                       {s.label}
                     </p>
                   </div>
@@ -369,13 +306,14 @@ export function ExperienceSection() {
 }
 
 export function AboutSection() {
-  const points = ["24/7 Expert Support", "Senior-only Engineers", "Transparent Pricing", "Future-proof Solutions"]
+  const points = ["24/7 Expert Support", "Top-Tier Engineering Experts", "Transparent Pricing", "Future-proof Solutions"]
   return (
-    <section className="relative overflow-hidden py-28">
+    <section className="relative overflow-hidden py-16">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+            <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
+              <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
               Who we are
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
@@ -395,7 +333,7 @@ export function AboutSection() {
                   <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/15 text-primary transition-transform group-hover:scale-110">
                     <Check className="h-3 w-3" />
                   </span>
-                  <span className="font-medium">{p}</span>
+                  <span className="font-medium text-primary">{p}</span>
                 </StaggerItem>
               ))}
             </StaggerGroup>
@@ -438,10 +376,14 @@ export function PartnersSection() {
     { name: "IFS", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ifs_logo_40-1-300x118.png.bv.webp?bv_host=apptriangle.com" },
   ]
   return (
-    <section className="border-y border-primary/15 bg-card/20 py-20">
+    <section className="border-y border-primary/15 bg-card/20 py-12">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-primary">Our Partners</span>
+          <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
+            <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
+            Our Partners
+            <span className="block h-px w-6 bg-gradient-to-l from-transparent to-primary" aria-hidden="true" />
+          </span>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Trusted technology partners
           </h2>
@@ -496,11 +438,12 @@ export function NewsSection() {
     },
   ]
   return (
-    <section className="relative overflow-hidden py-28">
+    <section className="relative overflow-hidden py-16">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+            <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
+              <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
               Latest
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -571,14 +514,15 @@ export function ImagePlaceholder({ label, compact }: { label: string; compact?: 
 
 export function CtaSection() {
   return (
-    <section className="py-28">
+    <section className="py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal>
           <TiltCard intensity={4} className="rounded-3xl">
             <div className="conic-border group relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-card to-card p-10 sm:p-16">
               <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
                 <div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary backdrop-blur">
+                  <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
+                    <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
                     Let&apos;s build
                   </span>
                   <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
