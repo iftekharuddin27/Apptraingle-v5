@@ -1,13 +1,38 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowUpRight, BookOpen, Sparkles, TrendingUp, Users } from "lucide-react"
+import {
+  ArrowUpRight,
+  Atom,
+  BookOpen,
+  ClipboardCheck,
+  Code2,
+  Cpu,
+  GitBranch,
+  Globe,
+  Palette,
+  Sparkles,
+  Terminal,
+  TrendingUp,
+  Users,
+} from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero, ServiceCta } from "@/components/page-blocks"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
 import { TiltCard } from "@/components/tilt-card"
 import { jobs } from "@/lib/jobs"
+
+const jobIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  "jr-frontend-developer-2": Code2,
+  "react-developer": Atom,
+  "it-specialist": Cpu,
+  "sqa-developer": ClipboardCheck,
+  "ui-ux-developer": Palette,
+  "next-js-developer": Globe,
+  "devops-developer": GitBranch,
+  "sr-python-developer": Terminal,
+}
 
 const lifePerks = [
   { icon: TrendingUp, title: "Growth", desc: "Continuous learning and career advancement opportunities" },
@@ -30,7 +55,7 @@ export default function CareerPage() {
         {/* Job Openings */}
         <section className="pt-4 pb-10">
           <div className="mx-auto max-w-3xl px-5 sm:px-8">
-            <StaggerGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerChildren={0.07}>
+            <StaggerGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerChildren={0.07}>
               {jobs.map((job, i) => (
                 <StaggerItem key={`${job.slug}-${i}`}>
                   <TiltCard intensity={10} className="rounded-2xl">
@@ -41,6 +66,16 @@ export default function CareerPage() {
                       <h3 className="font-display text-base font-semibold text-primary">
                         {job.title}
                       </h3>
+                      <div className="flex flex-1 items-center justify-center">
+                        {(() => {
+                          const Icon = jobIcons[job.slug]
+                          return Icon ? (
+                            <span className="grid h-14 w-14 place-items-center rounded-2xl border border-primary/40 bg-linear-to-br from-primary/25 to-primary/5 text-primary transition-shadow duration-300 group-hover:shadow-[0_0_18px_-4px_rgba(41,179,255,0.5)]">
+                              <Icon className="h-6 w-6" />
+                            </span>
+                          ) : null
+                        })()}
+                      </div>
                       <span className="inline-flex items-center gap-1 text-sm text-white">
                         More Details
                         <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5" />

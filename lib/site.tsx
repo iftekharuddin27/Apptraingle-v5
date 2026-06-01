@@ -125,9 +125,10 @@ export const services = [
 ] as const
 
 export const resources = [
-  { href: "/blog", label: "Blog" },
   { href: "/case-studies", label: "Case Studies" },
+  { href: "/partners", label: "Partners" },
   { href: "/news", label: "News & Events" },
+  { href: "/blog", label: "Blogs" },
 ] as const
 
 export type NavItem =
@@ -135,8 +136,6 @@ export type NavItem =
   | { kind: "dropdown"; label: string; items: { href: string; label: string }[] }
 
 export const navItems: NavItem[] = [
-  { kind: "link", href: "/", label: "Home" },
-  { kind: "link", href: "/about-us", label: "About Us" },
   {
     kind: "dropdown",
     label: "Services",
@@ -146,12 +145,13 @@ export const navItems: NavItem[] = [
     })),
   },
   { kind: "link", href: "/products", label: "Products" },
-  { kind: "link", href: "/career", label: "Career" },
   {
     kind: "dropdown",
     label: "Resources",
     items: resources.map((r) => ({ href: r.href, label: r.label })),
   },
+  { kind: "link", href: "/career", label: "Career" },
+  { kind: "link", href: "/about-us", label: "About Us" },
   { kind: "link", href: "/contact-us", label: "Contact Us" },
 ]
 

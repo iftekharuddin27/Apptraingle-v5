@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -28,7 +29,6 @@ import { services } from "@/lib/site"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
 import { ProgrammerIllustration } from "@/components/programmer-illustration"
 import { TiltCard } from "@/components/tilt-card"
-import { FloatingImage } from "@/components/floating-image"
 import { CountUp } from "@/components/count-up"
 
 export const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -55,16 +55,27 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-12 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-16">
         {/* LEFT - copy */}
         <div className="lg:col-span-6">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
+            className="inline-flex items-center gap-3 text-sm font-boldtracking-[0.2em] text-primary sm:text-base [text-shadow:0_0_18px_rgba(41,179,255,0.6)]"
+          >
+           
+            We are professionals
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="mt-0 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl xl:text-7xl"
           >
-            <span className="whitespace-nowrap">
-              With More Than <span className="relative inline-block">
-                  <span className="text-blue-400 font-semibold">7 Years</span>
-              </span> <br /> of Experience
+            <span>
+              With More Than <br />
+              <span className="relative inline-block">
+                <span className="text-blue-400 font-semibold">7 Years</span>
+              </span>
+              <br /> of Experience
             </span>
           </motion.h1>
 
@@ -101,31 +112,11 @@ export function Hero() {
             </Link>
           </motion.div>
 
-          {/* Stat strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
-            className="mt-12 grid max-w-lg grid-cols-3 gap-6"
-          >
-            {[
-              { v: "500+", l: "Projects" },
-              { v: "98%", l: "Retention" },
-              { v: "24/7", l: "Support" },
-            ].map((s) => (
-              <div key={s.l} className="border-l border-primary/30 pl-4">
-                <p className="font-display text-3xl font-semibold text-foreground">
-                  <CountUp value={s.v} />
-                </p>
-                <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.l}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         {/* RIGHT - hero animation */}
         <div className="lg:col-span-6">
-          <ProgrammerIllustration className="mx-auto w-full max-w-[520px]" />
+          <ProgrammerIllustration className="mx-auto w-full max-w-[480px] translate-x-6 sm:translate-x-5 lg:translate-x-15" />
         </div>
       </div>
     </section>
@@ -190,18 +181,14 @@ export function ServicesGrid() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <ScrollReveal className="max-w-2xl">
-            <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
-              <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
-              What we do
-            </span>
             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-              Services that{" "}
+              Our{" "}
               <span className="bg-gradient-to-br from-primary to-brand-blue-soft bg-clip-text text-transparent">
-                move you forward
+                Services
               </span>
             </h2>
             <p className="mt-4 text-pretty text-muted-foreground">
-              Reliable and innovative solutions designed for measurable business outcomes.
+              Reliable and Innovative Services Designed for Your Business Success.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
@@ -233,27 +220,22 @@ export function ServicesGrid() {
 
 export function ExperienceSection() {
   const stats = [
-    { value: "500+", label: "Projects Completed" },
+    { value: "150+", label: "Projects Completed" },
     { value: "200+", label: "Happy Customers" },
     { value: "50+", label: "Professionals" },
-    { value: "98%", label: "Client Retention" },
+    { value: "99%", label: "Client Retention" },
     { value: "7+", label: "Years Experience" },
   ]
   return (
     <section className="relative overflow-hidden py-16">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
-            <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
-            By the numbers
-            <span className="block h-px w-6 bg-gradient-to-l from-transparent to-primary" aria-hidden="true" />
-          </span>
           <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-foreground text-balance sm:text-5xl">
-            Experience that{" "}
-            <span className="italic text-primary">delivers.</span>
+            Our{" "}
+            <span className=" text-primary">Experience!</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground">
-            Years of excellence and results you can count on.
+            Experience That Matters, Years of Excellent Results You Can Count On.
           </p>
         </ScrollReveal>
 
@@ -305,6 +287,27 @@ export function ExperienceSection() {
   )
 }
 
+function AboutIllustration() {
+  const [svg, setSvg] = useState("")
+  useEffect(() => {
+    fetch("/images/about-work.svg")
+      .then((r) => r.text())
+      .then(setSvg)
+  }, [])
+  return (
+    <div className="about-illustration w-full max-w-md scale-[1.1] select-none">
+      <style>{`
+        .about-illustration svg {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      `}</style>
+      <div dangerouslySetInnerHTML={{ __html: svg }} />
+    </div>
+  )
+}
+
 export function AboutSection() {
   const points = ["24/7 Expert Support", "Top-Tier Engineering Experts", "Transparent Pricing", "Future-proof Solutions"]
   return (
@@ -314,18 +317,16 @@ export function AboutSection() {
           <ScrollReveal>
             <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
               <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
-              Who we are
+              Who we are?
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-              A team that ships,{" "}
+              About {" "}
               <span className="bg-gradient-to-br from-primary to-brand-blue-soft bg-clip-text text-transparent">
-                obsessively.
+                 Us
               </span>
             </h2>
             <p className="mt-5 text-muted-foreground">
-              We&apos;re a global technology service provider dedicated to empowering businesses with
-              cutting-edge solutions. A dynamic team of industry experts and a passion for innovation —
-              that&apos;s how we propel our clients to success.
+              We&apos;re a global leading technology service provider dedicated to empowering businesses and organizations with cutting-edge solutions. With a dynamic team of industry experts and a passion for innovation, we strive to deliver top-notch services that propel our clients towards success.
             </p>
             <StaggerGroup as="ul" className="mt-7 grid grid-cols-2 gap-3 text-sm" staggerChildren={0.06}>
               {points.map((p) => (
@@ -348,12 +349,8 @@ export function AboutSection() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.15}>
-            <FloatingImage
-              src="/images/about-us/Team.jpeg"
-              alt="Apptriangle team"
-              rounded="rounded-3xl"
-            />
+          <ScrollReveal delay={0.15} className="flex justify-end">
+            <AboutIllustration />
           </ScrollReveal>
         </div>
       </div>
@@ -363,30 +360,32 @@ export function AboutSection() {
 
 export function PartnersSection() {
   const partners = [
-    { name: "Microsoft", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/Microsoft-Logo.wine_-300x75.webp.bv.webp?bv_host=apptriangle.com" },
-    { name: "DigiCert", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/DigiCert_logo.svg-300x68.webp.bv.webp?bv_host=apptriangle.com" },
-    { name: "Sectigo", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/GI-Sectigo-REG-300x198.png.bv.webp?bv_host=apptriangle.com" },
-    { name: "Trend Micro", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/1_Trend-Micro-Logo-white-1024x351-1-300x103.webp.bv.webp?bv_host=apptriangle.com" },
-    { name: "ZOHO", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ZOHO.svg-300x103.png.bv.webp?bv_host=apptriangle.com" },
-    { name: "Adobe", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Adobe_Corporate_logo.svg-300x79.png.bv.webp?bv_host=apptriangle.com" },
-    { name: "UiPath", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/UiPath_2019_Corporate_Logo-300x106.webp.bv.webp?bv_host=apptriangle.com" },
-    { name: "Fortinet", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/fortinet-logo-white-300x34.png.bv.webp?bv_host=apptriangle.com" },
+    { name: "Microsoft",    logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/Microsoft-Logo.wine_-300x75.webp.bv.webp?bv_host=apptriangle.com" },
+    { name: "IceWarp",      logo: "https://apptriangle.com/wp-content/uploads/2025/11/IW-Logo-Wide-4x.png" },
+    { name: "enadoc",       logo: "https://apptriangle.com/wp-content/uploads/2025/11/blob-1.png" },
+    { name: "Tableau",      logo: "https://apptriangle.com/wp-content/uploads/2025/11/681be50939b06141d83beb76_XktGtPIPc4ZCre0KZ6xJtjvIcCQtJAcHNkVZU1X2nE0-1.png" },
+    { name: "DigiCert",     logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/DigiCert_logo.svg-300x68.webp.bv.webp?bv_host=apptriangle.com" },
+    { name: "Sectigo",      logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/GI-Sectigo-REG-300x198.png.bv.webp?bv_host=apptriangle.com" },
+    { name: "Trend Micro",  logo: "https://apptriangle.com/wp-content/uploads/2025/11/1_Trend-Micro-Logo-white-1024x351-1.webp" },
+    { name: "ZOHO",         logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ZOHO.svg-300x103.png.bv.webp?bv_host=apptriangle.com" },
+    { name: "Adobe",        logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Adobe_Corporate_logo.svg-300x79.png.bv.webp?bv_host=apptriangle.com" },
+    { name: "UiPath",       logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/UiPath_2019_Corporate_Logo-300x106.webp.bv.webp?bv_host=apptriangle.com" },
+    { name: "Autodesk",     logo: "https://apptriangle.com/wp-content/uploads/2025/11/Bottom-Side-Cart-1024x576.png" },
+    { name: "Fortinet",     logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/fortinet-logo-white-300x34.png.bv.webp?bv_host=apptriangle.com" },
     { name: "ManageEngine", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/manageengine-logo-white-768x135-1-300x53.png.bv.webp?bv_host=apptriangle.com" },
-    { name: "AnyDesk", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Logo_white_AnyDesk-02-2-300x94.webp.bv.webp?bv_host=apptriangle.com" },
-    { name: "IFS", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ifs_logo_40-1-300x118.png.bv.webp?bv_host=apptriangle.com" },
+    { name: "AnyDesk",      logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Logo_white_AnyDesk-02-2-300x94.webp.bv.webp?bv_host=apptriangle.com" },
+    { name: "IFS",          logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ifs_logo_40-1-300x118.png.bv.webp?bv_host=apptriangle.com" },
   ]
   return (
     <section className="border-y border-primary/15 bg-card/20 py-12">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
-            <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
-            Our Partners
-            <span className="block h-px w-6 bg-gradient-to-l from-transparent to-primary" aria-hidden="true" />
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Trusted technology partners
-          </h2>
+             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+              Our {" "}
+              <span className="bg-gradient-to-br from-primary to-brand-blue-soft bg-clip-text text-transparent">
+                 Partners
+              </span>
+            </h2>
         </ScrollReveal>
       </div>
       <div
@@ -442,12 +441,11 @@ export function NewsSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-primary [text-shadow:0_0_18px_rgba(41,179,255,0.6)]">
-              <span className="block h-px w-6 bg-gradient-to-r from-transparent to-primary" aria-hidden="true" />
-              Latest
-            </span>
-            <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-              News &amp; Articles
+            <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+              News & {" "}
+              <span className="bg-gradient-to-br from-primary to-brand-blue-soft bg-clip-text text-transparent">
+                 Events
+              </span>
             </h2>
             <p className="mt-3 max-w-xl text-muted-foreground">
               Stay updated with our announcements, launches, and insights.

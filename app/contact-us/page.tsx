@@ -43,7 +43,7 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       rows={6}
-                      className="block w-full resize-y rounded-xl border border-border bg-input/40 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
+                      className="block w-full resize-y rounded-xl border border-border bg-input/40 px-4 py-3 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground hover:border-primary/50 hover:shadow-[0_0_18px_-4px_rgba(41,179,255,0.45)] focus:border-primary/60 focus:shadow-[0_0_22px_-4px_rgba(41,179,255,0.6)]"
                       placeholder="Tell us about your project, timeline, and goals..."
                     />
                   </div>
@@ -117,7 +117,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="block w-full rounded-xl border border-border bg-input/40 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
+        className="block w-full rounded-xl border border-border bg-input/40 px-4 py-3 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground hover:border-primary/50 hover:shadow-[0_0_18px_-4px_rgba(41,179,255,0.45)] focus:border-primary/60 focus:shadow-[0_0_22px_-4px_rgba(41,179,255,0.6)]"
       />
     </div>
   )

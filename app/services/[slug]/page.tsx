@@ -57,7 +57,6 @@ type ServiceContent = {
   heroHighlight: string
   heroDesc: string
   benefitsTitle: string
-  benefitsHighlight?: string
   benefits: BenefitItem[]
   approachTitle: string
   steps: StepItem[]
@@ -74,22 +73,21 @@ const content: Record<string, ServiceContent> = {
     heroHighlight: "IT Infrastructure.",
     heroDesc:
       "Focus on your business while we handle your IT operations. Our Managed IT Services ensure your systems run smoothly, securely, and reliably.",
-    benefitsTitle: "Comprehensive IT Support",
-    benefitsHighlight: "Benefits.",
+    benefitsTitle: "Comprehensive IT Support Benefits",
     benefits: [
       { title: "24/7 IT support and monitoring", desc: "Round-the-clock coverage from our global team.", icon: Clock },
       { title: "Reduced downtime and faster problem resolution", desc: "Faster problem resolution with proactive monitoring.", icon: Activity },
       { title: "Optimized IT performance and cost efficiency", desc: "Improve cost efficiency across your IT estate.", icon: Gauge },
       { title: "Scalable services that grow with your business", desc: "Grow with your business — adjust capacity as you need.", icon: Layers },
     ],
-    approachTitle: "Our Approach",
+    approachTitle: "Approach",
     steps: [
       { title: "Assess your existing IT environment", icon: Search },
       { title: "Develop a custom managed services plan", icon: Settings },
       { title: "Implement monitoring, maintenance, and security protocols", icon: ShieldCheck },
-      { title: "Provide ongoing support, reporting and optimization", icon: LineChart },
+      { title: "Provide ongoing support, reporting, and optimization", icon: LineChart },
     ],
-    cta: "Ready to optimize your IT operations?",
+    cta: "Optimize your IT operations?",
   },
   "staff-augmentation": {
     eyebrow: "Staff Augmentation",
@@ -97,43 +95,41 @@ const content: Record<string, ServiceContent> = {
     heroHighlight: "Skilled IT Professionals.",
     heroDesc:
       "Extend your in-house capabilities with Apptriangle's Staff Augmentation services. We provide highly qualified developers, engineers, and IT specialists who seamlessly integrate with your team to accelerate project delivery.",
-    benefitsTitle: "Benefits of Staff Augmentation",
-    benefitsHighlight: "Team Scaling.",
+    benefitsTitle: "Benefits of Team Scaling",
     benefits: [
       { title: "Flexible team scaling", desc: "Teams can be scaled to match project requirements. This allows for efficient resource allocation.", icon: Users },
-      { title: "Specialized skills", desc: "Gain access to niche expertise without permanent hires. This ensures projects have the right talent.", icon: BadgeCheck },
-      { title: "Faster launch", desc: "Development projects can be launched more quickly. This is due to readily available resources..", icon: Rocket },
-      { title: "Cost effective", desc: "Cost-efficient solution for temporary or ongoing projects", icon: PiggyBank },
+      { title: "Specialized Skills", desc: "Gain access to niche expertise without permanent hires. This ensures projects have the right talent.", icon: BadgeCheck },
+      { title: "Faster Launch", desc: "Development projects can be launched more quickly. This is due to readily available resources.", icon: Rocket },
+      { title: "Cost Effective", desc: "Cost-efficient solution for temporary or ongoing projects", icon: PiggyBank },
     ],
-    approachTitle: "Build a High-Performing Team",
+    approachTitle: "Build a High Performing Team",
     steps: [
       { title: "Understand your team's requirements", icon: Search },
       { title: "Identify and allocate skilled professionals", icon: BadgeCheck },
       { title: "Integrate seamlessly with your workflow", icon: Workflow },
       { title: "Monitor performance and optimize team efficiency", icon: BarChart3 },
     ],
-    cta: "Build your dream team today.",
+    cta: "Build your dream team today?",
   },
   "business-process-automation": {
     eyebrow: "Business and Process Automation",
     heroTitle: "Streamline Your Operations with",
     heroHighlight: "Intelligent Automation.",
     heroDesc:
-      "At Apptriangle helps you automate repetitive tasks, reduce human error, and improve operational efficiency through advanced Business Process Automation (BPA). We design smart workflows, AI-driven decisions, and seamless integrations so your teams can focus on strategic growth rather than manual processes.",
+      "At Apptriangle, we help businesses eliminate repetitive tasks, reduce human error, and improve operational efficiency through advanced Business Process Automation (BPA).",
     benefitsTitle: "Key Benefits",
-    benefitsHighlight: "Workflow Automation.",
     benefits: [
-      { title: "Increased efficiency", desc: "Automate repetitive work and free teams for higher-value tasks.", icon: Zap },
-      { title: "Improved accuracy", desc: "Reduce manual errors and ensure consistent outcomes.", icon: CheckCircle },
-      { title: "Scalable solutions", desc: "Adapt workflows as your business grows or changes.", icon: Layers },
-      { title: "Real-time insights", desc: "Track performance and make data-driven decisions.", icon: LineChart },
+      { title: "Increased Efficiency", desc: "Automate repetitive tasks and free up your team to focus on high-value work.", icon: Zap },
+      { title: "Improved Accuracy", desc: "Reduce errors caused by manual data entry or fragmented processes.", icon: CheckCircle },
+      { title: "Scalable Solutions", desc: "Easily adapt workflows as your business grows or changes.", icon: Layers },
+      { title: "Real-Time Insights", desc: "Track performance, identify bottlenecks, and make data-driven decisions.", icon: LineChart },
     ],
     approachTitle: "How We Do It",
     steps: [
-      { title: "Analyze your existing workflows to identify automation opportunities.", icon: Search },
-      { title: "Create a tailored automation strategy that integrates seamlessly with your systems.", icon: Settings },
-      { title: "Deploy automated workflows with thorough testing to ensure reliability.", icon: Workflow },
-      { title: "Continuously monitor performance and refine automation for maximum impact.", icon: RefreshCw },
+      { title: "Process Assessment", icon: Search },
+      { title: "Solution Design", icon: Settings },
+      { title: "Implementation & Testing", icon: Workflow },
+      { title: "Monitoring & Optimization", icon: RefreshCw },
     ],
     cta: "Ready to optimize your operations?",
   },
@@ -194,14 +190,14 @@ const content: Record<string, ServiceContent> = {
       { title: "Make data-driven and strategic technology decisions", icon: LineChart },
       { title: "Ensure scalable and future-ready solutions", icon: Layers },
     ],
-    approachTitle: "Our Approach",
+    approachTitle: "Approach",
     steps: [
       { title: "Assess current IT landscape", icon: Search },
-      { title: "Define a strategy aligned with business goals", icon: Target },
-      { title: "Recommend solutions and a clear roadmap", icon: Lightbulb },
+      { title: "Define technology strategy aligned with business goals", icon: Target },
+      { title: "Recommend solutions and implementation roadmap", icon: Lightbulb },
       { title: "Support execution and continuous improvement", icon: RefreshCw },
     ],
-    cta: "Transform your IT strategy.",
+    cta: "Transform your IT strategy?",
   },
   "mvp-development": {
     eyebrow: "MVP Development",
@@ -274,7 +270,7 @@ const content: Record<string, ServiceContent> = {
     heroTitle: "Enhance Customer Engagement with",
     heroHighlight: "Smart AI Chatbots",
     heroDesc:
-      "Deliver instant, 24/7 support and improve customer experience with AI-powered chatbots tailored to your business needs.",
+      "Deliver instant, 24/7 support and improve customer experiences with AI-powered chatbots tailored to your business needs.",
     benefitsTitle: "Benefits",
     benefits: [
       { title: "Automate customer support and inquiries", icon: Bot },
@@ -296,35 +292,35 @@ const content: Record<string, ServiceContent> = {
     heroTitle: "Protect Your Business with",
     heroHighlight: "Proactive Cybersecurity",
     heroDesc:
-      "Safeguard your business against evolving digital threats with comprehensive cybersecurity assessments, protection, and monitoring.",
+      "At Apptriangle, we provide comprehensive Cybersecurity Services to safeguard your business against evolving digital threats.",
     benefitsTitle: "Key Benefits",
     benefits: [
-      { title: "Security assessment & audits", desc: "Identify vulnerabilities and potential threats before they become risks.", icon: ShieldCheck },
-      { title: "Risk mitigation", desc: "Implement tailored strategies to prevent security breaches", icon: AlertTriangle },
-      { title: "Regulatory compliance", desc: "Ensure your systems meet industry standards and regulations", icon: BadgeCheck },
-      { title: "Continuous monitoring", desc: "Detect and respond to threats in real time", icon: Eye },
+      { title: "Security Assessment & Audits", desc: "Identify vulnerabilities and potential threats before they become risks.", icon: ShieldCheck },
+      { title: "Risk Mitigation", desc: "Implement tailored strategies to prevent security breaches", icon: AlertTriangle },
+      { title: "Regulatory Compliance", desc: "Ensure your systems meet industry standards and regulations", icon: BadgeCheck },
+      { title: "Continuous Monitoring", desc: "Detect and respond to threats in real time", icon: Eye },
       { title: "Data Protection", desc: "Secure sensitive information and maintain customer trust", icon: Lock },
     ],
     approachTitle: "Approach",
     steps: [
-      { title: "Security assessment", desc: "Conduct a thorough evaluation of your IT infrastructure, applications, and processes.", icon: Search },
-      { title: "Threat analysis", desc: "Identify vulnerabilities, risks, and potential attack vectors.", icon: Bug },
-      { title: "Protection strategy", desc: "Design and implement security measures, including firewalls, encryption, and access control.", icon: Shield },
-      { title: "Monitoring & response", desc: "Continuously monitor systems, detect threats, and respond proactively.", icon: Eye },
+      { title: "Security Assessment", desc: "Conduct a thorough evaluation of your IT infrastructure, applications, and processes.", icon: Search },
+      { title: "Threat Analysis", desc: "Identify vulnerabilities, risks, and potential attack vectors.", icon: Bug },
+      { title: "Protection Strategy", desc: "Design and implement security measures, including firewalls, encryption, and access control.", icon: Shield },
+      { title: "Monitoring & Response", desc: "Continuously monitor systems, detect threats, and respond proactively.", icon: Eye },
       { title: "Optimization & Reporting", desc: "Regularly refine security posture and provide actionable reports.", icon: LineChart },
     ],
-    cta: "Secure your business today.",
+    cta: "Ensure your business stays safe in a digital world?",
   },
   "email-collaboration": {
     eyebrow: "Email & Collaboration Solutions",
     heroTitle: "Empower Teams with",
     heroHighlight: "Modern Communication Tools",
     heroDesc:
-      "Enhance productivity with secure, reliable email and collaboration tools that keep teams connected across devices.",
+      "Enhance productivity and collaboration with secure, scalable Email & Collaboration Solutions for teams of all sizes.",
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Cloud-based email and file sharing", icon: Cloud },
-      { title: "Real-time collaboration", icon: Users },
+      { title: "Real-time collaboration tools", icon: Users },
       { title: "Secure access and permissions", icon: Lock },
       { title: "Integration with existing systems", icon: Plug },
     ],
@@ -369,13 +365,13 @@ const content: Record<string, ServiceContent> = {
     benefits: [
       { title: "Centralized document repository", icon: Folder },
       { title: "Secure access and permission management", icon: Lock },
-      { title: "Automated workflows and approvals", icon: Workflow },
+      { title: "Automated document workflows and approvals", icon: Workflow },
       { title: "Compliance and audit-ready documentation", icon: BadgeCheck },
     ],
     approachTitle: "Approach",
     steps: [
       { title: "Evaluate current document processes", icon: Search },
-      { title: "Implement secure DMS platform", icon: Server },
+      { title: "Implement secure DMS system", icon: Server },
       { title: "Automate workflows and approvals", icon: Workflow },
       { title: "Train teams and optimize usage", icon: GraduationCap },
     ],
@@ -386,10 +382,10 @@ const content: Record<string, ServiceContent> = {
     heroTitle: "Authorized Software Licensing",
     heroHighlight: "and Expert Implementation",
     heroDesc:
-      "As a trusted partner for leading vendors, we provide end-to-end licensing, implementation, and support for your business.",
+      "As a trusted partner of Microsoft, Zoho, IceWarp, DigiCert, and many more, Apptriangle provides end-to-end software licensing solutions.",
     benefitsTitle: "Key Benefits",
     benefits: [
-      { title: "Authorized Licensing", desc: "Purchase software from certified vendors with confidence..", icon: BadgeCheck },
+      { title: "Authorized Licensing", desc: "Purchase software from certified vendors with confidence.", icon: BadgeCheck },
       { title: "Implementation Services", desc: "Our experts set up and configure software to suit your business needs.", icon: Wrench },
       { title: "Ongoing Support", desc: "Ensure smooth operation with maintenance, updates, and troubleshooting", icon: Headset },
       { title: "Cost-Effective Solutions", desc: "Maximize value with the right license plan for your organization.", icon: PiggyBank },

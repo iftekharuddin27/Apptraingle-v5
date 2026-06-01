@@ -18,6 +18,7 @@ import cybersecurityImage from "../../Images/Blog-Images/pexels-tima-miroshniche
 const posts = [
   {
     slug: "staff-augmentation",
+    tag: "Staff Augmentation",
     title: "Staff Augmentation",
     image: staffAugImage,
     excerpt:
@@ -25,6 +26,7 @@ const posts = [
   },
   {
     slug: "business-process-automation",
+    tag: "Business Process Automation (BPA)",
     title: "Business Process Automation (BPA)",
     image: bpaImage,
     excerpt:
@@ -32,6 +34,7 @@ const posts = [
   },
   {
     slug: "power-platform-development",
+    tag: "Power Platform Development",
     title: "Power Platform Development",
     image: powerPlatformImage,
     excerpt:
@@ -39,6 +42,7 @@ const posts = [
   },
   {
     slug: "managed-it-services",
+    tag: "Managed IT Services",
     title: "Managed IT Services",
     image: managedItImage,
     excerpt:
@@ -46,6 +50,7 @@ const posts = [
   },
   {
     slug: "apps-development",
+    tag: "Apps Development",
     title: "Apps Development",
     image: appsImage,
     excerpt:
@@ -53,6 +58,7 @@ const posts = [
   },
   {
     slug: "cybersecurity-services",
+    tag: "Cybersecurity Services",
     title: "Cybersecurity Services",
     image: cybersecurityImage,
     excerpt:
@@ -88,7 +94,7 @@ export default function BlogPage() {
                     <span
                       className="inline-block self-start rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary"
                     >
-                      Article
+                      {p.tag}
                     </span>
                     <h2
                       className="mt-6 font-display text-lg font-semibold leading-tight text-foreground"
@@ -101,7 +107,7 @@ export default function BlogPage() {
                     <span
                       className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary"
                     >
-                      Read more
+                      Read More
                       <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
                     </span>
                   </div>

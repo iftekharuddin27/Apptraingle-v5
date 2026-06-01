@@ -9,11 +9,11 @@ import { PageHero } from "@/components/page-blocks"
 import { CtaSection } from "@/components/home-sections"
 import { TiltCard } from "@/components/tilt-card"
 
-import newsThree from "../../Images/News & Articles/three.png"
-import newsImageOne from "../../Images/News and Events Images/285a31ee0fbd58dcc2e7b7ad99c0fdf7.jpg"
+import newsThree from "../../Images/News and Events Images/285a31ee0fbd58dcc2e7b7ad99c0fdf7.jpg"
+import newsImageOne from "../../Images/News & Articles/one.png"
 import newsImageTwo from "../../Images/News and Events Images/e11dc3595a3c2088717327a1652d142e.jpg"
-import eventOne from "../../Images/News and Events Images/pexels-thisisengineering-3862599-1-1024x683.jpg.bv.webp"
-import eventTwo from "../../Images/News and Events Images/pexels-pixabay-38568-1024x680.jpg.bv.webp"
+import eventOne from "../../Images/News and Events Images/pexels-fauxels-3183131-1024x683.jpg.bv.webp"
+import eventTwo from "../../Images/News and Events Images/f13871d6985c6295fd09d8e76bec435b.jpg"
 import eventThree from "../../Images/News and Events Images/5c09785b0db777096eadbf4e354d9a5e.jpg"
 
 const news = [
@@ -29,7 +29,7 @@ const news = [
     date: "Feb 2025",
     title: "New Cybersecurity Services Launch",
     image: newsImageTwo,
-    desc: "Comprehensive protection for legacy systems causing slow processing and poor user experience.",
+    desc: "Legacy systems causing slow processing and poor user experience",
   },
   {
     tag: "Award",
@@ -39,11 +39,11 @@ const news = [
     desc: "Recognised for excellence in delivering enterprise IT solutions across global markets.",
   },
   {
-    tag: "Expansion",
+    tag: "Partnership",
     date: "Dec 2024",
-    title: "Apptriangle Expands to Canada & Japan",
+    title: "Apptriangle Partners with Microsoft for AI Innovation",
     image: eventTwo,
-    desc: "Continuing our global mission with new offices opening in Canada and Japan to better serve clients worldwide.",
+    desc: "Strengthening our AI capabilities through a strategic partnership with Microsoft to deliver intelligent solutions.",
   },
   {
     tag: "Partnership",
@@ -68,9 +68,9 @@ export default function NewsPage() {
       <main>
         <PageHero
           eyebrow="News & Events"
-          title="Stay updated with our latest"
-          highlight="announcements & insights."
-          description="From product launches to global expansions and industry recognition — keep up with what's happening at Apptriangle."
+          title="News &"
+          highlight="Events"
+          description="Stay updated with our latest announcements and company news"
         />
 
         <section className="pb-24">

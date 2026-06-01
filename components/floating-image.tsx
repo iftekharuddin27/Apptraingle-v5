@@ -10,6 +10,11 @@ type FloatingImageProps = {
   className?: string
   rounded?: string
   priority?: boolean
+  floating?: boolean
+  glow?: boolean
+  transparent?: boolean
+  fit?: "cover" | "contain"
+  tilt?: boolean
 }
 
 /**
@@ -23,6 +28,11 @@ export function FloatingImage({
   className = "",
   rounded = "rounded-3xl",
   priority,
+  floating = true,
+  glow = true,
+  transparent = false,
+  fit = "cover",
+  tilt = true,
 }: FloatingImageProps) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -42,6 +52,7 @@ export function FloatingImage({
   const sy = useTransform(my, (v) => `${v * 100}%`)
 
   function handleMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!tilt) return
     const el = ref.current
     if (!el) return
     const rect = el.getBoundingClientRect()
@@ -50,6 +61,7 @@ export function FloatingImage({
   }
 
   function handleLeave() {
+    if (!tilt) return
     mx.set(0.5)
     my.set(0.5)
   }
@@ -58,8 +70,8 @@ export function FloatingImage({
     <div className={`relative ${className}`} style={{ perspective: 1200 }}>
       {/* Floating wrapper (continuous up/down + tilt parallax) */}
       <motion.div
-        animate={{ y: [0, -16, 0, 10, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        animate={floating ? { y: [0, -16, 0, 10, 0] } : undefined}
+        transition={floating ? { duration: 9, repeat: Infinity, ease: "easeInOut" } : undefined}
         className="relative"
       >
         <motion.div
@@ -67,15 +79,19 @@ export function FloatingImage({
           onMouseMove={handleMove}
           onMouseLeave={handleLeave}
           style={{
-            rotateX: rx,
-            rotateY: ry,
+            rotateX: tilt ? rx : 0,
+            rotateY: tilt ? ry : 0,
             transformStyle: "preserve-3d",
           }}
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative overflow-hidden border border-primary/25 bg-card ${rounded} shadow-[0_30px_120px_-30px_rgba(41,179,255,0.6)]`}
+          className={`relative overflow-hidden ${rounded} ${
+            transparent
+              ? "bg-transparent"
+              : "border border-primary/25 bg-card"
+          } ${glow && !transparent ? "shadow-[0_30px_120px_-30px_rgba(41,179,255,0.6)]" : "shadow-none"}`}
         >
           <div className="relative aspect-16/10 w-full">
             <Image
@@ -84,27 +100,30 @@ export function FloatingImage({
               fill
               priority={priority}
               data-floating="true"
-              className="object-cover"
+              className={fit === "contain" ? "object-contain" : "object-cover"}
               sizes="(max-width: 1024px) 90vw, 60vw"
             />
             {/* Sheen */}
-            <motion.span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 mix-blend-overlay"
-              style={{
-                background: useTransform(
-                  [sx, sy] as any,
-                  ([x, y]: string[]) =>
-                    `radial-gradient(360px circle at ${x} ${y}, rgba(255,255,255,0.32), transparent 55%)`,
-                ),
-              }}
-            />
-            {/* Inner border glow */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-[inherit]"
-              style={{ boxShadow: "inset 0 0 80px rgba(41,179,255,0.25)" }}
-            />
+            {glow && !transparent && (
+              <motion.span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 mix-blend-overlay"
+                style={{
+                  background: useTransform(
+                    [sx, sy] as any,
+                    ([x, y]: string[]) =>
+                      `radial-gradient(360px circle at ${x} ${y}, rgba(255,255,255,0.32), transparent 55%)`,
+                  ),
+                }}
+              />
+            )}
+            {glow && !transparent && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                style={{ boxShadow: "inset 0 0 80px rgba(41,179,255,0.25)" }}
+              />
+            )}
           </div>
 
         </motion.div>

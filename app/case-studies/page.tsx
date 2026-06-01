@@ -5,6 +5,9 @@ import { SiteFooter } from "@/components/site-footer"
 import { PageHero, ServiceCta } from "@/components/page-blocks"
 import { ArrowUpRight, BadgeCheck, Cpu, Database, LayoutGrid, ShieldCheck, Sparkles, Users } from "lucide-react"
 import { TiltCard } from "@/components/tilt-card"
+import { StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
+import { CountUp } from "@/components/count-up"
+import { motion } from "framer-motion"
 
 const studies = [
   {
@@ -69,11 +72,72 @@ export default function CaseStudiesPage() {
       <SiteHeader />
       <main>
         <PageHero
-          eyebrow="Case Studies"
-          title="Real problems."
-          highlight="Measurable results."
-          description="How we solved real problems and delivered measurable results."
+          eyebrow="Our Experiences"
+          title="Our"
+          highlight="Experiences"
+          description="Proven expertise across industries and technologies"
         />
+
+        {/* Stats */}
+        <section className="pb-12">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <StaggerGroup
+              className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
+              staggerChildren={0.07}
+            >
+              {[
+                { value: "150+", label: "Projects Completed" },
+                { value: "200+", label: "Happy Customers" },
+                { value: "50+", label: "Professionals" },
+                { value: "99%", label: "Client Retention" },
+                { value: "7+", label: "Years Experience" },
+              ].map((s, i) => (
+                <StaggerItem key={s.label}>
+                  <motion.div
+                    animate={{ y: [-6, 6] }}
+                    transition={{
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      duration: 2.5,
+                      ease: "easeInOut",
+                      delay: i * 0.2,
+                    }}
+                    whileHover={{ y: 0, transition: { duration: 0.2, ease: "easeOut" } }}
+                    className="h-full rounded-2xl"
+                  >
+                    <TiltCard intensity={15} className="h-full rounded-2xl">
+                      <div className="group relative h-full overflow-hidden rounded-2xl border border-primary/15 bg-card/60 p-7 text-center backdrop-blur-xl transition-all hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]">
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                          style={{ background: "radial-gradient(closest-side, rgba(41,179,255,0.15), transparent 70%)" }}
+                        />
+                        <p className="relative font-display text-2xl font-semibold text-foreground sm:text-3xl">
+                          <CountUp value={s.value} />
+                        </p>
+                        <p className="relative mt-2 text-xs uppercase tracking-wider text-white">
+                          {s.label}
+                        </p>
+                      </div>
+                    </TiltCard>
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </div>
+        </section>
+
+        {/* Case Studies heading */}
+        <section className="pb-10 pt-6">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 text-center">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Case Studies
+            </h2>
+            <p className="mt-3 text-base text-muted-foreground">
+              How we solved real problems and delivered measurable results
+            </p>
+          </div>
+        </section>
 
         <section className="pb-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -153,7 +217,7 @@ export default function CaseStudiesPage() {
           </div>
         </section>
 
-        <ServiceCta title="Ready to Write Your Success Story?" />
+        <ServiceCta title="Meet With Our Expertise!" />
       </main>
       <SiteFooter />
     </>
