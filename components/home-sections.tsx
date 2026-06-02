@@ -51,8 +51,8 @@ export const serviceIcons: Record<string, React.ComponentType<{ className?: stri
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-12 pt-4 sm:px-8 sm:pt-6 lg:grid-cols-12 lg:gap-10 lg:pb-16">
+    <section id="hero" className="relative overflow-hidden">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-12 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:gap-10 lg:pb-16">
         {/* LEFT - copy */}
         <div className="lg:col-span-6">
           <motion.p
@@ -70,12 +70,13 @@ export function Hero() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="mt-0 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl xl:text-7xl"
           >
-            <span>
-              With More Than <br />
+            <span className="whitespace-nowrap">
+              With More Than{" "}
               <span className="relative inline-block">
-                <span className="text-blue-400 font-semibold">7 Years</span>
+                <span className="text-blue-400 font-semibold">7 Years </span>
               </span>
-              <br /> of Experience
+              <br />
+              of Experience
             </span>
           </motion.h1>
 

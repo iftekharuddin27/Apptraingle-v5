@@ -155,10 +155,19 @@ export const navItems: NavItem[] = [
   { kind: "link", href: "/contact-us", label: "Contact Us" },
 ]
 
-export function Logo({ className = "", size = "header" }: { className?: string; size?: "header" | "footer" }) {
+export function Logo({
+  className = "",
+  size = "header",
+  onClick,
+}: {
+  className?: string
+  size?: "header" | "footer"
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
+}) {
   const imageClass = size === "header" ? "h-12 sm:h-14" : "h-9 sm:h-10"
+  const href = size === "header" ? "/#hero" : "/"
   return (
-    <Link href="/" className={`group inline-flex items-center ${className}`} aria-label="Apptriangle">
+    <Link href={href} onClick={onClick} className={`group inline-flex items-center ${className}`} aria-label="Apptriangle">
       <Image
         src="/images/logo/apptriangle-logo.png"
         alt="Apptriangle logo"
