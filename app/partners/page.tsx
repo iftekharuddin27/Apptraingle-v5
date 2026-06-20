@@ -5,7 +5,6 @@ import { SiteFooter } from "@/components/site-footer"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
 import { TiltCard } from "@/components/tilt-card"
 import { CountUp } from "@/components/count-up"
-import { ServiceCta } from "@/components/page-blocks"
 
 const partners = [
   { name: "Microsoft",    logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/Microsoft-Logo.wine_-300x75.webp.bv.webp?bv_host=apptriangle.com" },
@@ -38,16 +37,18 @@ export default function PartnersPage() {
       <main>
 
         {/* Hero */}
-        <section className="relative overflow-hidden py-24 text-center sm:py-32">
-          <div className="absolute inset-0 grid-bg" aria-hidden="true" />
-          <div className="relative mx-auto max-w-4xl px-5 sm:px-8">
-            <h1 className="font-display text-4xl font-semibold leading-tight tracking-tight text-balance sm:text-6xl">
-              Trusted Partners in{" "}
-              <span className="bg-linear-to-r from-primary to-brand-blue-soft bg-clip-text text-transparent">
-                Innovation
-              </span>
+        <section className="relative overflow-hidden py-8 text-center sm:py-8">
+          <div
+            className="absolute inset-0"
+            style={{ backgroundImage: "url(/images/resources-bg.png)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+          <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+            <h1 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl">
+              Trusted Partners in Innovation
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground whitespace-nowrap sm:text-lg">
               We collaborate with industry leaders to bring you world-class technology solutions
             </p>
           </div>
@@ -63,7 +64,7 @@ export default function PartnersPage() {
               {partners.map((partner, i) => (
                 <StaggerItem key={`${partner.name}-${i}`}>
                   <TiltCard intensity={10} className="h-full rounded-2xl">
-                    <div className="flex h-32 items-center justify-center overflow-hidden rounded-2xl border border-primary/15 bg-card/60 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.5)]">
+                    <div className="flex h-32 items-center justify-center overflow-hidden rounded-2xl border border-white/60 bg-card/60 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.5)]">
                       <img
                         src={partner.logo}
                         alt={`${partner.name} logo`}
@@ -79,8 +80,8 @@ export default function PartnersPage() {
         </section>
 
         {/* Why Our Partnerships Matter */}
-        <section className="py-16">
-          <div className="mx-auto max-w-3xl px-5 sm:px-8 text-center">
+        <section className="py-8">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8 text-center">
             <ScrollReveal>
               <h2 className="font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
                 Why Our Partnerships Matter
@@ -98,7 +99,7 @@ export default function PartnersPage() {
             <div className="grid grid-cols-3 gap-5">
               {stats.map((s) => (
                 <TiltCard key={s.label} intensity={15} className="h-full rounded-2xl">
-                  <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-primary/15 bg-card/60 px-6 py-8 text-center backdrop-blur-xl transition-all hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]">
+                  <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-white/60 bg-card/60 px-6 py-8 text-center backdrop-blur-xl transition-all hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]">
                     <p className="font-display text-3xl font-semibold text-white sm:text-4xl">
                       <CountUp value={s.value} />
                     </p>
@@ -112,7 +113,6 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        <ServiceCta title="Ready to leverage our partner network for your business?" />
       </main>
       <SiteFooter />
     </>

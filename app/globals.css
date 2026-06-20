@@ -19,13 +19,13 @@
   --secondary: #1a1a1a;
   --secondary-foreground: #f5faff;
   --muted: #1a1a1a;
-  --muted-foreground: #93a5bf;
+  --muted-foreground: #f5faff;
   --accent: #29b3ff;
   --accent-foreground: #0a0a0a;
   --accent-soft: #d7efff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #f5faff;
-  --border: rgba(41, 179, 255, 0.15);
+  --border: rgba(41, 179, 255, 0.35);
   --input: #1a1a1a;
   --ring: #29b3ff;
   --radius: 0.875rem;
@@ -33,13 +33,14 @@
   --brand-navy: #141414;
   --brand-navy-deep: #000000;
   --brand-blue: #29b3ff;
-  --brand-blue-soft: #d7efff;
+  --brand-blue-soft: #29b3ff;
+  --gradient-dark: #0C2242;
   --brand-neutral: #93a5bf;
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
-  --font-display: var(--font-display), 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  --font-display: var(--font-poppins), 'Poppins', system-ui, sans-serif;
   --font-mono: 'ui-monospace', 'SFMono-Regular', monospace;
 
   --color-background: var(--background);
@@ -66,6 +67,7 @@
   --color-brand-navy-deep: var(--brand-navy-deep);
   --color-brand-blue: var(--brand-blue);
   --color-brand-blue-soft: var(--brand-blue-soft);
+  --color-gradient-dark: var(--gradient-dark);
   --color-brand-neutral: var(--brand-neutral);
 
   --radius-sm: calc(var(--radius) - 6px);
@@ -106,8 +108,8 @@
   background: conic-gradient(
     from var(--angle, 0deg),
     transparent 0deg,
-    rgba(41, 179, 255, 0.85) 60deg,
-    rgba(215, 239, 255, 0.6) 120deg,
+    rgba(12, 34, 66, 0.9) 60deg,
+    rgba(41, 179, 255, 0.85) 120deg,
     transparent 200deg,
     transparent 360deg
   );
@@ -175,9 +177,9 @@
 .card-glow:hover,
 .card-glow-active:hover {
   background-image:
-    radial-gradient(120% 100% at 0% 0%, rgba(41, 179, 255, 0.18), transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.005));
-  box-shadow: 0 16px 50px -20px rgba(41, 179, 255, 0.4);
+    radial-gradient(120% 100% at 0% 0%, rgba(12, 34, 66, 0.6), transparent 60%),
+    linear-gradient(180deg, rgba(41, 179, 255, 0.08), rgba(41, 179, 255, 0.02));
+  box-shadow: 0 16px 50px -20px rgba(12, 34, 66, 0.7);
   border-color: rgba(41, 179, 255, 0.45);
 }
 
@@ -192,8 +194,8 @@
 
 .section-blue {
   background:
-    radial-gradient(80% 80% at 50% 0%, rgba(41, 179, 255, 0.45), transparent 60%),
-    linear-gradient(180deg, #1e7fc7 0%, #1167a8 100%);
+    radial-gradient(80% 80% at 50% 0%, rgba(41, 179, 255, 0.5), transparent 60%),
+    linear-gradient(180deg, #0C2242 0%, #0a1a35 100%);
 }
 
 .text-balance { text-wrap: balance; }

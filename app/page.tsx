@@ -7,6 +7,7 @@ import {
   AboutSection,
   PartnersSection,
   NewsSection,
+  HomeBottomCta,
 } from "@/components/home-sections"
 
 export default function HomePage() {
@@ -20,6 +21,7 @@ export default function HomePage() {
         <AboutSection />
         <PartnersSection />
         <NewsSection />
+        <HomeBottomCta />
       </main>
       <SiteFooter />
     </>

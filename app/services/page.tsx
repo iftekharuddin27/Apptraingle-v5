@@ -33,13 +33,11 @@ export default function ServicesIndex() {
       <SiteHeader />
       <main>
         <PageHero
-          eyebrow="Our Services"
-          title="Reliable & Innovative Services"
-          highlight="Built for Success."
-          description="From managed IT to custom software, we deliver end-to-end technology services that move your business forward."
+          title="Apptriangle All Services"
+          description="No matter the challenge or the scope of your project, our expert teams are ready to deliver. Review all available services and find the perfect, scalable solution tailored to your unique requirements."
         />
 
-        <section className="pb-24">
+        <section className="pb-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((s) => {
@@ -48,10 +46,10 @@ export default function ServicesIndex() {
                   <TiltCard key={s.slug} intensity={8} className="rounded-2xl">
                   <Link
                     href={`/services/${s.slug}`}
-                    className="card-glow group relative flex flex-col overflow-hidden rounded-2xl border border-border p-7 h-full transition-all duration-300 hover:border-primary/40"
+                    className="card-glow group relative flex flex-col overflow-hidden rounded-2xl border-2 border-white/60 p-7 h-full transition-all duration-300 hover:border-primary/40"
                   >
                     <div className="flex items-start justify-between">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-transparent bg-primary/10 text-primary">
                         <Icon className="h-5 w-5" />
                       </div>
                       <ArrowUpRight

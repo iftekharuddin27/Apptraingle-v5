@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight, Briefcase, MapPin, Star } from "lucide-react"
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { TiltCard } from "@/components/tilt-card"
@@ -30,21 +30,12 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
 
         {/* Header card */}
         <TiltCard intensity={8} className="rounded-2xl">
-          <div className="rounded-2xl border border-white/30 bg-card/60 p-8 backdrop-blur-xl">
+          <div className="rounded-2xl border-2 border-white/60 bg-card/60 p-8 backdrop-blur-xl">
             <h1 className="font-display text-3xl font-semibold text-primary sm:text-4xl">{job.title}</h1>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3 py-1 text-sm text-muted-foreground">
-                <Briefcase className="h-3.5 w-3.5" />
-                {job.type}
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3 py-1 text-sm text-muted-foreground">
-                <MapPin className="h-3.5 w-3.5" />
-                {job.location}
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3 py-1 text-sm text-muted-foreground">
-                <Star className="h-3.5 w-3.5" />
-                {job.level}
-              </span>
+            <div className="mt-4 space-y-1 text-sm text-muted-foreground">
+              <p><span className="font-semibold text-foreground">Location:</span> {job.location}</p>
+              <p><span className="font-semibold text-foreground">Employment Type:</span> {job.type}</p>
+              <p><span className="font-semibold text-foreground">Experience Level:</span> {job.level}</p>
             </div>
           </div>
         </TiltCard>
@@ -52,12 +43,12 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
         {/* Body sections */}
         <div className="mt-4 space-y-4">
           {job.about && (
-            <Section title="About the Role">
-              <p className="text-sm leading-relaxed text-white">{job.about}</p>
+            <Section title="About Us">
+              <p className="text-sm leading-relaxed text-muted-foreground">{job.about}</p>
             </Section>
           )}
 
-          <Section title="Key Responsibilities">
+          <Section title="Responsibilities">
             <ul className="space-y-2">
               {job.responsibilities.map((item) => (
                 <ListItem key={item} text={item} />
@@ -65,7 +56,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
             </ul>
           </Section>
 
-          <Section title="Required Qualifications">
+          <Section title="Requirements">
             <ul className="space-y-2">
               {job.requirements.map((item) => (
                 <ListItem key={item} text={item} />
@@ -74,7 +65,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
           </Section>
 
           {job.preferred && job.preferred.length > 0 && (
-            <Section title="Preferred Skills">
+            <Section title="Nice to Have">
               <ul className="space-y-2">
                 {job.preferred.map((item) => (
                   <ListItem key={item} text={item} />
@@ -94,7 +85,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
 
         {/* Apply CTA */}
         <TiltCard intensity={6} className="mt-6 rounded-2xl">
-          <div className="rounded-2xl border border-primary/30 bg-primary/10 p-8 text-center backdrop-blur-xl">
+          <div className="rounded-2xl border-2 border-white/60 bg-primary/10 p-8 text-center backdrop-blur-xl">
             <h2 className="font-display text-xl font-semibold text-foreground">Interested in this role?</h2>
             <p className="mt-2 text-sm text-muted-foreground">Send us your application and we&apos;ll get back to you.</p>
             <Link
@@ -115,7 +106,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <TiltCard intensity={6} className="rounded-2xl">
-      <div className="rounded-2xl border border-white/20 bg-card/60 p-7 backdrop-blur-xl">
+      <div className="rounded-2xl border-2 border-white/60 bg-card/60 p-7 backdrop-blur-xl">
         <h2 className="mb-4 font-display text-lg font-semibold text-primary">{title}</h2>
         {children}
       </div>
@@ -125,7 +116,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function ListItem({ text }: { text: string }) {
   return (
-    <li className="flex items-start gap-2 text-sm leading-relaxed text-white">
+    <li className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
       {text}
     </li>

@@ -38,6 +38,7 @@ import {
   Shield,
   ShieldCheck,
   ShoppingCart,
+  SquareCheckBig,
   Target,
   TrendingUp,
   Users,
@@ -407,68 +408,86 @@ type ServiceMedia = {
   benefits: string
   benefitsGrid?: string[]
   approach?: string
+  fit?: "cover" | "contain"
+  heroImagePadding?: string
 }
 
 const serviceMedia: Record<string, ServiceMedia> = {
   "staff-augmentation": {
-    hero: "/images/services/Staff Augmentation/Staff-Augmentation.1-1024x566.webp",
-    benefits: "/images/services/Staff Augmentation/Staff-Augmentation-2-1024x684.webp",
+    hero: "/images/services/Staff Augmentation/undraw_collaboration_hkrb.svg",
+    benefits: "/images/services/Staff Augmentation/undraw_segment-analysis_cl30.svg",
+    fit: "contain",
+    heroImagePadding: "p-2",
   },
   "managed-it-services": {
-    hero: "/images/services/managed-it-services/Managed-it-service-1-.jpg",
-    benefits: "/images/services/managed-it-services/Managed-IT-2-1024x683.webp",
+    hero: "/images/services/managed-it-services/undraw_business-decisions_7vkl.svg",
+    benefits: "/images/services/managed-it-services/undraw_server-status_7viz.svg",
+    fit: "contain",
   },
   "business-process-automation": {
-    hero: "/images/services/business-process-automation/Process-Automation-1-1024x684.webp",
-    benefits: "/images/services/business-process-automation/Process-Automation-2-1024x683.webp",
+    hero: "/images/services/business-process-automation/undraw_ai-code-assistant_5xop.svg",
+    benefits: "/images/services/business-process-automation/undraw_data-reports_l2u3.svg",
+    fit: "contain",
   },
   "app-development": {
-    hero: "/images/services/app-development/app-devolopment-1-.jpg",
-    benefits: "/images/services/app-development/App-Development-2-.webp",
+    hero: "/images/services/app-development/undraw_mobile-development_tjxm.svg",
+    benefits: "/images/services/app-development/undraw_wireframing_d3cx.svg",
+    fit: "contain",
   },
   "power-platform": {
-    hero: "/images/services/power-platform/power-platform-1-10142683-1024x683.jpg.bv.webp",
-    benefits: "/images/services/power-platform/power-platform-2-2714266-5664491-1024x762.jpg",
+    hero: "/images/services/power-platform/undraw_data_25jw.svg",
+    benefits: "/images/services/power-platform/undraw_problem-solving_1kpx.svg",
+    fit: "contain",
   },
   "technology-consulting": {
-    hero: "/images/services/technology-consulting/technology-consulting-1-7710090-1024x683.jpg.bv.webp",
-    benefits: "/images/services/technology-consulting/Technology Consulting-2-.jpg",
+    hero: "/images/services/technology-consulting/undraw_business-plan_zrf7.svg",
+    benefits: "/images/services/technology-consulting/undraw_data-processing_ohfw.svg",
+    fit: "contain",
   },
   "mvp-development": {
-    hero: "/images/services/mvp-development/mvp-devlopment-1-.jpg",
-    benefits: "/images/services/mvp-development/mvp-devlopment-2-.jpg",
+    hero: "/images/services/mvp-development/undraw_experience-design_d4md.svg",
+    benefits: "/images/services/mvp-development/undraw_mobile-ux_5h2w.svg",
+    fit: "contain",
   },
   "ai-ml-solutions": {
-    hero: "/images/services/ai-ml-solutions/ai and ml-1-.jpg",
-    benefits: "/images/services/ai-ml-solutions/ai and ml-2-.jpg",
+    hero: "/images/services/ai-ml-solutions/undraw_ai-agent_pdkp.svg",
+    benefits: "/images/services/ai-ml-solutions/undraw_ai-data-extraction_soxc.svg",
+    fit: "contain",
   },
   "business-analytics": {
-    hero: "/images/services/business-analytics/business-analytics-1-.jpg",
-    benefits: "/images/services/business-analytics/business-analytics-2-.webp",
+    hero: "/images/services/business-analytics/undraw_lightbulb-moment_16av.svg",
+    benefits: "/images/services/business-analytics/undraw_online-stats_d57c.svg",
+    fit: "contain",
   },
   "chatbot-development": {
-    hero: "/images/services/chatbot-development/chatbot-1-.jpg",
-    benefits: "/images/services/chatbot-development/chatbot-2-.jpg",
+    hero: "/images/services/chatbot-development/undraw_ai-answers_uxgx.svg",
+    benefits: "/images/services/chatbot-development/undraw_ai-chat_ljb9.svg",
+    fit: "contain",
   },
   "cybersecurity-services": {
-    hero: "/images/services/cybersecurity-services/cybersecurity-1-.jpg",
-    benefits: "/images/services/cybersecurity-services/cybersecurity-2-.jpg",
+    hero: "/images/services/cybersecurity-services/undraw_authentication_1evl.svg",
+    benefits: "/images/services/cybersecurity-services/undraw_security-on_3ykb.svg",
+    fit: "contain",
   },
   "email-collaboration": {
-    hero: "/images/services/email-collaboration/emails-coloaboration-1-.jpg",
-    benefits: "/images/services/email-collaboration/emails-colaboration-2-.jpg",
+    hero: "/images/services/email-collaboration/undraw_cloud-sync_h1ig.svg",
+    benefits: "/images/services/email-collaboration/undraw_email-campaign_2z6t.svg",
+    fit: "contain",
   },
   "ssl-certificates": {
-    hero: "/images/services/ssl-certificates/ssl-service-1-.jpg",
-    benefits: "/images/services/ssl-certificates/ssl-service-2-.jpg",
+    hero: "/images/services/ssl-certificates/undraw_mobile-log-in_0n4q.svg",
+    benefits: "/images/services/ssl-certificates/undraw_security_0ubl.svg",
+    fit: "contain",
   },
   "document-management": {
-    hero: "/images/services/document-management/document-management-1-.webp",
-    benefits: "/images/services/document-management/document-management-2-.webp",
+    hero: "/images/services/document-management/undraw_ai-generated-document_ykb4.svg",
+    benefits: "/images/services/document-management/undraw_file-bundle_oaof.svg",
+    fit: "contain",
   },
   "software-licensing": {
-    hero: "/images/services/software-licensing/software-lisensing-1-.jpg",
-    benefits: "/images/services/software-licensing/software-lisensing-2.jpg",
+    hero: "/images/services/software-licensing/undraw_analytics-setup_ptrz.svg",
+    benefits: "/images/services/software-licensing/undraw_certification_oqiz.svg",
+    fit: "contain",
   },
 }
 
@@ -481,10 +500,10 @@ function getServiceMedia(slug: string) {
   return serviceMedia[slug as keyof typeof serviceMedia] ?? defaultMedia
 }
 
-function HeroSplit({ title, highlight, description, image }: { title: string; highlight: string; description: string; image: string }) {
+function HeroSplit({ title, highlight, description, image, fit = "cover", imagePadding = "p-6" }: { title: string; highlight: string; description: string; image: string; fit?: "cover" | "contain"; imagePadding?: string }) {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-20 sm:px-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-8 pt-12 sm:px-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
           <h1 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl">
             {title} {" "}
@@ -494,41 +513,35 @@ function HeroSplit({ title, highlight, description, image }: { title: string; hi
             {description}
           </p>
         </div>
-        <div className="air-float-wrap relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <Image src={image} alt="Service visual" width={760} height={420} className="h-full w-full object-cover" />
+        <div className="relative min-h-[300px] overflow-hidden rounded-2xl border-2 border-transparent bg-card/40 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+          <Image src={image} alt="Service visual" fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? `object-contain ${imagePadding}` : "object-cover"} />
         </div>
       </div>
     </section>
   )
 }
 
-function BenefitsImageList({ title, image, items }: { title: string; image: string; items: BenefitItem[] }) {
+function BenefitsImageList({ title, image, items, fit = "cover" }: { title: string; image: string; items: BenefitItem[]; fit?: "cover" | "contain" }) {
   return (
-    <section className="py-16">
+    <section className="py-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <h2 className="text-left text-lg font-semibold text-foreground sm:text-xl">{title}</h2>
-        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-          <div className="air-float-wrap relative overflow-hidden rounded-2xl border border-border/60 bg-card/40">
-            <Image src={image} alt={title} width={760} height={500} className="h-full w-full object-cover" />
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div className="relative min-h-[300px] overflow-hidden rounded-2xl border-2 border-transparent bg-card/40">
+            <Image src={image} alt={title} fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? "object-contain p-6" : "object-cover"} />
           </div>
           <div className="space-y-4">
-            {items.map((item) => {
-              const Icon = item.icon
-              return (
+            {items.map((item) => (
               <TiltCard key={item.title} intensity={8} className="rounded-xl">
-              <div
-                className="card-glow flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 px-4 py-3 transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--sky),rgba(41,179,255,0.2))] text-(--blue)">
-                  <Icon size={24} />
+                <div className="card-glow flex items-center gap-3 rounded-xl border-2 border-white/60 bg-card/40 px-4 py-3 transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]">
+                  <SquareCheckBig size={28} className="shrink-0 text-foreground" />
+                  <div>
+                    <span className="text-sm font-bold text-foreground">{item.title}</span>
+                    {item.desc && <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>}
+                  </div>
                 </div>
-                <div>
-                  <span className="text-sm font-medium text-foreground">{item.title}</span>
-                  {item.desc && <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>}
-                </div>
-              </div>
               </TiltCard>
-            )})}
+            ))}
           </div>
         </div>
       </div>
@@ -538,7 +551,7 @@ function BenefitsImageList({ title, image, items }: { title: string; image: stri
 
 function BenefitsCardsGrid({ title, items }: { title: string; items: StepItem[] }) {
   return (
-    <section className="py-14">
+    <section className="py-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <h2 className="text-center text-lg font-semibold text-foreground sm:text-xl">{title}</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -547,10 +560,10 @@ function BenefitsCardsGrid({ title, items }: { title: string; items: StepItem[] 
             return (
               <TiltCard key={item.title} intensity={10} className="rounded-xl">
               <div
-                className="card-glow rounded-xl border border-border/60 bg-card/40 px-4 py-5 text-center h-full transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
+                className="card-glow rounded-xl border-2 border-white/60 bg-card/40 px-4 py-5 text-center h-full transition-all duration-300 hover:border-primary/45 hover:shadow-[0_16px_50px_-20px_rgba(41,179,255,0.45)]"
               >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--sky),rgba(41,179,255,0.2))] text-(--blue)">
-                  <Icon size={24} />
+                  <Icon size={28} />
                 </div>
                 <p className="mt-3 text-xs font-semibold text-foreground sm:text-sm">{item.title}</p>
                 {item.desc && <p className="mt-2 text-[11px] text-muted-foreground">{item.desc}</p>}
@@ -584,11 +597,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           highlight={data.heroHighlight}
           description={data.heroDesc}
           image={media.hero}
+          fit={media.fit}
+          imagePadding={media.heroImagePadding}
         />
         <BenefitsImageList
           title={data.benefitsTitle}
           image={media.benefits}
           items={data.benefits}
+          fit={media.fit}
         />
         <BenefitsCardsGrid title={data.approachTitle} items={data.steps} />
         <ServiceCta title={data.cta} />

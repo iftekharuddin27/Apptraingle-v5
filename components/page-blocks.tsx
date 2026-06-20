@@ -12,27 +12,50 @@ export function PageHero({
   title,
   description,
   highlight,
+  wide,
+  bgImage,
+  bgFull,
+  whiteHighlight,
 }: {
   eyebrow?: string
   title: ReactNode
   description?: string
   highlight?: string
+  wide?: boolean
+  bgImage?: string
+  bgFull?: boolean
+  whiteHighlight?: boolean
 }) {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 grid-bg" aria-hidden="true" />
-      <div className="relative mx-auto max-w-5xl px-5 py-24 text-center sm:px-8 sm:py-32">
+      {bgImage ? (
+        <>
+          <div
+            className="absolute inset-0"
+            style={{ backgroundImage: `url(${bgImage})`, backgroundSize: bgFull ? "100% auto" : "90%", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+        </>
+      ) : (
+        <div className="absolute inset-0 grid-bg" aria-hidden="true" />
+      )}
+      <div className={`relative mx-auto px-5 py-12 text-center sm:px-8 sm:py-12 ${wide ? "max-w-7xl" : "max-w-5xl"}`}>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-6xl md:text-7xl"
+          className="mt-6 font-display text-3xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl"
         >
           {title}{" "}
           {highlight && (
-            <span className="bg-gradient-to-r from-primary to-brand-blue-soft bg-clip-text text-transparent">
-              {highlight}
-            </span>
+            whiteHighlight ? (
+              <span>{highlight}</span>
+            ) : (
+              <span className="bg-linear-to-r from-primary to-brand-blue-soft bg-clip-text text-transparent">
+                {highlight}
+              </span>
+            )
           )}
         </motion.h1>
         {description && (
@@ -40,7 +63,7 @@ export function PageHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className={`mx-auto mt-6 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg ${wide ? "max-w-5xl" : "max-w-2xl"}`}
           >
             {description}
           </motion.p>
@@ -60,13 +83,13 @@ export function BenefitsList({
   highlight?: string
 }) {
   return (
-    <section className="relative overflow-hidden py-20">
+    <section className="relative overflow-hidden py-8">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
             {title}{" "}
             {highlight && (
-              <span className="bg-gradient-to-r from-primary to-brand-blue-soft bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary to-brand-blue-soft bg-clip-text text-transparent">
                 {highlight}
               </span>
             )}
@@ -110,7 +133,7 @@ export function BenefitsList({
 
 export function ApproachSection({ title, steps }: { title: string; steps: string[] }) {
   return (
-    <section className="section-blue relative overflow-hidden py-20">
+    <section className="section-blue relative overflow-hidden py-8">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal>
           <h2 className="text-center font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -147,11 +170,11 @@ export function ApproachSection({ title, steps }: { title: string; steps: string
 
 export function ServiceCta({ title, href = "/contact-us", cta = "Talk to Our Experts" }: { title: string; href?: string; cta?: string }) {
   return (
-    <section className="py-24">
+    <section className="py-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal>
           <TiltCard intensity={4} className="rounded-3xl">
-          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/20 via-card to-card p-10 sm:p-16">
+          <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-linear-to-br from-primary/20 via-card to-card p-10 sm:p-16 transition-colors duration-300 hover:border-primary/60">
             <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
                 {title}

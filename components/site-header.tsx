@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { Logo, navItems } from "@/lib/site"
 
@@ -28,7 +28,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Logo size="header" onClick={handleLogoClick} />
 
-        <nav className="hidden items-center gap-1 rounded-full border border-border/50 bg-card/40 px-2 py-1.5 backdrop-blur md:flex">
+        <nav className="hidden items-center gap-1 rounded-full border-2 border-border/50 bg-card/40 px-2 py-1.5 backdrop-blur md:flex">
           {navItems.map((item) => {
             if (item.kind === "link") {
               const active = isActive(pathname, item.href)
@@ -55,6 +55,7 @@ export function SiteHeader() {
                 items={item.items}
                 pathname={pathname}
                 sectionActive={sectionActive}
+                columns={item.label === "Services" ? 3 : 1}
               />
             )
           })}
@@ -74,7 +75,7 @@ export function SiteHeader() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-border text-foreground"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -165,16 +166,38 @@ function DesktopDropdown({
   items,
   pathname,
   sectionActive,
+  columns = 1,
 }: {
   label: string
   items: { href: string; label: string }[]
   pathname: string
   sectionActive: boolean
+  columns?: number
 }) {
   const [hover, setHover] = useState(false)
+  const rows = Math.ceil(items.length / columns)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const openDropdown = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current)
+      closeTimer.current = null
+    }
+    setHover(true)
+  }
+
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(() => setHover(false), 200)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current)
+    }
+  }, [])
 
   return (
-    <div className="relative" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div className="relative" onMouseEnter={openDropdown} onMouseLeave={scheduleClose}>
       <button
         type="button"
         className={
@@ -188,8 +211,28 @@ function DesktopDropdown({
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${hover ? "rotate-180" : ""}`} />
       </button>
       {hover && (
-        <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3">
-          <div className="min-w-[260px] rounded-2xl border border-border bg-card/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
+        <div
+          className={
+            columns > 1
+              ? "absolute left-0 top-full z-50 pt-3"
+              : "absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3"
+          }
+        >
+          <div
+            className={
+              columns > 1
+                ? "grid grid-flow-col gap-x-6 gap-y-1 rounded-2xl border-2 border-border bg-card/95 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl"
+                : "min-w-[260px] rounded-2xl border-2 border-border bg-card/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl"
+            }
+            style={
+              columns > 1
+                ? {
+                    gridTemplateColumns: `repeat(${columns}, minmax(200px, 1fr))`,
+                    gridTemplateRows: `repeat(${rows}, auto)`,
+                  }
+                : undefined
+            }
+          >
             {items.map((item) => {
               const active = pathname === item.href || pathname.startsWith(item.href + "/")
               return (

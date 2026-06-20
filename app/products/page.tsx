@@ -36,23 +36,33 @@ export default function ProductsPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="px-5 pb-24 pt-20 sm:px-8">
-          <div className="mx-auto max-w-6xl text-center">
-            <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Our Products</h1>
-            <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
+        {/* Hero — title only */}
+        <section className="relative overflow-hidden px-5 py-10 sm:px-8 text-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/images/product-bg.png')" }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+          <div className="relative z-10 mx-auto max-w-6xl">
+            <h1 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-balance text-white sm:text-5xl md:text-6xl">Our Products</h1>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-white sm:text-base">
               Smart, secure, and scalable digital solutions for modern organizations.
             </p>
           </div>
+        </section>
 
-          <div className="mt-16 mb-10 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Hero Products</h2>
+        {/* Product grid */}
+        <section className="px-5 pb-16 pt-8 sm:px-8">
+          <div className="mt-6 mb-10 text-center">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-white md:text-4xl">Hero Products</h2>
           </div>
 
           <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <TiltCard key={product.title} intensity={8} className="rounded-2xl">
               <div
-                className="group card-glow rounded-2xl border border-border/60 bg-card/40 p-6 h-full"
+                className="group card-glow rounded-2xl border-2 border-white/60 bg-card/40 p-6 h-full"
               >
                 <div className="air-float-wrap relative flex h-48 items-center justify-center rounded-xl">
                   <Image
@@ -71,9 +81,9 @@ export default function ProductsPage() {
             ))}
           </div>
 
-          <div className="mx-auto mt-16 max-w-4xl text-center">
+          <div className="mx-auto mt-16 max-w-7xl text-center">
             <TiltCard intensity={4} className="rounded-3xl">
-              <div className="conic-border group relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-card to-card px-8 py-12">
+              <div className="conic-border group relative overflow-hidden rounded-3xl border border-white/60 bg-linear-to-br from-primary/15 via-card to-card px-8 py-12 transition-colors duration-300 hover:border-primary/60">
                 <h2 className="font-display text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
                   Explore Our Solutions!
                 </h2>

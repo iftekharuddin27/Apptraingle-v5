@@ -3,6 +3,7 @@
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero, ServiceCta } from "@/components/page-blocks"
+import Link from "next/link"
 import { ArrowUpRight, BadgeCheck, Cpu, Database, LayoutGrid, ShieldCheck, Sparkles, Users } from "lucide-react"
 import { TiltCard } from "@/components/tilt-card"
 import { StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
@@ -75,11 +76,14 @@ export default function CaseStudiesPage() {
           eyebrow="Our Experiences"
           title="Our"
           highlight="Experiences"
+          whiteHighlight
           description="Proven expertise across industries and technologies"
+          bgImage="/images/resources-bg.png"
+          bgFull
         />
 
         {/* Stats */}
-        <section className="pb-12">
+        <section className="pb-8">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <StaggerGroup
               className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
@@ -106,7 +110,7 @@ export default function CaseStudiesPage() {
                     className="h-full rounded-2xl"
                   >
                     <TiltCard intensity={15} className="h-full rounded-2xl">
-                      <div className="group relative h-full overflow-hidden rounded-2xl border border-primary/15 bg-card/60 p-7 text-center backdrop-blur-xl transition-all hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]">
+                      <div className="group relative h-full overflow-hidden rounded-2xl border border-white/60 bg-card/60 p-7 text-center backdrop-blur-xl transition-all hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(41,179,255,0.5)]">
                         <span
                           aria-hidden="true"
                           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -128,7 +132,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Case Studies heading */}
-        <section className="pb-10 pt-6">
+        <section className="pb-7 pt-5">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 text-center">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
               Case Studies
@@ -139,13 +143,13 @@ export default function CaseStudiesPage() {
           </div>
         </section>
 
-        <section className="pb-24">
+        <section className="pb-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-5 sm:grid-cols-2">
               {studies.map((s, i) => (
                 <TiltCard key={i} intensity={8} className="rounded-2xl">
                 <article
-                  className="card-glow flex flex-col rounded-2xl border border-border p-7 h-full transition-colors hover:border-primary/40"
+                  className="card-glow flex flex-col rounded-2xl border-2 border-white/60 p-7 h-full transition-colors hover:border-primary/40"
                 >
                   <h2 className="font-display text-xl font-semibold leading-tight text-primary">
                     {s.title}
@@ -155,10 +159,52 @@ export default function CaseStudiesPage() {
                   <Block label="Solution" value={s.solution} />
                   <Block label="Impact" value={s.impact} variant="impact" />
 
-                  <span className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
-                    Read Full Story
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
-                  </span>
+                  {i === 0 ? (
+                    <Link href="/case-studies/project-and-task-management" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : i === 1 ? (
+                    <Link href="/case-studies/guest-management-system" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : i === 2 ? (
+                    <Link href="/case-studies/staff-augmentation" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : i === 3 ? (
+                    <Link href="/case-studies/icewarp-right-sized-email" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : i === 5 ? (
+                    <Link href="/case-studies/ticketing-system" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : i === 6 ? (
+                    <Link href="/case-studies/document-processing-system" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : i === 7 ? (
+                    <Link href="/case-studies/document-management-system" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : i === 8 ? (
+                    <Link href="/case-studies/unified-ops" className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </Link>
+                  ) : (
+                    <span className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Full Story
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                    </span>
+                  )}
                 </article>
                 </TiltCard>
               ))}
@@ -166,7 +212,7 @@ export default function CaseStudiesPage() {
           </div>
         </section>
 
-        <section className="pb-24">
+        <section className="pb-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="text-center">
               <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -181,7 +227,7 @@ export default function CaseStudiesPage() {
                 return (
                   <TiltCard key={card.title} intensity={10} className="rounded-2xl">
                   <div
-                    className="flex min-h-30 flex-col items-center justify-center rounded-2xl border border-primary/15 bg-card/60 px-6 py-5 text-center backdrop-blur transition-colors hover:border-primary/40"
+                    className="flex min-h-30 flex-col items-center justify-center rounded-2xl border border-white/60 bg-card/60 px-6 py-5 text-center backdrop-blur transition-colors hover:border-primary/40"
                   >
                     <Icon className="h-8 w-8 text-primary" />
                     <h3 className="mt-3 font-semibold text-foreground">{card.title}</h3>
@@ -194,7 +240,7 @@ export default function CaseStudiesPage() {
           </div>
         </section>
 
-        <section className="pb-24">
+        <section className="pb-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="text-center">
               <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -207,7 +253,7 @@ export default function CaseStudiesPage() {
               {certifications.map((cert) => (
                 <TiltCard key={cert} intensity={10} className="h-full rounded-2xl">
                 <div
-                  className="flex h-full items-center justify-center rounded-2xl border border-primary/15 bg-card/60 px-4 py-5 text-center text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-primary/40"
+                  className="flex h-full items-center justify-center rounded-2xl border border-white/60 bg-card/60 px-4 py-5 text-center text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-primary/40"
                 >
                   {cert}
                 </div>

@@ -6,7 +6,6 @@ import { ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { PageHero } from "@/components/page-blocks"
-import { CtaSection } from "@/components/home-sections"
 import { TiltCard } from "@/components/tilt-card"
 
 import newsThree from "../../Images/News and Events Images/285a31ee0fbd58dcc2e7b7ad99c0fdf7.jpg"
@@ -23,6 +22,7 @@ const news = [
     title: "Apptriangle Featured on News24 TV",
     image: newsImageOne,
     desc: "We are a leading technology service company dedicated to empowering businesses and organizations with cutting-edge solutions.",
+    href: "https://youtu.be/WgJBB3ORjTc?si=xZFWUv3FwBhUBBmp",
   },
   {
     tag: "Launch",
@@ -70,16 +70,19 @@ export default function NewsPage() {
           eyebrow="News & Events"
           title="News &"
           highlight="Events"
+          whiteHighlight
           description="Stay updated with our latest announcements and company news"
+          bgImage="/images/resources-bg.png"
+          bgFull
         />
 
-        <section className="pb-24">
+        <section className="pb-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {news.map((n) => (
                 <TiltCard key={n.title} intensity={8} className="rounded-2xl">
                 <article
-                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors hover:border-primary/40 h-full"
+                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border-2 border-white/60 transition-colors hover:border-primary/40 h-full"
                 >
                   <div className="air-float-wrap relative h-48 w-full overflow-hidden border-b border-white/10">
                     <Image src={n.image} alt={n.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -98,7 +101,9 @@ export default function NewsPage() {
                     </h3>
                     <p className="mt-2 text-sm text-muted-foreground">{n.desc}</p>
                     <Link
-                      href="/contact-us"
+                      href={n.href ?? "/contact-us"}
+                      target={n.href ? "_blank" : undefined}
+                      rel={n.href ? "noopener noreferrer" : undefined}
                       className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary"
                     >
                       Read More{" "}
@@ -112,7 +117,6 @@ export default function NewsPage() {
           </div>
         </section>
 
-        <CtaSection />
       </main>
       <SiteFooter />
     </>
