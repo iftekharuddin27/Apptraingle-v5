@@ -60,7 +60,7 @@ export const services = [
   },
   {
     slug: "ai-ml-solutions",
-    title: "AI/ML Solutions",
+    title: "AI & ML Solutions",
     short:
       "Bring intelligence to your business with custom AI and Machine Learning solutions for prediction, automation, and decision support.",
     description:

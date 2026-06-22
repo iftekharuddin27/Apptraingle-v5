@@ -1,0 +1,18 @@
+/* Animations for the join illustration (see join-illustration.tsx) */
+
+/* the message box's highlighted lines draw in from the left, then reset, on a loop */
+@keyframes jn-line-draw {
+  0% { transform: scaleX(0); opacity: 0; }
+  40% { transform: scaleX(1); opacity: 1; }
+  80%, 100% { transform: scaleX(1); opacity: 1; }
+}
+
+.jn-line {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: jn-line-draw 2.4s ease-in-out infinite;
+}
+
+.jn-line-2 {
+  animation-delay: 0.3s;
+}

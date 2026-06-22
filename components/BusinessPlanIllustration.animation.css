@@ -1,0 +1,31 @@
+/* Animations for the business-plan illustration (see business-plan-illustration.tsx) */
+
+/* bar chart bars fade out and come back in, one at a time, in sequence */
+@keyframes bp-bar-fade-1 {
+  0% { opacity: 1; }
+  12.5% { opacity: 0; }
+  25%, 100% { opacity: 1; }
+}
+
+@keyframes bp-bar-fade-2 {
+  0%, 25% { opacity: 1; }
+  37.5% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+@keyframes bp-bar-fade-3 {
+  0%, 50% { opacity: 1; }
+  62.5% { opacity: 0; }
+  75%, 100% { opacity: 1; }
+}
+
+@keyframes bp-bar-fade-4 {
+  0%, 75% { opacity: 1; }
+  87.5% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.bp-bar-1 { animation: bp-bar-fade-1 4.8s ease-in-out infinite; }
+.bp-bar-2 { animation: bp-bar-fade-2 4.8s ease-in-out infinite; }
+.bp-bar-3 { animation: bp-bar-fade-3 4.8s ease-in-out infinite; }
+.bp-bar-4 { animation: bp-bar-fade-4 4.8s ease-in-out infinite; }

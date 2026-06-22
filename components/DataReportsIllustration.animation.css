@@ -1,0 +1,133 @@
+/* Animations for the data-reports illustration (see data-reports-illustration.tsx) */
+
+@keyframes dr-fade-in-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dr-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18); opacity: 0.85; }
+}
+
+@keyframes dr-draw-wave {
+  from { opacity: 0; transform: scaleX(0.85); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+
+/* gentle continuous up-and-down undulation */
+@keyframes dr-wave-move {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  25% { transform: translateY(-3px) scaleY(1.03); }
+  50% { transform: translateY(0) scaleY(1); }
+  75% { transform: translateY(3px) scaleY(0.97); }
+}
+
+/* dots on the wave act like little "message" pings: all appear and fade together */
+@keyframes dr-message {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* dash bars fade out and back in */
+@keyframes dr-fade-loop {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* toggle knob inside each pill cycles between white and blue */
+@keyframes dr-pointer-color {
+  0%, 100% { fill: #ffffff; }
+  50% { fill: #3a80ff; }
+}
+
+/* slow, gentle head nod */
+@keyframes dr-nod {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(2deg); }
+}
+
+.dr-root {
+  animation: dr-fade-in-up 0.7s ease-out both;
+}
+
+.dr-chart-card {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.dr-wave-path {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation:
+    dr-draw-wave 1.4s ease-out both,
+    dr-wave-move 3.5s ease-in-out 1.4s infinite;
+}
+
+.dr-dot-1,
+.dr-dot-2,
+.dr-dot-3 {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: dr-message 3s ease-in-out infinite;
+}
+
+.dr-stat-card-1,
+.dr-stat-card-2,
+.dr-stat-card-3 {
+  animation: dr-fade-in-up 0.6s ease-out both;
+}
+.dr-stat-card-2 { animation-delay: 0.15s; }
+.dr-stat-card-3 { animation-delay: 0.3s; }
+
+.dr-badge-1,
+.dr-badge-2,
+.dr-badge-3 {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: dr-pulse 2.8s ease-in-out infinite;
+}
+.dr-badge-2 { animation-delay: 0.4s; }
+.dr-badge-3 { animation-delay: 0.8s; }
+
+.dr-dash-1,
+.dr-dash-2,
+.dr-dash-3 {
+  animation: dr-fade-loop 2.6s ease-in-out infinite;
+}
+.dr-dash-2 { animation-delay: 0.3s; }
+.dr-dash-3 { animation-delay: 0.6s; }
+
+.dr-pill-top {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.dr-pill-bottom {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+/* the toggle knob ("pointer") inside each pill */
+.dr-pointer {
+  animation: dr-pointer-color 2.4s ease-in-out infinite;
+}
+
+.dr-tag {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.dr-person-right {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+/* head + hair nod gently while the rest of the body stays still */
+.dr-person-head {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: dr-nod 6s ease-in-out infinite;
+}

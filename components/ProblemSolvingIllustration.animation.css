@@ -1,0 +1,23 @@
+/* Animations for the problem-solving illustration (see problem-solving-illustration.tsx) */
+
+/* circles fade out and come back in */
+@keyframes ps-circle-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ps-circle-2,
+.ps-circle-3,
+.ps-circle-4,
+.ps-circle-5,
+.ps-circle-6,
+.ps-circle-7 {
+  animation: ps-circle-fade 2.6s ease-in-out infinite;
+}
+
+.ps-circle-2 { animation-delay: 0.2s; }
+.ps-circle-3 { animation-delay: 0.4s; }
+.ps-circle-4 { animation-delay: 0.6s; }
+.ps-circle-5 { animation-delay: 0.8s; }
+.ps-circle-6 { animation-delay: 1s; }
+.ps-circle-7 { animation-delay: 1.2s; }

@@ -1,0 +1,49 @@
+/* Animations for the wireframing illustration (see wireframing-illustration.tsx) */
+
+/* dash lines fade out and come back in */
+@keyframes wf-dash-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.wf-dash-1,
+.wf-dash-2,
+.wf-dash-3 {
+  animation: wf-dash-fade 2.6s ease-in-out infinite;
+}
+
+.wf-dash-2 { animation-delay: 0.2s; }
+.wf-dash-3 { animation-delay: 0.4s; }
+
+.wf-square-1,
+.wf-square-2,
+.wf-square-3 {
+  animation: wf-dash-fade 2.6s ease-in-out infinite;
+}
+
+.wf-square-2 { animation-delay: 0.2s; }
+.wf-square-3 { animation-delay: 0.4s; }
+
+/* blue circles blink continuously */
+@keyframes wf-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.wf-circle-1,
+.wf-circle-2 {
+  animation: wf-blink 1.4s steps(1, jump-none) infinite;
+}
+
+/* hand holding the pen moves in a small, continuous writing motion */
+@keyframes wf-pen-write {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+.wf-pen-hand {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: wf-pen-write 1.2s ease-in-out infinite;
+}

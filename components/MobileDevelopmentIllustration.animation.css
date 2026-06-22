@@ -1,0 +1,39 @@
+/* Animations for the mobile-development illustration (see mobile-development-illustration.tsx) */
+
+/* gentle side-to-side sway, like a breeze moving leaves */
+@keyframes md-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+.md-plant-left,
+.md-plant-right {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: md-sway 2s ease-in-out infinite;
+}
+
+.md-plant-right {
+  animation-delay: 0.4s;
+}
+
+/* dash lines fade out and come back in, staying clearly visible */
+@keyframes md-dash-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.md-dash-1,
+.md-dash-2,
+.md-dash-3,
+.md-dash-4,
+.md-dash-5,
+.md-dash-6 {
+  animation: md-dash-fade 2s ease-in-out infinite;
+}
+
+.md-dash-2 { animation-delay: 0.15s; }
+.md-dash-3 { animation-delay: 0.3s; }
+.md-dash-4 { animation-delay: 0.45s; }
+.md-dash-5 { animation-delay: 0.6s; }
+.md-dash-6 { animation-delay: 0.75s; }

@@ -1,0 +1,25 @@
+/* Animations for the ai-agent illustration (see ai-agent-illustration.tsx) */
+
+/* text content on the pc screen fades out and comes back in */
+@keyframes aa-text-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.aa-text-content {
+  animation: aa-text-fade 2.6s ease-in-out infinite;
+}
+
+/* brain icon pops up and settles back, continuously */
+@keyframes aa-brain-pop {
+  0% { transform: scale(1); }
+  10% { transform: scale(1.25); }
+  20% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+.aa-brain {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: aa-brain-pop 3s ease-in-out infinite;
+}

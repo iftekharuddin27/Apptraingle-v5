@@ -1,6 +1,25 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import type { LucideIcon } from "lucide-react"
+import type { ReactNode } from "react"
+import ServerStatusIllustration from "@/components/server-status-illustration"
+import DataReportsIllustration from "@/components/data-reports-illustration"
+import AiCodeAssistantIllustration from "@/components/ai-code-assistant-illustration"
+import MobileDevelopmentIllustration from "@/components/mobile-development-illustration"
+import WireframingIllustration from "@/components/wireframing-illustration"
+import DataCollaborationIllustration from "@/components/data-collaboration-illustration"
+import ProblemSolvingIllustration from "@/components/problem-solving-illustration"
+import BusinessPlanIllustration from "@/components/business-plan-illustration"
+import DataProcessingIllustration from "@/components/data-processing-illustration"
+import ExperienceDesignIllustration from "@/components/experience-design-illustration"
+import MobileUxIllustration from "@/components/mobile-ux-illustration"
+import AiAgentIllustration from "@/components/ai-agent-illustration"
+import AiDataExtractionIllustration from "@/components/ai-data-extraction-illustration"
+import LightbulbMomentIllustration from "@/components/lightbulb-moment-illustration"
+import OnlineStatsIllustration from "@/components/online-stats-illustration"
+import AiAnswersIllustration from "@/components/ai-answers-illustration"
+import JoinIllustration from "@/components/join-illustration"
+import SegmentAnalysisIllustration from "@/components/segment-analysis-illustration"
 import {
   Activity,
   AlertTriangle,
@@ -56,7 +75,7 @@ type ServiceContent = {
   eyebrow: string
   heroTitle: string
   heroHighlight: string
-  heroDesc: string
+  heroDesc: ReactNode
   benefitsTitle: string
   benefits: BenefitItem[]
   approachTitle: string
@@ -72,8 +91,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Managed IT Services",
     heroTitle: "End-to-End Management of Your",
     heroHighlight: "IT Infrastructure.",
-    heroDesc:
-      "Focus on your business while we handle your IT operations. Our Managed IT Services ensure your systems run smoothly, securely, and reliably.",
+    heroDesc: (
+      <>
+        Focus on your business while we handle your IT operations. Our <strong>Managed IT Services</strong> ensure your systems run smoothly, securely, and reliably.
+      </>
+    ),
     benefitsTitle: "Comprehensive IT Support Benefits",
     benefits: [
       { title: "24/7 IT support and monitoring", desc: "Round-the-clock coverage from our global team.", icon: Clock },
@@ -94,8 +116,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Staff Augmentation",
     heroTitle: "Scale Your Team with",
     heroHighlight: "Skilled IT Professionals.",
-    heroDesc:
-      "Extend your in-house capabilities with Apptriangle's Staff Augmentation services. We provide highly qualified developers, engineers, and IT specialists who seamlessly integrate with your team to accelerate project delivery.",
+    heroDesc: (
+      <>
+        Extend your in-house capabilities with <strong>Apptriangle&apos;s Staff Augmentation</strong> services. We provide highly qualified developers, engineers, and IT specialists who seamlessly integrate with your team to accelerate project delivery.
+      </>
+    ),
     benefitsTitle: "Benefits of Team Scaling",
     benefits: [
       { title: "Flexible team scaling", desc: "Teams can be scaled to match project requirements. This allows for efficient resource allocation.", icon: Users },
@@ -116,8 +141,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Business and Process Automation",
     heroTitle: "Streamline Your Operations with",
     heroHighlight: "Intelligent Automation.",
-    heroDesc:
-      "At Apptriangle, we help businesses eliminate repetitive tasks, reduce human error, and improve operational efficiency through advanced Business Process Automation (BPA).",
+    heroDesc: (
+      <>
+        At <strong>Apptriangle</strong>, we help businesses eliminate repetitive tasks, reduce human error, and improve operational efficiency through advanced <strong>Business Process Automation (BPA)</strong>. By leveraging smart workflows, AI, and integration tools, we enable organizations to focus on strategic growth rather than manual processes.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Increased Efficiency", desc: "Automate repetitive tasks and free up your team to focus on high-value work.", icon: Zap },
@@ -127,10 +155,10 @@ const content: Record<string, ServiceContent> = {
     ],
     approachTitle: "How We Do It",
     steps: [
-      { title: "Process Assessment", icon: Search },
-      { title: "Solution Design", icon: Settings },
-      { title: "Implementation & Testing", icon: Workflow },
-      { title: "Monitoring & Optimization", icon: RefreshCw },
+      { title: "Process Assessment", desc: "Analyze your existing workflows to identify automation opportunities.", icon: Search },
+      { title: "Solution Design", desc: "Create a tailored automation strategy that integrates seamlessly with your systems.", icon: Settings },
+      { title: "Implementation & Testing", desc: "Deploy automated workflows with thorough testing to ensure reliability.", icon: Workflow },
+      { title: "Monitoring & Optimization", desc: "Continuously monitor performance and refine automation for maximum impact.", icon: RefreshCw },
     ],
     cta: "Ready to optimize your operations?",
   },
@@ -138,8 +166,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Web & Mobile App Development",
     heroTitle: "Build Scalable and User-Centric",
     heroHighlight: "Applications",
-    heroDesc:
-      "Deliver exceptional digital experiences with Web & Mobile App Development services. From responsive web apps to cross-platform mobile solutions, we help your business reach users everywhere.",
+    heroDesc: (
+      <>
+        Deliver exceptional digital experiences with <strong>Web &amp; Mobile App Development</strong> services. From responsive web apps to cross-platform mobile solutions, we help your business reach users everywhere.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Custom, responsive, and scalable apps", icon: Layers },
@@ -160,8 +191,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Power Platform Development",
     heroTitle: "Build Custom Apps, Automate",
     heroHighlight: "Workflows, and Visualize Data",
-    heroDesc:
-      "Leverage Microsoft Power Platform to create tailored business apps, automate processes, and gain actionable insights from your data. Our solutions help you streamline operations and improve decision-making.",
+    heroDesc: (
+      <>
+        Leverage <strong>Microsoft Power Platform</strong> to create tailored business apps, automate processes, and gain actionable insights from your data. Our solutions help you streamline operations and improve decision-making.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Rapid application development with low-code tools", icon: Zap },
@@ -182,8 +216,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Technology Consulting",
     heroTitle: "Strategic Guidance for",
     heroHighlight: "Business-Driven Technology.",
-    heroDesc:
-      "Align your technology initiatives with business objectives through Technology Consulting. Our experts provide insights, strategies, and roadmaps to maximize the impact of your IT investments.",
+    heroDesc: (
+      <>
+        Align your technology initiatives with business objectives through <strong>Technology Consulting</strong>. Our experts provide insights, strategies, and roadmaps to maximize the impact of your IT investments.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Identify technology opportunities and risks", icon: AlertTriangle },
@@ -204,8 +241,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "MVP Development",
     heroTitle: "Validate Your Ideas Quickly with a",
     heroHighlight: "Functional MVP",
-    heroDesc:
-      "Bring your business ideas to market faster with MVP Development. Test assumptions, get feedback, and iterate efficiently to reduce risks and costs.",
+    heroDesc: (
+      <>
+        Bring your business ideas to market faster with <strong>MVP Development</strong>. Test assumptions, get feedback, and iterate efficiently to reduce risks and costs.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Faster product launch and market validation", icon: Rocket },
@@ -226,8 +266,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "AI & Machine Learning Solutions",
     heroTitle: "Unlock Intelligent Insights with",
     heroHighlight: "AI & Machine Learning",
-    heroDesc:
-      "At Apptriangle, we harness the power of Artificial Intelligence (AI) and Machine Learning (ML) to help businesses make smarter decisions, automate processes, and predict outcomes with precision. Our solutions transform raw data into actionable insights, enabling organizations to innovate faster and stay ahead of the competition.",
+    heroDesc: (
+      <>
+        At <strong>Apptriangle</strong>, we harness the power of <strong>Artificial Intelligence (AI)</strong> and <strong>Machine Learning (ML)</strong> to help businesses make smarter decisions, automate processes, and predict outcomes with precision. Our solutions transform raw data into actionable insights, enabling organizations to innovate faster and stay ahead of the competition.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Predictive analytics", desc: "Anticipate trends, customer behavior, and market shifts with data-driven forecasts.", icon: LineChart },
@@ -248,8 +291,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Business Intelligence & Analytics",
     heroTitle: "Turn Data into",
     heroHighlight: "Actionable Insights",
-    heroDesc:
-      "Make informed decisions with Business Intelligence & Analytics solutions that visualize data, track performance, and uncover growth opportunities.",
+    heroDesc: (
+      <>
+        Make informed decisions with <strong>Business Intelligence &amp; Analytics</strong> solutions. Visualize data, track performance, and identify opportunities to drive growth.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Centralized dashboards for real-time monitoring", icon: BarChart3 },
@@ -270,8 +316,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Chatbot Development",
     heroTitle: "Enhance Customer Engagement with",
     heroHighlight: "Smart AI Chatbots",
-    heroDesc:
-      "Deliver instant, 24/7 support and improve customer experiences with AI-powered chatbots tailored to your business needs.",
+    heroDesc: (
+      <>
+        Deliver instant, 24/7 support and improve customer experiences with AI-powered <strong>chatbots</strong> tailored to your business needs.
+      </>
+    ),
     benefitsTitle: "Benefits",
     benefits: [
       { title: "Automate customer support and inquiries", icon: Bot },
@@ -292,8 +341,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Cybersecurity Services",
     heroTitle: "Protect Your Business with",
     heroHighlight: "Proactive Cybersecurity",
-    heroDesc:
-      "At Apptriangle, we provide comprehensive Cybersecurity Services to safeguard your business against evolving digital threats.",
+    heroDesc: (
+      <>
+        At <strong>Apptriangle</strong>, we provide comprehensive <strong>Cybersecurity Services</strong> to safeguard your business against evolving digital threats. From in-depth security assessments to robust protection strategies, we ensure your systems, data, and networks are secure, compliant, and resilient.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Security Assessment & Audits", desc: "Identify vulnerabilities and potential threats before they become risks.", icon: ShieldCheck },
@@ -316,8 +368,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Email & Collaboration Solutions",
     heroTitle: "Empower Teams with",
     heroHighlight: "Modern Communication Tools",
-    heroDesc:
-      "Enhance productivity and collaboration with secure, scalable Email & Collaboration Solutions for teams of all sizes.",
+    heroDesc: (
+      <>
+        Enhance productivity and collaboration with secure, scalable <strong>Email &amp; Collaboration Solutions</strong> for teams of all sizes.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Cloud-based email and file sharing", icon: Cloud },
@@ -338,8 +393,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "SSL Certificates",
     heroTitle: "Build Trust with",
     heroHighlight: "Encrypted, Secure Connections",
-    heroDesc:
-      "Protect your website and sensitive data with SSL & Security Certificates that ensure secure communication and compliance.",
+    heroDesc: (
+      <>
+        Protect your website and sensitive data with <strong>SSL &amp; Security Certificates</strong>. Ensure secure communication between your users and systems.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Encrypt sensitive data transmission", icon: Lock },
@@ -360,8 +418,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Document Management Solutions (DMS)",
     heroTitle: "Secure, Organize, and Automate",
     heroHighlight: "Document Workflows",
-    heroDesc:
-      "Streamline document storage, access, and collaboration with DMS solutions that keep data secure, organized, and compliant.",
+    heroDesc: (
+      <>
+        Streamline document storage, access, and collaboration with <strong>DMS solutions</strong>. Keep your data secure, organized, and compliant.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Centralized document repository", icon: Folder },
@@ -382,8 +443,11 @@ const content: Record<string, ServiceContent> = {
     eyebrow: "Software Licensing & Reselling",
     heroTitle: "Authorized Software Licensing",
     heroHighlight: "and Expert Implementation",
-    heroDesc:
-      "As a trusted partner of Microsoft, Zoho, IceWarp, DigiCert, and many more, Apptriangle provides end-to-end software licensing solutions.",
+    heroDesc: (
+      <>
+        As a trusted partner of <strong>Microsoft, Zoho, IceWarp, DigiCert</strong>, and many more, <strong>Apptriangle</strong> provides end-to-end software licensing solutions. Whether you need to purchase licenses, implement them, or require ongoing support, we ensure a seamless and reliable experience for your business.
+      </>
+    ),
     benefitsTitle: "Key Benefits",
     benefits: [
       { title: "Authorized Licensing", desc: "Purchase software from certified vendors with confidence.", icon: BadgeCheck },
@@ -461,7 +525,7 @@ const serviceMedia: Record<string, ServiceMedia> = {
   },
   "chatbot-development": {
     hero: "/images/services/chatbot-development/undraw_ai-answers_uxgx.svg",
-    benefits: "/images/services/chatbot-development/undraw_ai-chat_ljb9.svg",
+    benefits: "/images/services/chatbot-development/undraw_join_niai.svg",
     fit: "contain",
   },
   "cybersecurity-services": {
@@ -500,35 +564,39 @@ function getServiceMedia(slug: string) {
   return serviceMedia[slug as keyof typeof serviceMedia] ?? defaultMedia
 }
 
-function HeroSplit({ title, highlight, description, image, fit = "cover", imagePadding = "p-6" }: { title: string; highlight: string; description: string; image: string; fit?: "cover" | "contain"; imagePadding?: string }) {
+function HeroSplit({ title, highlight, description, image, fit = "cover", imagePadding = "p-6", illustration }: { title: string; highlight: string; description: ReactNode; image: string; fit?: "cover" | "contain"; imagePadding?: string; illustration?: ReactNode }) {
   return (
     <section className="relative overflow-hidden">
       <div className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-8 pt-12 sm:px-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
           <h1 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl">
             {title} {" "}
-            <span className="text-primary">{highlight}</span>
+            <span className="text-white">{highlight}</span>
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             {description}
           </p>
         </div>
         <div className="relative min-h-[300px] overflow-hidden rounded-2xl border-2 border-transparent bg-card/40 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-          <Image src={image} alt="Service visual" fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? `object-contain ${imagePadding}` : "object-cover"} />
+          {illustration ?? (
+            <Image src={image} alt="Service visual" fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? `object-contain ${imagePadding}` : "object-cover"} />
+          )}
         </div>
       </div>
     </section>
   )
 }
 
-function BenefitsImageList({ title, image, items, fit = "cover" }: { title: string; image: string; items: BenefitItem[]; fit?: "cover" | "contain" }) {
+function BenefitsImageList({ title, image, items, fit = "cover", illustration }: { title: string; image: string; items: BenefitItem[]; fit?: "cover" | "contain"; illustration?: ReactNode }) {
   return (
     <section className="py-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <h2 className="text-left text-lg font-semibold text-foreground sm:text-xl">{title}</h2>
+        <h2 className="font-display text-left text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl">{title}</h2>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div className="relative min-h-[300px] overflow-hidden rounded-2xl border-2 border-transparent bg-card/40">
-            <Image src={image} alt={title} fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? "object-contain p-6" : "object-cover"} />
+            {illustration ?? (
+              <Image src={image} alt={title} fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? "object-contain p-6" : "object-cover"} />
+            )}
           </div>
           <div className="space-y-4">
             {items.map((item) => (
@@ -553,7 +621,7 @@ function BenefitsCardsGrid({ title, items }: { title: string; items: StepItem[] 
   return (
     <section className="py-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <h2 className="text-center text-lg font-semibold text-foreground sm:text-xl">{title}</h2>
+        <h2 className="font-display text-center text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl">{title}</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => {
             const Icon = item.icon
@@ -599,12 +667,54 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           image={media.hero}
           fit={media.fit}
           imagePadding={media.heroImagePadding}
+          illustration={
+            slug === "business-process-automation" ? (
+              <AiCodeAssistantIllustration />
+            ) : slug === "app-development" ? (
+              <MobileDevelopmentIllustration />
+            ) : slug === "power-platform" ? (
+              <DataCollaborationIllustration />
+            ) : slug === "technology-consulting" ? (
+              <BusinessPlanIllustration />
+            ) : slug === "mvp-development" ? (
+              <ExperienceDesignIllustration />
+            ) : slug === "ai-ml-solutions" ? (
+              <AiAgentIllustration />
+            ) : slug === "business-analytics" ? (
+              <LightbulbMomentIllustration />
+            ) : slug === "chatbot-development" ? (
+              <AiAnswersIllustration />
+            ) : undefined
+          }
         />
         <BenefitsImageList
           title={data.benefitsTitle}
           image={media.benefits}
           items={data.benefits}
           fit={media.fit}
+          illustration={
+            slug === "managed-it-services" ? (
+              <ServerStatusIllustration />
+            ) : slug === "business-process-automation" ? (
+              <DataReportsIllustration />
+            ) : slug === "app-development" ? (
+              <WireframingIllustration />
+            ) : slug === "power-platform" ? (
+              <ProblemSolvingIllustration />
+            ) : slug === "technology-consulting" ? (
+              <DataProcessingIllustration />
+            ) : slug === "mvp-development" ? (
+              <MobileUxIllustration />
+            ) : slug === "ai-ml-solutions" ? (
+              <AiDataExtractionIllustration />
+            ) : slug === "business-analytics" ? (
+              <OnlineStatsIllustration />
+            ) : slug === "chatbot-development" ? (
+              <JoinIllustration />
+            ) : slug === "staff-augmentation" ? (
+              <SegmentAnalysisIllustration />
+            ) : undefined
+          }
         />
         <BenefitsCardsGrid title={data.approachTitle} items={data.steps} />
         <ServiceCta title={data.cta} />

@@ -1,0 +1,18 @@
+/* Animations for the data-collaboration illustration (see data-collaboration-illustration.tsx) */
+
+/* bar chart bars fade out and come back in, one after another */
+@keyframes dc-bar-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.dc-bar-1,
+.dc-bar-2,
+.dc-bar-3,
+.dc-bar-4 {
+  animation: dc-bar-fade 2.4s ease-in-out infinite;
+}
+
+.dc-bar-2 { animation-delay: 0.3s; }
+.dc-bar-3 { animation-delay: 0.6s; }
+.dc-bar-4 { animation-delay: 0.9s; }

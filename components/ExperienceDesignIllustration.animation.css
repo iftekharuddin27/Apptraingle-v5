@@ -1,0 +1,16 @@
+/* Animations for the experience-design illustration (see experience-design-illustration.tsx) */
+
+/* the three main writing-content lines fade out and come back in */
+@keyframes ed-text-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ed-text-1,
+.ed-text-2,
+.ed-text-3 {
+  animation: ed-text-fade 2.6s ease-in-out infinite;
+}
+
+.ed-text-2 { animation-delay: 0.2s; }
+.ed-text-3 { animation-delay: 0.4s; }

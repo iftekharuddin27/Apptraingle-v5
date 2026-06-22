@@ -1,0 +1,12 @@
+/* Animations for the ai-data-extraction illustration (see ai-data-extraction-illustration.tsx) */
+
+/* every circle fades out and comes back in, except the 3 blue pointer dots
+   and the static badge/background circles (.ade-static) */
+@keyframes ade-circle-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ade-root circle:not(.ade-pointer):not(.ade-static) {
+  animation: ade-circle-fade 5s ease-in-out infinite;
+}

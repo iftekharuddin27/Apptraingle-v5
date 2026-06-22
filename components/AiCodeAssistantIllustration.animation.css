@@ -1,0 +1,40 @@
+/* Animations for the ai-code-assistant illustration (see ai-code-assistant-illustration.tsx) */
+
+/* dash lines fade out and come back in, gently */
+@keyframes aca-fade-gentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* the avatar's inner node spins continuously */
+@keyframes aca-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.aca-node {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: aca-spin 6s linear infinite;
+}
+
+.aca-dash-1,
+.aca-dash-2,
+.aca-dash-3,
+.aca-dash-4,
+.aca-dash-5,
+.aca-dash-6,
+.aca-dash-7,
+.aca-dash-8,
+.aca-dash-9 {
+  animation: aca-fade-gentle 3.2s ease-in-out infinite;
+}
+
+.aca-dash-2 { animation-delay: 0.15s; }
+.aca-dash-3 { animation-delay: 0.3s; }
+.aca-dash-4 { animation-delay: 0.45s; }
+.aca-dash-5 { animation-delay: 0.6s; }
+.aca-dash-6 { animation-delay: 0.75s; }
+.aca-dash-7 { animation-delay: 0.9s; }
+.aca-dash-8 { animation-delay: 1.05s; }
+.aca-dash-9 { animation-delay: 1.2s; }

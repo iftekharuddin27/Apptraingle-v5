@@ -1,0 +1,11 @@
+/* Animations for the mobile-ux illustration (see mobile-ux-illustration.tsx) */
+
+/* the phone screen fades out and comes back in */
+@keyframes mu-screen-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.mu-screen {
+  animation: mu-screen-fade 2.6s ease-in-out infinite;
+}

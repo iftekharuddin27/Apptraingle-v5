@@ -1,0 +1,18 @@
+/* Animations for the online-stats illustration (see online-stats-illustration.tsx) */
+
+/* the blue lines inside the card draw in from the left, then reset, on a loop */
+@keyframes os-line-draw {
+  0% { transform: scaleX(0); opacity: 0; }
+  40% { transform: scaleX(1); opacity: 1; }
+  80%, 100% { transform: scaleX(1); opacity: 1; }
+}
+
+.os-line {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: os-line-draw 2.4s ease-in-out infinite;
+}
+
+.os-line-2 { animation-delay: 0.2s; }
+.os-line-3 { animation-delay: 0.4s; }
+.os-line-4 { animation-delay: 0.6s; }
