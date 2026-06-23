@@ -1,11 +1,20 @@
 /* Animations for the mobile-ux illustration (see mobile-ux-illustration.tsx) */
 
-/* the phone screen fades out and comes back in */
-@keyframes mu-screen-fade {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+/* the phone screen's content (icons, cards, text lines) fades out and comes back in, one group at a time */
+@keyframes mu-content-fade {
+  0%, 18% { opacity: 0; }
+  35%, 75% { opacity: 1; }
+  95%, 100% { opacity: 0; }
 }
 
-.mu-screen {
-  animation: mu-screen-fade 2.6s ease-in-out infinite;
+.mu-content {
+  animation: mu-content-fade 7s ease-in-out infinite;
+}
+
+.mu-content-2 {
+  animation-delay: 2.3s;
+}
+
+.mu-content-3 {
+  animation-delay: 4.6s;
 }

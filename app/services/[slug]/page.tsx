@@ -474,6 +474,7 @@ type ServiceMedia = {
   approach?: string
   fit?: "cover" | "contain"
   heroImagePadding?: string
+  benefitsImagePadding?: string
 }
 
 const serviceMedia: Record<string, ServiceMedia> = {
@@ -481,7 +482,7 @@ const serviceMedia: Record<string, ServiceMedia> = {
     hero: "/images/services/Staff Augmentation/undraw_collaboration_hkrb.svg",
     benefits: "/images/services/Staff Augmentation/undraw_segment-analysis_cl30.svg",
     fit: "contain",
-    heroImagePadding: "p-2",
+    heroImagePadding: "p-0",
   },
   "managed-it-services": {
     hero: "/images/services/managed-it-services/undraw_business-decisions_7vkl.svg",
@@ -537,21 +538,29 @@ const serviceMedia: Record<string, ServiceMedia> = {
     hero: "/images/services/email-collaboration/undraw_cloud-sync_h1ig.svg",
     benefits: "/images/services/email-collaboration/undraw_email-campaign_2z6t.svg",
     fit: "contain",
+    heroImagePadding: "p-0",
+    benefitsImagePadding: "p-0",
   },
   "ssl-certificates": {
     hero: "/images/services/ssl-certificates/undraw_mobile-log-in_0n4q.svg",
     benefits: "/images/services/ssl-certificates/undraw_security_0ubl.svg",
     fit: "contain",
+    heroImagePadding: "p-0",
+    benefitsImagePadding: "p-0",
   },
   "document-management": {
     hero: "/images/services/document-management/undraw_ai-generated-document_ykb4.svg",
     benefits: "/images/services/document-management/undraw_file-bundle_oaof.svg",
     fit: "contain",
+    heroImagePadding: "p-0",
+    benefitsImagePadding: "p-0",
   },
   "software-licensing": {
     hero: "/images/services/software-licensing/undraw_analytics-setup_ptrz.svg",
     benefits: "/images/services/software-licensing/undraw_certification_oqiz.svg",
     fit: "contain",
+    heroImagePadding: "p-0",
+    benefitsImagePadding: "p-0",
   },
 }
 
@@ -587,7 +596,7 @@ function HeroSplit({ title, highlight, description, image, fit = "cover", imageP
   )
 }
 
-function BenefitsImageList({ title, image, items, fit = "cover", illustration }: { title: string; image: string; items: BenefitItem[]; fit?: "cover" | "contain"; illustration?: ReactNode }) {
+function BenefitsImageList({ title, image, items, fit = "cover", imagePadding = "p-6", illustration }: { title: string; image: string; items: BenefitItem[]; fit?: "cover" | "contain"; imagePadding?: string; illustration?: ReactNode }) {
   return (
     <section className="py-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -595,7 +604,7 @@ function BenefitsImageList({ title, image, items, fit = "cover", illustration }:
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div className="relative min-h-[300px] overflow-hidden rounded-2xl border-2 border-transparent bg-card/40">
             {illustration ?? (
-              <Image src={image} alt={title} fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? "object-contain p-6" : "object-cover"} />
+              <Image src={image} alt={title} fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? `object-contain ${imagePadding}` : "object-cover"} />
             )}
           </div>
           <div className="space-y-4">
@@ -692,6 +701,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           image={media.benefits}
           items={data.benefits}
           fit={media.fit}
+          imagePadding={media.benefitsImagePadding}
           illustration={
             slug === "managed-it-services" ? (
               <ServerStatusIllustration />

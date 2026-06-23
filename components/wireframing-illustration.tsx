@@ -4,7 +4,7 @@ import "./WireframingIllustration.animation.css"
 
 export default function WireframingIllustration({ className }: { className?: string }) {
   return (
-    <div className={`absolute inset-0 flex items-center justify-center p-6 ${className ?? ""}`}>
+    <div className={`absolute inset-0 flex items-center justify-center p-0 ${className ?? ""}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="860.24803"

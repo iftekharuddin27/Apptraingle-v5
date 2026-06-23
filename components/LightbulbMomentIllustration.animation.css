@@ -1,6 +1,5 @@
 /* Animations for the lightbulb-moment illustration */
 
-/* all 3 light-ray lines fade out and come back in together, at the same time */
 @keyframes lb-light-fade {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }

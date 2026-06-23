@@ -4,7 +4,7 @@ import "./LightbulbMomentIllustration.animation.css"
 
 export default function LightbulbMomentIllustration({ className }: { className?: string }) {
   return (
-    <div className={`absolute inset-0 flex items-center justify-center p-2 ${className ?? ""}`}>
+    <div className={`absolute inset-0 flex items-center justify-center p-0 ${className ?? ""}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="578.277"

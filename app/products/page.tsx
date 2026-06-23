@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { TiltCard } from "@/components/tilt-card"
 
 const products = [
-  { title: "Expense Tracker", image: "/images/products/Expense-Tracker-240x300.webp" },
+  { title: "Expense Tracker", image: "/images/products/Expense-Tracker-240x300.webp", slug: "expense-tracker" },
   { title: "E-commerce", image: "/images/products/Ecommerce-300x300.webp" },
   { title: "Ride Share", image: "/images/products/RideShare-240x300.png" },
   { title: "Asset Management", image: "/images/products/Asset-Management-300x300.webp" },
@@ -59,26 +59,35 @@ export default function ProductsPage() {
           </div>
 
           <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <TiltCard key={product.title} intensity={8} className="rounded-2xl">
-              <div
-                className="group card-glow rounded-2xl border-2 border-white/60 bg-card/40 p-6 h-full"
-              >
-                <div className="air-float-wrap relative flex h-48 items-center justify-center rounded-xl">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={320}
-                    height={220}
-                    className="h-50 w-auto object-contain"
-                  />
-                </div>
-                <p className="mt-4 text-center text-sm font-semibold text-primary sm:text-base">
-                  {product.title}
-                </p>
-              </div>
-              </TiltCard>
-            ))}
+            {products.map((product) => {
+              const card = (
+                <TiltCard intensity={8} className="rounded-2xl">
+                  <div
+                    className="group card-glow rounded-2xl border-2 border-white/60 bg-card/40 p-6 h-full"
+                  >
+                    <div className="air-float-wrap relative flex h-48 items-center justify-center rounded-xl">
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        width={320}
+                        height={220}
+                        className="h-50 w-auto object-contain"
+                      />
+                    </div>
+                    <p className="mt-4 text-center text-sm font-semibold text-primary sm:text-base">
+                      {product.title}
+                    </p>
+                  </div>
+                </TiltCard>
+              )
+              return product.slug ? (
+                <Link key={product.title} href={`/products/${product.slug}`}>
+                  {card}
+                </Link>
+              ) : (
+                <div key={product.title}>{card}</div>
+              )
+            })}
           </div>
 
           <div className="mx-auto mt-16 max-w-7xl text-center">
