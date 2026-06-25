@@ -45,7 +45,7 @@ export default function CareerPage() {
                   <TiltCard intensity={7} animatedBorder={false} className="h-full rounded-2xl">
                     <Link
                       href={`/career/${job.slug}`}
-                      className="group flex min-h-32 items-center justify-between gap-5 rounded-2xl border-2 border-white/60 bg-card/60 px-6 py-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card/80 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.35)] sm:min-h-36 sm:px-7"
+                      className="card-glow group flex h-full min-h-32 items-center justify-between gap-5 rounded-2xl border-2 border-white/60 px-6 py-6 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.5)] sm:min-h-36 sm:px-7"
                     >
                       <div>
                         <h3 className="font-display text-lg font-semibold leading-snug text-primary">

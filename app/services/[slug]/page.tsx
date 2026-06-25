@@ -583,6 +583,7 @@ function HeroSplit({
   illustration,
   sectionBackgroundImage,
   sectionBackgroundScale = "scale-[1.18]",
+  sectionBackgroundOpacity = "opacity-85",
   unframedVisual = false,
 }: {
   title: string
@@ -594,6 +595,7 @@ function HeroSplit({
   illustration?: ReactNode
   sectionBackgroundImage?: string
   sectionBackgroundScale?: string
+  sectionBackgroundOpacity?: string
   unframedVisual?: boolean
 }) {
   return (
@@ -601,7 +603,7 @@ function HeroSplit({
       {sectionBackgroundImage && (
         <>
           <div
-            className={`absolute inset-0 h-full w-full ${sectionBackgroundScale} bg-cover bg-no-repeat opacity-85`}
+            className={`absolute inset-0 h-full w-full ${sectionBackgroundScale} ${sectionBackgroundOpacity} bg-cover bg-no-repeat`}
             style={{
               backgroundImage: `url('${sectionBackgroundImage}')`,
               backgroundPosition: "20% center",
@@ -735,6 +737,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           imagePadding={media.heroImagePadding}
           sectionBackgroundImage="/images/hero-background.png"
           sectionBackgroundScale={["business-process-automation", "ai-ml-solutions", "software-licensing", ].includes(slug) ? "scale-[1.00]" : undefined}
+          sectionBackgroundOpacity={slug === "staff-augmentation" ? "opacity-85" : "opacity-95"}
           unframedVisual={slug === "staff-augmentation"}
           illustration={
             slug === "business-process-automation" ? (

@@ -33,7 +33,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
           <div>
             {/* Header card */}
             <TiltCard intensity={8} className="rounded-2xl">
-              <div className="rounded-2xl border-2 border-white/60 bg-card/60 p-8 backdrop-blur-xl">
+              <div className="card-glow rounded-2xl border-2 border-white/60 p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.5)]">
                 <h1 className="font-display text-3xl font-semibold text-primary sm:text-4xl">{job.title}</h1>
                 <div className="mt-4 space-y-1 text-sm text-muted-foreground">
                   <p><span className="font-semibold text-foreground">Location:</span> {job.location}</p>
@@ -106,7 +106,7 @@ function ExpiredNotice() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <TiltCard intensity={6} className="rounded-2xl">
-      <div className="rounded-2xl border-2 border-white/60 bg-card/60 p-7 backdrop-blur-xl">
+      <div className="card-glow rounded-2xl border-2 border-white/60 p-7 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.5)]">
         <h2 className="mb-4 font-display text-lg font-semibold text-primary">{title}</h2>
         {children}
       </div>
