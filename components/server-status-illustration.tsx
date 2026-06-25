@@ -267,12 +267,6 @@ export default function ServerStatusIllustration() {
         </div>
 
         {/* ── Status label ── */}
-        <p
-          className="mt-2 text-sm font-semibold tracking-widest uppercase text-[#426be4] animate-pulse-slow"
-          style={{ animationDelay: "1.6s" }}
-        >
-          All Systems Operational
-        </p>
       </div>
     </>
   );

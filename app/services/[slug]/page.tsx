@@ -583,7 +583,8 @@ function HeroSplit({
   illustration,
   sectionBackgroundImage,
   sectionBackgroundScale = "scale-[1.18]",
-  sectionBackgroundOpacity = "opacity-85",
+  sectionBackgroundPosition = "20% center",
+  showFullBackground = false,
   unframedVisual = false,
 }: {
   title: string
@@ -595,7 +596,8 @@ function HeroSplit({
   illustration?: ReactNode
   sectionBackgroundImage?: string
   sectionBackgroundScale?: string
-  sectionBackgroundOpacity?: string
+  sectionBackgroundPosition?: string
+  showFullBackground?: boolean
   unframedVisual?: boolean
 }) {
   return (
@@ -603,19 +605,20 @@ function HeroSplit({
       {sectionBackgroundImage && (
         <>
           <div
-            className={`absolute inset-0 h-full w-full ${sectionBackgroundScale} ${sectionBackgroundOpacity} bg-cover bg-no-repeat`}
+            className={`absolute inset-0 h-full w-full ${sectionBackgroundScale} bg-cover bg-no-repeat opacity-100`}
             style={{
               backgroundImage: `url('${sectionBackgroundImage}')`,
-              backgroundPosition: "20% center",
-              filter: "blur(0.5px)",
+              backgroundPosition: sectionBackgroundPosition,
+              filter: showFullBackground ? "none" : "blur(0.5px)",
             }}
             aria-hidden="true"
           />
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "linear-gradient(100deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.15) 100%)",
+              background: showFullBackground
+                ? "linear-gradient(100deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.48) 42%, rgba(0,0,0,0.32) 72%, rgba(0,0,0,0.24) 100%)"
+                : "linear-gradient(100deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.15) 100%)",
             }}
             aria-hidden="true"
           />
@@ -737,7 +740,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           imagePadding={media.heroImagePadding}
           sectionBackgroundImage="/images/hero-background.png"
           sectionBackgroundScale={["business-process-automation", "ai-ml-solutions", "software-licensing", ].includes(slug) ? "scale-[1.00]" : undefined}
-          sectionBackgroundOpacity={slug === "staff-augmentation" ? "opacity-85" : "opacity-95"}
+          sectionBackgroundPosition="center center"
+          showFullBackground
           unframedVisual={slug === "staff-augmentation"}
           illustration={
             slug === "business-process-automation" ? (
