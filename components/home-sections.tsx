@@ -575,7 +575,7 @@ export function HomeBottomCta() {
                     <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/btn:rotate-45 group-hover/btn:translate-x-1" />
                   </Link>
                   <Link
-                    href="/contact-us"
+                    href="https://bookings.cloud.microsoft/book/MeetwithApptriangle@apptriangle.com/?ismsaljsauthenabled"
                     className="group/btn inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-all duration-300 hover:border-primary/60 hover:bg-card/60 hover:shadow-[0_0_30px_-5px_rgba(41,179,255,0.5)]"
                   >
                     Schedule a Call

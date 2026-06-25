@@ -63,7 +63,7 @@ export function SiteHeader() {
 
         <div className="hidden items-center md:flex">
           <Link
-            href="/contact-us"
+            href="https://bookings.cloud.microsoft/book/MeetwithApptriangle@apptriangle.com/?ismsaljsauthenabled"
             className="rounded-full border border-primary/40 bg-primary/20 px-4 py-2 text-sm font-semibold text-primary backdrop-blur transition-all hover:border-primary hover:bg-primary/30 hover:shadow-[0_0_30px_-6px_rgba(41,179,255,0.7)]"
           >
             Schedule a call
@@ -147,7 +147,7 @@ export function SiteHeader() {
             })}
             <div className="mt-2">
               <Link
-                href="/contact-us"
+                href="https://bookings.cloud.microsoft/book/MeetwithApptriangle@apptriangle.com/?ismsaljsauthenabled"
                 onClick={() => setOpen(false)}
                 className="rounded-full border border-primary/40 bg-primary/20 px-4 py-2.5 text-center text-sm font-semibold text-primary backdrop-blur transition-all hover:border-primary hover:bg-primary/30 hover:shadow-[0_0_30px_-6px_rgba(41,179,255,0.7)]"
               >

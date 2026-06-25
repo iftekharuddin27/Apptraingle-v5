@@ -1,10 +1,36 @@
 "use client"
 
+import { useActionState } from "react"
+import { useFormStatus } from "react-dom"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { TiltCard } from "@/components/tilt-card"
+import { sendContactMessage } from "@/lib/actions"
+
+const initialState = {
+  message: "",
+  success: false,
+  error: false,
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      className="mt-6 w-full inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_30px_-10px_rgba(41,179,255,0.7)] transition-transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      {pending ? "Submitting..." : "Submit"}
+    </button>
+  )
+}
+
 export default function ContactPage() {
+  const [state, formAction] = useActionState(sendContactMessage, initialState)
+
   return (
     <>
       <SiteHeader />
@@ -67,7 +93,7 @@ export default function ContactPage() {
               </div>
 
               {/* Form — right */}
-              <form className="card-glow lg:col-span-7 rounded-2xl border-2 border-white/60 p-7 sm:p-9 flex flex-col">
+              <form action={formAction} className="card-glow lg:col-span-7 rounded-2xl border-2 border-white/60 p-7 sm:p-9 flex flex-col">
                 <h2 className="font-display text-2xl font-semibold sm:text-3xl">Send us a message</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Tell us about your project and we&apos;ll be in touch shortly.
@@ -88,17 +114,18 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       className="block w-full flex-1 min-h-40 resize-y rounded-xl border-2 border-border bg-input/40 px-4 py-3 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground hover:border-primary/50 hover:shadow-[0_0_18px_-4px_rgba(41,179,255,0.45)] focus:border-primary/60 focus:shadow-[0_0_22px_-4px_rgba(41,179,255,0.6)]"
-                      placeholder=""
+                      placeholder="Please describe your project or inquiry..."
+                      required
                     />
                   </div>
-
                 </div>
-                <button
-                  type="submit"
-                  className="mt-6 w-full inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_30px_-10px_rgba(41,179,255,0.7)] transition-transform hover:scale-[1.02]"
-                >
-                  Submit
-                </button>
+                <SubmitButton />
+                {state.success && (
+                  <p className="mt-4 text-sm text-center text-green-500">{state.message}</p>
+                )}
+                {state.error && (
+                  <p className="mt-4 text-sm text-center text-red-500">{state.message}</p>
+                )}
               </form>
             </div>
           </div>

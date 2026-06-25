@@ -7,6 +7,7 @@ type TiltCardProps = {
   children: ReactNode
   className?: string
   intensity?: number
+  animatedBorder?: boolean
   spotlight?: boolean
   glare?: boolean
   style?: CSSProperties
@@ -20,6 +21,7 @@ export function TiltCard({
   children,
   className = "",
   intensity = 12,
+  animatedBorder = true,
   spotlight = true,
   glare = true,
   style,
@@ -71,24 +73,25 @@ export function TiltCard({
       }}
       className={`relative ${className}`}
     >
-      {/* Animated conic gradient border */}
-      <motion.span
-        aria-hidden="true"
-        className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-0 transition-opacity duration-500"
-        animate={{ opacity: hovered ? 1 : 0 }}
-        style={{
-          background: useTransform(
-            [mx, my] as any,
-            ([x, y]: number[]) =>
-              `conic-gradient(from ${x * 360}deg at ${x * 100}% ${y * 100}%, rgba(41,179,255,0.9), rgba(120,200,255,0.4), rgba(41,179,255,0.0) 40%, rgba(41,179,255,0.9))`,
-          ),
-          padding: 1,
-          WebkitMask:
-            "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-          WebkitMaskComposite: "xor" as any,
-          maskComposite: "exclude" as any,
-        }}
-      />
+      {animatedBorder && (
+        <motion.span
+          aria-hidden="true"
+          className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-0 transition-opacity duration-500"
+          animate={{ opacity: hovered ? 1 : 0 }}
+          style={{
+            background: useTransform(
+              [mx, my] as any,
+              ([x, y]: number[]) =>
+                `conic-gradient(from ${x * 360}deg at ${x * 100}% ${y * 100}%, rgba(41,179,255,0.9), rgba(120,200,255,0.4), rgba(41,179,255,0.0) 40%, rgba(41,179,255,0.9))`,
+            ),
+            padding: 1,
+            WebkitMask:
+              "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+            WebkitMaskComposite: "xor" as any,
+            maskComposite: "exclude" as any,
+          }}
+        />
+      )}
 
       {/* Spotlight that follows the cursor */}
       {spotlight && (

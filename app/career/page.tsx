@@ -3,16 +3,8 @@
 import Link from "next/link"
 import {
   ArrowUpRight,
-  Atom,
   BookOpen,
-  ClipboardCheck,
-  Code2,
-  Cpu,
-  GitBranch,
-  Globe,
-  Palette,
   Sparkles,
-  Terminal,
   TrendingUp,
   Users,
 } from "lucide-react"
@@ -22,17 +14,6 @@ import { PageHero, ServiceCta } from "@/components/page-blocks"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
 import { TiltCard } from "@/components/tilt-card"
 import { jobs } from "@/lib/jobs"
-
-const jobIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-  "jr-frontend-developer-2": Code2,
-  "react-developer": Atom,
-  "it-specialist": Cpu,
-  "sqa-developer": ClipboardCheck,
-  "ui-ux-developer": Palette,
-  "next-js-developer": Globe,
-  "devops-developer": GitBranch,
-  "sr-python-developer": Terminal,
-}
 
 const lifePerks = [
   { icon: TrendingUp, title: "Growth", desc: "Continuous learning and career advancement opportunities" },
@@ -58,31 +39,23 @@ export default function CareerPage() {
         {/* Job Openings */}
         <section className="pt-10 pb-7 sm:pt-12">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <StaggerGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerChildren={0.07}>
+            <StaggerGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" staggerChildren={0.07}>
               {jobs.map((job, i) => (
                 <StaggerItem key={`${job.slug}-${i}`}>
-                  <TiltCard intensity={10} className="rounded-2xl">
+                  <TiltCard intensity={7} animatedBorder={false} className="h-full rounded-2xl">
                     <Link
                       href={`/career/${job.slug}`}
-                      className="group flex aspect-square flex-col justify-between rounded-2xl border-2 border-white/60 bg-card/60 p-5 backdrop-blur-xl transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.3)]"
+                      className="group flex min-h-32 items-center justify-between gap-5 rounded-2xl border-2 border-white/60 bg-card/60 px-6 py-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card/80 hover:shadow-[0_0_30px_-10px_rgba(41,179,255,0.35)] sm:min-h-36 sm:px-7"
                     >
-                      <h3 className="font-display text-base font-semibold text-primary">
-                        {job.title}
-                      </h3>
-                      <div className="flex flex-1 items-center justify-center">
-                        {(() => {
-                          const Icon = jobIcons[job.slug]
-                          return Icon ? (
-                            <span className="grid h-14 w-14 place-items-center rounded-2xl border border-primary/40 bg-linear-to-br from-primary/25 to-primary/5 text-primary transition-shadow duration-300 group-hover:shadow-[0_0_18px_-4px_rgba(41,179,255,0.5)]">
-                              <Icon className="h-6 w-6" />
-                            </span>
-                          ) : null
-                        })()}
+                      <div>
+                        <h3 className="font-display text-lg font-semibold leading-snug text-primary">
+                          {job.title}
+                        </h3>
+                        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors duration-300">
+                          More Details
+                          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5" />
+                        </span>
                       </div>
-                      <span className="inline-flex items-center gap-1 text-sm text-muted-foreground">
-                        More Details
-                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5" />
-                      </span>
                     </Link>
                   </TiltCard>
                 </StaggerItem>

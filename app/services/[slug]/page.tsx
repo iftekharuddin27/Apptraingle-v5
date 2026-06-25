@@ -90,7 +90,7 @@ const content: Record<string, ServiceContent> = {
   "managed-it-services": {
     eyebrow: "Managed IT Services",
     heroTitle: "End-to-End Management of Your",
-    heroHighlight: "IT Infrastructure.",
+    heroHighlight: "IT Infrastructure",
     heroDesc: (
       <>
         Focus on your business while we handle your IT operations. Our <strong>Managed IT Services</strong> ensure your systems run smoothly, securely, and reliably.
@@ -115,7 +115,7 @@ const content: Record<string, ServiceContent> = {
   "staff-augmentation": {
     eyebrow: "Staff Augmentation",
     heroTitle: "Scale Your Team with",
-    heroHighlight: "Skilled IT Professionals.",
+    heroHighlight: "Skilled IT Professionals",
     heroDesc: (
       <>
         Extend your in-house capabilities with <strong>Apptriangle&apos;s Staff Augmentation</strong> services. We provide highly qualified developers, engineers, and IT specialists who seamlessly integrate with your team to accelerate project delivery.
@@ -140,7 +140,7 @@ const content: Record<string, ServiceContent> = {
   "business-process-automation": {
     eyebrow: "Business and Process Automation",
     heroTitle: "Streamline Your Operations with",
-    heroHighlight: "Intelligent Automation.",
+    heroHighlight: "Intelligent Automation",
     heroDesc: (
       <>
         At <strong>Apptriangle</strong>, we help businesses eliminate repetitive tasks, reduce human error, and improve operational efficiency through advanced <strong>Business Process Automation (BPA)</strong>. By leveraging smart workflows, AI, and integration tools, we enable organizations to focus on strategic growth rather than manual processes.
@@ -215,7 +215,7 @@ const content: Record<string, ServiceContent> = {
   "technology-consulting": {
     eyebrow: "Technology Consulting",
     heroTitle: "Strategic Guidance for",
-    heroHighlight: "Business-Driven Technology.",
+    heroHighlight: "Business-Driven Technology",
     heroDesc: (
       <>
         Align your technology initiatives with business objectives through <strong>Technology Consulting</strong>. Our experts provide insights, strategies, and roadmaps to maximize the impact of your IT investments.
@@ -573,22 +573,79 @@ function getServiceMedia(slug: string) {
   return serviceMedia[slug as keyof typeof serviceMedia] ?? defaultMedia
 }
 
-function HeroSplit({ title, highlight, description, image, fit = "cover", imagePadding = "p-6", illustration }: { title: string; highlight: string; description: ReactNode; image: string; fit?: "cover" | "contain"; imagePadding?: string; illustration?: ReactNode }) {
+function HeroSplit({
+  title,
+  highlight,
+  description,
+  image,
+  fit = "cover",
+  imagePadding = "p-6",
+  illustration,
+  sectionBackgroundImage,
+  sectionBackgroundScale = "scale-[1.18]",
+  unframedVisual = false,
+}: {
+  title: string
+  highlight: string
+  description: ReactNode
+  image: string
+  fit?: "cover" | "contain"
+  imagePadding?: string
+  illustration?: ReactNode
+  sectionBackgroundImage?: string
+  sectionBackgroundScale?: string
+  unframedVisual?: boolean
+}) {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-8 pt-12 sm:px-8 lg:grid-cols-[1.2fr_1fr]">
-        <div>
-          <h1 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl">
+      {sectionBackgroundImage && (
+        <>
+          <div
+            className={`absolute inset-0 h-full w-full ${sectionBackgroundScale} bg-cover bg-no-repeat opacity-85`}
+            style={{
+              backgroundImage: `url('${sectionBackgroundImage}')`,
+              backgroundPosition: "20% center",
+              filter: "blur(0.5px)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(100deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.15) 100%)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 35%)",
+            }}
+            aria-hidden="true"
+          />
+        </>
+      )}
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 pb-12 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:gap-10 lg:pb-16">
+        <div className="lg:col-span-7">
+          <h1 className={`${sectionBackgroundImage ? "mt-0" : ""} font-display text-[calc(1.875rem-2px)] font-semibold leading-[1.05] tracking-tight text-balance sm:text-[calc(3rem-2px)] md:text-[calc(3.75rem-2px)]`}>
             {title} {" "}
             <span className="text-white">{highlight}</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {description}
           </p>
+   
         </div>
-        <div className="relative min-h-[300px] overflow-hidden rounded-2xl border-2 border-transparent bg-card/40 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+        <div
+          className={
+            unframedVisual
+              ? "relative min-h-[300px] overflow-visible lg:col-span-5"
+              : "relative min-h-[300px] overflow-hidden rounded-2xl border-2 border-transparent bg-card/40 shadow-[0_20px_60px_rgba(0,0,0,0.25)] lg:col-span-5"
+          }
+        >
           {illustration ?? (
-            <Image src={image} alt="Service visual" fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? `object-contain ${imagePadding}` : "object-cover"} />
+            <Image src={image} alt="Service visual" fill sizes="(min-width: 1024px) 40vw, 100vw" className={fit === "contain" ? `z-10 object-contain ${imagePadding}` : "z-10 object-cover"} />
           )}
         </div>
       </div>
@@ -676,6 +733,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           image={media.hero}
           fit={media.fit}
           imagePadding={media.heroImagePadding}
+          sectionBackgroundImage="/images/hero-background.png"
+          sectionBackgroundScale={["business-process-automation", "ai-ml-solutions", "software-licensing", ].includes(slug) ? "scale-[1.00]" : undefined}
+          unframedVisual={slug === "staff-augmentation"}
           illustration={
             slug === "business-process-automation" ? (
               <AiCodeAssistantIllustration />

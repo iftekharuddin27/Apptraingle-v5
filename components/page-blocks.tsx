@@ -168,7 +168,7 @@ export function ApproachSection({ title, steps }: { title: string; steps: string
   )
 }
 
-export function ServiceCta({ title, href = "/contact-us", cta = "Talk to Our Experts" }: { title: string; href?: string; cta?: string }) {
+export function ServiceCta({ title, href = "https://bookings.cloud.microsoft/book/MeetwithApptriangle@apptriangle.com/?ismsaljsauthenabled", cta = "Schedule a Call" }: { title: string; href?: string; cta?: string }) {
   return (
     <section className="py-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
