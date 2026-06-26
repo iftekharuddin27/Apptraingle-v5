@@ -83,7 +83,7 @@ export default function CaseStudiesPage() {
         />
 
         {/* Stats */}
-        <section className="pb-8">
+        <section className="pt-8 pb-8">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <StaggerGroup
               className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"

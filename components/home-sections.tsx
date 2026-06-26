@@ -389,21 +389,21 @@ export function AboutSection() {
 
 export function PartnersSection() {
   const partners = [
-    { name: "Microsoft",    logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/Microsoft-Logo.wine_-300x75.webp.bv.webp?bv_host=apptriangle.com" },
-    { name: "IceWarp",      logo: "https://apptriangle.com/wp-content/uploads/2025/11/IW-Logo-Wide-4x.png", logoClassName: "scale-75" },
-    { name: "enadoc",       logo: "https://apptriangle.com/wp-content/uploads/2025/11/blob-1.png", logoClassName: "scale-200" },
-    { name: "Tableau",      logo: "https://apptriangle.com/wp-content/uploads/2025/11/681be50939b06141d83beb76_XktGtPIPc4ZCre0KZ6xJtjvIcCQtJAcHNkVZU1X2nE0-1.png" },
-    { name: "DigiCert",     logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/DigiCert_logo.svg-300x68.webp.bv.webp?bv_host=apptriangle.com", logoClassName: "scale-75" },
-    { name: "Sectigo",      logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/GI-Sectigo-REG-300x198.png.bv.webp?bv_host=apptriangle.com", logoClassName: "scale-200" },
-    { name: "Trend Micro",  logo: "https://apptriangle.com/wp-content/uploads/2025/11/1_Trend-Micro-Logo-white-1024x351-1.webp" },
-    { name: "ZOHO",         logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ZOHO.svg-300x103.png.bv.webp?bv_host=apptriangle.com" },
-    { name: "Adobe",        logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Adobe_Corporate_logo.svg-300x79.png.bv.webp?bv_host=apptriangle.com" },
-    { name: "UiPath",       logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/UiPath_2019_Corporate_Logo-300x106.webp.bv.webp?bv_host=apptriangle.com" },
-    { name: "Autodesk",     logo: "https://apptriangle.com/wp-content/uploads/2025/11/Bottom-Side-Cart-1024x576.png", logoClassName: "scale-200" },
-    { name: "Fortinet",     logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/fortinet-logo-white-300x34.png.bv.webp?bv_host=apptriangle.com", logoClassName: "scale-75" },
-    { name: "ManageEngine", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/manageengine-logo-white-768x135-1-300x53.png.bv.webp?bv_host=apptriangle.com" },
-    { name: "AnyDesk",      logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Logo_white_AnyDesk-02-2-300x94.webp.bv.webp?bv_host=apptriangle.com", logoClassName: "scale-150" },
-    { name: "IFS",          logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ifs_logo_40-1-300x118.png.bv.webp?bv_host=apptriangle.com" },
+    { name: "Microsoft",    logo: "/images/Company%20Profile%20Images/Microsoft-Logo.wine.png", logoClassName: "scale-380" },
+    { name: "IceWarp",      logo: "/images/Company%20Profile%20Images/IceWarp.png", logoClassName: "scale-125" },
+    { name: "enadoc",       logo: "/images/Company%20Profile%20Images/blob-1.png", logoClassName: "scale-200" },
+    { name: "Tableau",      logo: "/images/Company%20Profile%20Images/Tableau.png", logoClassName: "scale-125" },
+    { name: "DigiCert",     logo: "/images/Company%20Profile%20Images/DigiCert_logo.svg.png", logoClassName: "scale-100" },
+    { name: "Sectigo",      logo: "/images/Company%20Profile%20Images/GI-Sectigo-REG-300x198.png.bv.webp", logoClassName: "scale-250" },
+    { name: "Trend Micro",  logo: "/images/Company%20Profile%20Images/1_Trend-Micro-Logo-white-1024x351-1.webp", logoClassName: "scale-125" },
+    { name: "ZOHO",         logo: "/images/Company%20Profile%20Images/ZOHO.svg-1024x353.png" },
+    { name: "Adobe",        logo: "/images/Company%20Profile%20Images/Adobe_Corporate_logo.svg-300x79.png.bv.webp" },
+    { name: "UiPath",       logo: "/images/Company%20Profile%20Images/UiPath_2019_Corporate_Logo.png" },
+    { name: "Autodesk",     logo: "/images/Company%20Profile%20Images/Bottom-Side-Cart-1024x576.png", logoClassName: "scale-225" },
+    { name: "Fortinet",     logo: "/images/Company%20Profile%20Images/fortinet-logo-white-300x34.png.bv.webp", logoClassName: "scale-125" },
+    { name: "ManageEngine", logo: "/images/Company%20Profile%20Images/manageengine-logo-white-768x135-1.png", logoClassName: "scale-125" },
+    { name: "AnyDesk",      logo: "/images/Company%20Profile%20Images/Logo_white_AnyDesk-02-2-300x94.webp.bv.webp", logoClassName: "scale-150" },
+    { name: "IFS",          logo: "/images/Company%20Profile%20Images/ifs_logo_40-1-300x118.png.bv.webp" },
   ]
   return (
     <section className="border-y border-primary/15 bg-card/20 py-8">
@@ -428,7 +428,7 @@ export function PartnersSection() {
           {[...partners, ...partners].map((partner, i) => (
             <div
               key={`${partner.name}-${i}`}
-              className="inline-flex items-center justify-center rounded-2xl border border-transparent bg-card/50 px-6 py-4 backdrop-blur"
+              className="inline-flex h-20 w-48 flex-none items-center justify-center rounded-2xl border border-transparent bg-card/50 px-6 py-4 backdrop-blur"
             >
               <img
                 src={partner.logo}

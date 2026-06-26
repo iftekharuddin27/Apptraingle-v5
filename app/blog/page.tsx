@@ -24,7 +24,7 @@ export default function BlogPage() {
           bgFull
         />
 
-        <section className="pb-16">
+        <section className="pt-8 pb-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((p) => (

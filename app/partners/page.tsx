@@ -7,21 +7,21 @@ import { TiltCard } from "@/components/tilt-card"
 import { CountUp } from "@/components/count-up"
 
 const partners = [
-  { name: "Microsoft",    logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/Microsoft-Logo.wine_-300x75.webp.bv.webp?bv_host=apptriangle.com" },
-  { name: "IceWarp",      logo: "https://apptriangle.com/wp-content/uploads/2025/11/IW-Logo-Wide-4x.png" },
-  { name: "enadoc",       logo: "https://apptriangle.com/wp-content/uploads/2025/11/blob-1.png" },
-  { name: "Tableau",      logo: "https://apptriangle.com/wp-content/uploads/2025/11/681be50939b06141d83beb76_XktGtPIPc4ZCre0KZ6xJtjvIcCQtJAcHNkVZU1X2nE0-1.png" },
-  { name: "DigiCert",     logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/DigiCert_logo.svg-300x68.webp.bv.webp?bv_host=apptriangle.com" },
-  { name: "Sectigo",      logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/GI-Sectigo-REG-300x198.png.bv.webp?bv_host=apptriangle.com",  large: true },
-  { name: "Trend Micro",  logo: "https://apptriangle.com/wp-content/uploads/2025/11/1_Trend-Micro-Logo-white-1024x351-1.webp" },
-  { name: "ZOHO",         logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ZOHO.svg-300x103.png.bv.webp?bv_host=apptriangle.com" },
-  { name: "Adobe",        logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Adobe_Corporate_logo.svg-300x79.png.bv.webp?bv_host=apptriangle.com" },
-  { name: "UiPath",       logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/01/UiPath_2019_Corporate_Logo-300x106.webp.bv.webp?bv_host=apptriangle.com" },
-  { name: "Autodesk",     logo: "https://apptriangle.com/wp-content/uploads/2025/11/Bottom-Side-Cart-1024x576.png", large: true },
-  { name: "Fortinet",     logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/fortinet-logo-white-300x34.png.bv.webp?bv_host=apptriangle.com" },
-  { name: "ManageEngine", logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/manageengine-logo-white-768x135-1-300x53.png.bv.webp?bv_host=apptriangle.com" },
-  { name: "AnyDesk",      logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/Logo_white_AnyDesk-02-2-300x94.webp.bv.webp?bv_host=apptriangle.com" },
-  { name: "IFS",          logo: "https://apptriangle.com/wp-content/uploads/al_opt_content/IMAGE/apptriangle.com/wp-content/uploads/2025/11/ifs_logo_40-1-300x118.png.bv.webp?bv_host=apptriangle.com" },
+  { name: "Microsoft",    logo: "/images/Company%20Profile%20Images/Microsoft-Logo.wine.png", large: true },
+  { name: "IceWarp",      logo: "/images/Company%20Profile%20Images/IceWarp.png", large: true },
+  { name: "enadoc",       logo: "/images/Company%20Profile%20Images/blob-1.png"},
+  { name: "Tableau",      logo: "/images/Company%20Profile%20Images/Tableau.png", large: true },
+  { name: "DigiCert",     logo: "/images/Company%20Profile%20Images/DigiCert_logo.svg.png" },
+  { name: "Sectigo",      logo: "/images/Company%20Profile%20Images/GI-Sectigo-REG-300x198.png.bv.webp",  large: true },
+  { name: "Trend Micro",  logo: "/images/Company%20Profile%20Images/1_Trend-Micro-Logo-white-1024x351-1.webp" },
+  { name: "ZOHO",         logo: "/images/Company%20Profile%20Images/ZOHO.svg-1024x353.png" },
+  { name: "Adobe",        logo: "/images/Company%20Profile%20Images/Adobe_Corporate_logo.svg-300x79.png.bv.webp" },
+  { name: "UiPath",       logo: "/images/Company%20Profile%20Images/UiPath_2019_Corporate_Logo.png" },
+  { name: "Autodesk",     logo: "/images/Company%20Profile%20Images/Bottom-Side-Cart-1024x576.png", large: true },
+  { name: "Fortinet",     logo: "/images/Company%20Profile%20Images/fortinet-logo-white-300x34.png.bv.webp", large: true },
+  { name: "ManageEngine", logo: "/images/Company%20Profile%20Images/manageengine-logo-white-768x135-1.png", large: true },
+  { name: "AnyDesk",      logo: "/images/Company%20Profile%20Images/Logo_white_AnyDesk-02-2-300x94.webp.bv.webp", large: true },
+  { name: "IFS",          logo: "/images/Company%20Profile%20Images/ifs_logo_40-1-300x118.png.bv.webp" },
 ]
 
 const stats = [
@@ -55,7 +55,7 @@ export default function PartnersPage() {
         </section>
 
         {/* Partner Logos Grid */}
-        <section className="pb-16">
+        <section className="pt-8 pb-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <StaggerGroup
               className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
@@ -68,7 +68,7 @@ export default function PartnersPage() {
                       <img
                         src={partner.logo}
                         alt={`${partner.name} logo`}
-                        className={partner.large ? "h-16 w-40 object-contain" : "h-10 w-32 object-contain"}
+                        className={partner.large ? "h-28 w-48 object-contain" : "h-15 w-36 object-contain"}
                         loading="lazy"
                       />
                     </div>
