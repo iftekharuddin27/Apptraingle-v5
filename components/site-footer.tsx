@@ -14,42 +14,53 @@ export function SiteFooter() {
               Apptriangle is a global technology service provider delivering Managed IT, Staff Augmentation,
               Business Process Automation, App Development, Power Platform, and Technology Consulting.
             </p>
-            <div className="mt-5 flex items-center gap-4">
+            <div className="mt-5 flex flex-col items-start gap-3">
+              <Link
+                href="https://basis.org.bd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="BASIS"
+                className="flex h-9 items-center justify-center transition hover:opacity-80"
+              >
+                <Image src="/images/logo/basis-logo.svg" alt="BASIS" width={88} height={30} className="h-7 w-auto" />
+              </Link>
+              <div className="flex items-center gap-3">
               <Link
                 href="https://www.facebook.com/share/1AJbZLFUbr/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook" 
-                className="flex h-11 w-11 items-center justify-center transition hover:opacity-80 relative bottom-px"
+                aria-label="Facebook"
+                className="flex h-9 w-9 items-center justify-center transition hover:opacity-80 relative bottom-px"
               >
-                <Image src="/images/logo/facebook.png" alt="Facebook" width={32} height={32} className="h-8 w-8" />
+                <Image src="/images/logo/facebook.png" alt="Facebook" width={24} height={24} className="h-6 w-6" />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/apptriangle/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn" 
-                className="flex h-11 w-11 items-center justify-center transition hover:opacity-80"
+                className="flex h-9 w-9 items-center justify-center transition hover:opacity-80"
               >
-                <Image src="/images/logo/Linkedin.png" alt="LinkedIn" width={48} height={48} className="h-10 w-10" />
+                <Image src="/images/logo/Linkedin.png" alt="LinkedIn" width={28} height={28} className="h-7 w-7" />
               </Link>
               <Link
                 href="https://www.youtube.com/@apptriangle6251"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="YouTube" className="flex h-11 w-11 items-center justify-center transition hover:opacity-80"
+                aria-label="YouTube" className="flex h-9 w-9 items-center justify-center transition hover:opacity-80"
               >
-                <Image src="/images/logo/youtube.png" alt="YouTube" width={48} height={48} className="h-12 w-12" />
+                <Image src="/images/logo/youtube.png" alt="YouTube" width={34} height={34} className="h-8 w-8" />
               </Link>
               <Link
-                href="https://basis.org.bd/company-profile/22-02-044"
+                href="https://x.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="BASIS"
-                className="flex h-11 items-center justify-center transition hover:opacity-80"
+                aria-label="Twitter"
+                className="flex h-9 w-9 items-center justify-center transition hover:opacity-80"
               >
-                <Image src="/images/logo/basis-logo.svg" alt="BASIS" width={104} height={36} className="h-9 w-auto" />
+                <Image src="/images/logo/Tweeter.png" alt="Twitter" width={26} height={26} className="h-6 w-6" />
               </Link>
+              </div>
             </div>
           </div>
 
@@ -87,7 +98,7 @@ export function SiteFooter() {
                 <p className="mt-1 flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-primary" />+880 1717 888 388</p>
                 <p className="mt-1 flex items-center gap-2">
                   <Mail className="h-3.5 w-3.5 text-primary" />
-                  <a href="mailto:info@apptriangle.com" className="text-primary hover:underline">info@apptriangle.com</a>
+                  <span className="text-white">info@apptriangle.com</span>
                 </p>
               </li>
               <li>
@@ -96,7 +107,7 @@ export function SiteFooter() {
                 <p className="mt-1 flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-primary" />+61 427 927 466</p>
                 <p className="mt-1 flex items-center gap-2">
                   <Mail className="h-3.5 w-3.5 text-primary" />
-                  <a href="mailto:info@apptriangle.com.au" className="text-primary hover:underline">info@apptriangle.com.au</a>
+                  <span className="text-white">info@apptriangle.com.au</span>
                 </p>
               </li>
             </ul>

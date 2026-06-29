@@ -10,7 +10,7 @@ import {
 } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { PageHero, ServiceCta } from "@/components/page-blocks"
+import { PageHero } from "@/components/page-blocks"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
 import { TiltCard } from "@/components/tilt-card"
 import { jobs } from "@/lib/jobs"
@@ -65,7 +65,7 @@ export default function CareerPage() {
         </section>
 
         {/* Life at Apptriangle */}
-        <section className="pt-16 pb-6 sm:pt-20">
+        <section className="pt-16 pb-12 sm:pt-20 sm:pb-14">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <ScrollReveal className="mb-6 text-center">
               <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -100,13 +100,6 @@ export default function CareerPage() {
           </div>
         </section>
 
-        <div className="mt-10">
-          <ServiceCta
-            title="Join Us in this exciting journey of innovation and excellence!"
-            href="/contact-us"
-            cta="Apply Now"
-          />
-        </div>
       </main>
       <SiteFooter />
     </>

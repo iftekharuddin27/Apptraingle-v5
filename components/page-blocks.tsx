@@ -181,6 +181,8 @@ export function ServiceCta({ title, href = "https://bookings.cloud.microsoft/boo
               </h2>
               <Link
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_30px_-10px_rgba(41,179,255,0.7)]"
               >
                 {cta}

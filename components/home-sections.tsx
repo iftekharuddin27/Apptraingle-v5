@@ -450,8 +450,9 @@ export function NewsSection() {
       tag: "Press",
       image: "/images/news-and-articles/one.png",
       title: "Apptriangle Featured on News24 TV",
+      overlayIcon: "/images/play-button.png",
       desc: "We are a leading technology service company empowering businesses with cutting-edge solutions.",
-      href: "https://youtu.be/WgJBB3ORjTc?si=xZFWUv3FwBhUBBmp",
+      href: "https://youtu.be/WgJBB3ORjTc?si=_xs2mzqdTZD0Dv7-",
     },
     {
       tag: "Launch",
@@ -511,6 +512,17 @@ export function NewsSection() {
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                         sizes="(max-width: 1024px) 100vw, 33vw"
                       />
+                      {n.overlayIcon && (
+                        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                          <Image
+                            src={n.overlayIcon}
+                            alt=""
+                            width={88}
+                            height={88}
+                            className="h-20 w-20 object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                     </div>
                     <div className="flex flex-1 flex-col p-6">
@@ -576,6 +588,8 @@ export function HomeBottomCta() {
                   </Link>
                   <Link
                     href="https://bookings.cloud.microsoft/book/MeetwithApptriangle@apptriangle.com/?ismsaljsauthenabled"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group/btn inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-all duration-300 hover:border-primary/60 hover:bg-card/60 hover:shadow-[0_0_30px_-5px_rgba(41,179,255,0.5)]"
                   >
                     Schedule a Call

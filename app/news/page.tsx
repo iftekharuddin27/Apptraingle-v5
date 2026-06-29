@@ -21,8 +21,9 @@ const news = [
     date: "Mar 2025",
     title: "Apptriangle Featured on News24 TV",
     image: newsImageOne,
+    overlayIcon: "/images/play-button.png",
     desc: "We are a leading technology service company dedicated to empowering businesses and organizations with cutting-edge solutions.",
-    href: "https://youtu.be/WgJBB3ORjTc?si=xZFWUv3FwBhUBBmp",
+    href: "https://youtu.be/WgJBB3ORjTc?si=_xs2mzqdTZD0Dv7-",
   },
   {
     tag: "Launch",
@@ -81,36 +82,91 @@ export default function NewsPage() {
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {news.map((n) => (
                 <TiltCard key={n.title} intensity={8} className="rounded-2xl">
-                <article
-                  className="card-glow group flex flex-col overflow-hidden rounded-2xl border-2 border-white/60 transition-colors hover:border-primary/40 h-full"
-                >
-                  <div className="air-float-wrap relative h-48 w-full overflow-hidden border-b border-white/10">
-                    <Image src={n.image} alt={n.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-block rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary">
-                        {n.tag}
-                      </span>
-                      <span className="text-xs text-muted-foreground">{n.date}</span>
-                    </div>
-                    <h3
-                      className="mt-6 font-display text-lg font-semibold leading-tight text-foreground"
-                    >
-                      {n.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{n.desc}</p>
+                  {n.href ? (
                     <Link
-                      href={n.href ?? "/contact-us"}
-                      target={n.href ? "_blank" : undefined}
-                      rel={n.href ? "noopener noreferrer" : undefined}
-                      className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary"
+                      href={n.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full"
                     >
-                      Read More{" "}
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                      <article
+                        className="card-glow group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-white/60 transition-colors hover:border-primary/40"
+                      >
+                        <div className="air-float-wrap relative h-48 w-full overflow-hidden border-b border-white/10">
+                          <Image src={n.image} alt={n.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                          {n.overlayIcon && (
+                            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                              <Image
+                                src={n.overlayIcon}
+                                alt=""
+                                width={88}
+                                height={88}
+                                className="h-20 w-20 object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105"
+                              />
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-6">
+                          <div className="flex items-center justify-between">
+                            <span className="inline-block rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                              {n.tag}
+                            </span>
+                            <span className="text-xs text-muted-foreground">{n.date}</span>
+                          </div>
+                          <h3
+                            className="mt-6 font-display text-lg font-semibold leading-tight text-foreground"
+                          >
+                            {n.title}
+                          </h3>
+                          <p className="mt-2 text-sm text-muted-foreground">{n.desc}</p>
+                          <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                            Read More{" "}
+                            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                          </div>
+                        </div>
+                      </article>
                     </Link>
-                  </div>
-                </article>
+                  ) : (
+                    <article
+                      className="card-glow group flex flex-col overflow-hidden rounded-2xl border-2 border-white/60 transition-colors hover:border-primary/40 h-full"
+                    >
+                      <div className="air-float-wrap relative h-48 w-full overflow-hidden border-b border-white/10">
+                        <Image src={n.image} alt={n.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                        {n.overlayIcon && (
+                          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                            <Image
+                              src={n.overlayIcon}
+                              alt=""
+                              width={88}
+                              height={88}
+                              className="h-20 w-20 object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105"
+                            />
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-6">
+                        <div className="flex items-center justify-between">
+                          <span className="inline-block rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                            {n.tag}
+                          </span>
+                          <span className="text-xs text-muted-foreground">{n.date}</span>
+                        </div>
+                        <h3
+                          className="mt-6 font-display text-lg font-semibold leading-tight text-foreground"
+                        >
+                          {n.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-muted-foreground">{n.desc}</p>
+                        <Link
+                          href="/contact-us"
+                          className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary"
+                        >
+                          Read More{" "}
+                          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                        </Link>
+                      </div>
+                    </article>
+                  )}
                 </TiltCard>
               ))}
             </div>
