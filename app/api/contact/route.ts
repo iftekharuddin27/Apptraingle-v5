@@ -55,10 +55,15 @@ export async function POST(req: Request) {
     const missingEnvVars = getMissingEnvVars()
 
     if (missingEnvVars.length > 0) {
+      console.error(
+        "Contact API missing environment variable(s):",
+        missingEnvVars.join(", ")
+      )
+
       return Response.json(
         {
           success: false,
-          message: `Missing environment variable(s): ${missingEnvVars.join(", ")}`,
+          message: "Contact form is temporarily unavailable. Please try again later.",
         },
         { status: 500 }
       )
