@@ -79,7 +79,7 @@ export function Hero() {
         }}
         aria-hidden="true"
       />
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 pb-12 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:gap-10 lg:pb-16">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 pb-12 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-12 lg:gap-10 lg:pb-16">
         {/* LEFT - copy */}
         <div className="lg:col-span-6">
           <motion.p
