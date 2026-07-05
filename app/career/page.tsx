@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowUpRight,
@@ -20,6 +21,25 @@ const lifePerks = [
   { icon: Users, title: "Collaboration", desc: "Work with talented teams on innovative projects" },
   { icon: BookOpen, title: "Learning", desc: "Access to training, certifications, and mentorship" },
   { icon: Sparkles, title: "Flexibility", desc: "Work-life balance with flexible working arrangements" },
+]
+
+const lifeMoments = [
+  { id: 1, rotation: "-rotate-6", pinColor: "border-[#b55405] bg-[#ff8f1f]", image: "/images/Apptriangle group photos/2024 (Annual Trip pic 1).jpg" },
+  { id: 2, rotation: "rotate-6", pinColor: "border-[#154e8a] bg-[#2d84d6]", image: "/images/Apptriangle group photos/2024 (Annual trip pic 2).jpg" },
+  { id: 3, rotation: "-rotate-3", pinColor: "border-[#2d6b27] bg-[#4da53f]", image: "/images/Apptriangle group photos/2024 (Annual Trip pic 3).jpg" },
+  { id: 4, rotation: "rotate-4", pinColor: "border-[#8a0f12] bg-[#c2171e]", image: "/images/Apptriangle group photos/2024 (Iftar party pic 1).jpg" },
+  { id: 5, rotation: "rotate-2", pinColor: "border-[#b55405] bg-[#ff8f1f]", image: "/images/Apptriangle group photos/2024 (Iftar party pic 2).jpg" },
+  { id: 6, rotation: "-rotate-2", pinColor: "border-[#2d6b27] bg-[#4da53f]", image: "/images/Apptriangle group photos/2024 (New year celebration).jpg" },
+  { id: 7, rotation: "rotate-5", pinColor: "border-[#154e8a] bg-[#2d84d6]", image: "/images/Apptriangle group photos/2024 (pahela falgun celebration ).jpg" },
+  { id: 8, rotation: "-rotate-5", pinColor: "border-[#8a0f12] bg-[#c2171e]", image: "/images/Apptriangle group photos/2025 (Annual Trip pic 1).jpg" },
+  { id: 9, rotation: "rotate-0", pinColor: "border-[#2d6b27] bg-[#4da53f]", image: "/images/Apptriangle group photos/2025 (Annual Trip pic 2).jpg" },
+  { id: 10, rotation: "rotate-6", pinColor: "border-[#b55405] bg-[#ff8f1f]", image: "/images/Apptriangle group photos/2025 (Annual Trip pic 3).jpg" },
+  { id: 11, rotation: "-rotate-1", pinColor: "border-[#154e8a] bg-[#2d84d6]", image: "/images/Apptriangle group photos/2025 (Annual Trip pic 4).jpg" },
+  { id: 12, rotation: "rotate-5", pinColor: "border-[#8a0f12] bg-[#c2171e]", image: "/images/Apptriangle group photos/2025 (Cricket Tournament pic 1).JPG" },
+  { id: 13, rotation: "-rotate-4", pinColor: "border-[#b55405] bg-[#ff8f1f]", image: "/images/Apptriangle group photos/2025 (Cricket Tournament pic 2).JPG" },
+  { id: 14, rotation: "rotate-3", pinColor: "border-[#2d6b27] bg-[#4da53f]", image: "/images/Apptriangle group photos/2025 (Cricket tournament pic 3).jpg" },
+  { id: 15, rotation: "-rotate-2", pinColor: "border-[#8a0f12] bg-[#c2171e]", image: "/images/Apptriangle group photos/2025 (New Year Celebration).jpg" },
+  { id: 16, rotation: "rotate-4", pinColor: "border-[#154e8a] bg-[#2d84d6]", image: "/images/Apptriangle group photos/2025 (Pahela Baishakh celebration).JPG" },
 ]
 
 export default function CareerPage() {
@@ -96,6 +116,33 @@ export default function CareerPage() {
                   </StaggerItem>
                 )
               })}
+            </StaggerGroup>
+
+            <StaggerGroup className="mt-20 sm:mt-24 lg:mt-28" staggerChildren={0.04}>
+              <div className="overflow-hidden rounded-[2rem] border-[10px] border-[#4a2d19] bg-[#8f6032] p-4 shadow-[0_30px_80px_-35px_rgba(0,0,0,0.75)] sm:p-6 lg:p-8">
+                <div className="rounded-[1.5rem] border border-black/20 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_24%),repeating-radial-gradient(circle_at_center,rgba(70,42,20,0.2)_0_1px,transparent_1px_7px),linear-gradient(135deg,#a97342_0%,#8f6032_42%,#74491f_100%)] p-4 sm:p-5 lg:p-6">
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-10">
+              {lifeMoments.map((moment) => (
+                <StaggerItem key={moment.id}>
+                  <div className={`relative mx-auto w-full max-w-[250px] ${moment.rotation} transition-transform duration-300`}>
+                    <div className={`absolute left-1/2 top-0 z-20 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border shadow-[0_2px_5px_rgba(0,0,0,0.35)] ${moment.pinColor}`} />
+                    <div className="rounded-[0.4rem] bg-white p-2 pb-5 shadow-[0_14px_20px_rgba(0,0,0,0.28)]">
+                      <div className="relative aspect-square w-full overflow-hidden bg-black shadow-inner shadow-black/50">
+                        <Image
+                          src={moment.image}
+                          alt={`Apptriangle group photo ${moment.id}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 46vw, (max-width: 1024px) 30vw, 250px"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+                  </div>
+                </div>
+              </div>
             </StaggerGroup>
           </div>
         </section>
