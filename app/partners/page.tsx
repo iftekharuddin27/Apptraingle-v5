@@ -2,6 +2,7 @@
 
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { ServiceCta } from "@/components/page-blocks"
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/scroll-reveal"
 import { TiltCard } from "@/components/tilt-card"
 import { CountUp } from "@/components/count-up"
@@ -112,6 +113,8 @@ export default function PartnersPage() {
             </div>
           </div>
         </section>
+
+        <ServiceCta title="Meet With Our Expertise!" cta="Schedule a Call" />
 
       </main>
       <SiteFooter />

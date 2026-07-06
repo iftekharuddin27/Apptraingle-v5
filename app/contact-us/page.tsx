@@ -1,6 +1,8 @@
 "use client"
 
-import { useRef, useState, type ChangeEventHandler, type FormEvent } from "react"
+import Image from "next/image"
+import { useEffect, useRef, useState, type ChangeEventHandler, type FormEvent } from "react"
+import { useRouter } from "next/navigation"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
@@ -36,10 +38,24 @@ function SubmitButton({ isSending }: { isSending: boolean }) {
 }
 
 export default function ContactPage() {
+  const router = useRouter()
   const [state, setState] = useState<SubmissionState>(initialState)
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
   const [isSending, setIsSending] = useState(false)
   const submissionInProgress = useRef(false)
+
+  useEffect(() => {
+    if (state.type !== "success") {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setState(initialState)
+      router.push("/")
+    }, 5000)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [router, state.type])
 
   function clearFieldError(field: FieldName) {
     setFieldErrors((currentErrors) => {
@@ -150,7 +166,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
           <div className="relative z-10 mx-auto max-w-3xl px-5">
             <h1 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-balance text-white sm:text-5xl md:text-6xl">
-              Let&apos;s <span className="text-white">Contact</span>
+              Let&apos;s <span className="text-white">Connect</span>
             </h1>
             <p className="mt-4 text-base text-white sm:text-lg">
               Have questions or need help? We&apos;re here to assist.
@@ -259,11 +275,6 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <SubmitButton isSending={isSending} />
-                {state.type === "success" && (
-                  <p className="mt-4 text-sm text-center text-green-500" role="status" aria-live="polite">
-                    {state.message}
-                  </p>
-                )}
                 {state.type === "error" && (
                   <p className="mt-4 text-sm text-center text-red-500" role="alert">
                     {state.message}
@@ -274,6 +285,117 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
+      {state.type === "success" && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 px-5 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="contact-success-title"
+          aria-describedby="contact-success-description"
+        >
+          <div className="relative w-full max-w-md overflow-hidden rounded-[28px] border border-white/20 bg-slate-950 text-white shadow-[0_30px_80px_-30px_rgba(15,23,42,0.95)]">
+            <div
+              className="absolute inset-0 opacity-90"
+              aria-hidden="true"
+              style={{
+                background:
+                  "radial-gradient(circle at top, rgba(41,179,255,0.35), transparent 42%), linear-gradient(135deg, rgba(15,23,42,0.98), rgba(8,47,73,0.94) 55%, rgba(14,116,144,0.9))",
+              }}
+            />
+            <div
+              className="absolute -right-12 top-8 h-36 w-36 rounded-full bg-primary/25 blur-3xl"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute -left-10 bottom-0 h-28 w-28 rounded-full bg-cyan-300/20 blur-3xl"
+              aria-hidden="true"
+            />
+            <div className="relative px-7 py-8 text-center sm:px-9">
+              <div className="success-check mx-auto h-20 w-20">
+                <Image
+                  src="/images/msg sent.svg"
+                  alt=""
+                  width={80}
+                  height={80}
+                  aria-hidden="true"
+                  className="success-check-art h-20 w-20 object-contain"
+                  priority
+                />
+              </div>
+              <h2 id="contact-success-title" className="mt-6 font-display text-3xl font-semibold tracking-tight">
+                Message Sent
+              </h2>
+              <p
+                id="contact-success-description"
+                className="mt-3 text-sm leading-6 text-slate-200/90"
+              >
+                Thank you for reaching out. Our team will get back to you soon.
+              </p>
+              <p className="mt-6 text-xs uppercase tracking-[0.22em] text-slate-300/70">
+                Redirecting to home ....
+              </p>
+            </div>
+            <style jsx>{`
+              .success-check {
+                animation: success-pop 1s ease-out both;
+                overflow: visible;
+              }
+
+              .success-check-art {
+                animation:
+                  success-launch 1.15s cubic-bezier(0.2, 0.9, 0.25, 1) 0.08s both,
+                  success-drift 2.6s ease-in-out 1.25s infinite;
+                transform-origin: center;
+                filter: drop-shadow(0 12px 24px rgba(0, 202, 105, 0.22));
+              }
+
+              @keyframes success-pop {
+                0% {
+                  opacity: 0;
+                  transform: scale(0.72);
+                }
+                70% {
+                  opacity: 1;
+                  transform: scale(1.08);
+                }
+                100% {
+                  opacity: 1;
+                  transform: scale(1);
+                }
+              }
+
+              @keyframes success-launch {
+                0% {
+                  opacity: 0;
+                  transform: translate(-26px, 18px) scale(0.78) rotate(-18deg);
+                }
+                58% {
+                  opacity: 1;
+                  transform: translate(10px, -14px) scale(1.08) rotate(7deg);
+                }
+                78% {
+                  opacity: 1;
+                  transform: translate(2px, -4px) scale(1.02) rotate(1deg);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translate(0, 0) scale(1) rotate(0deg);
+                }
+              }
+
+              @keyframes success-drift {
+                0%,
+                100% {
+                  transform: translate(0, 0) scale(1) rotate(0deg);
+                }
+                50% {
+                  transform: translate(2px, -3px) scale(1.02) rotate(1deg);
+                }
+              }
+            `}</style>
+          </div>
+        </div>
+      )}
       <SiteFooter />
     </>
   )

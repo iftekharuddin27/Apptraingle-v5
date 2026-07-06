@@ -33,6 +33,10 @@ function isValidEmail(email: string) {
 }
 
 function formatLabel(key: string) {
+  if (key === "bio") {
+    return "Message"
+  }
+
   return key
     .replace(/([A-Z])/g, " $1")
     .replace(/[_-]/g, " ")
@@ -130,15 +134,17 @@ function hasFieldKey(
 
 function buildRowsHtml(fields: Map<string, string>) {
   return Array.from(fields.entries())
-    .filter(([key, value]) => key !== "phoneRequired" && value)
-    .map(([key, value]) => {
+    .filter(([key, value]) => key !== "phoneRequired" && key !== "resume" && value)
+    .map(([key, value], index, entries) => {
       const label = escapeHtml(formatLabel(key))
       const safeValue = escapeHtml(value).replaceAll("\n", "<br />")
+      const topPadding = index === 0 ? "12px" : "6px"
+      const bottomPadding = index === entries.length - 1 ? "12px" : "6px"
 
       return `
         <tr>
-          <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; vertical-align: top;">${label}</td>
-          <td style="padding: 8px; border: 1px solid #ddd;">${safeValue}</td>
+          <td style="padding: ${topPadding} 12px ${bottomPadding} 16px; width: 88px; font-size: 12px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #666; vertical-align: top;">${label}</td>
+          <td style="padding: ${topPadding} 16px ${bottomPadding} 8px; color: #111;">${safeValue}</td>
         </tr>
       `
     })
@@ -286,9 +292,8 @@ export async function POST(req: Request) {
         subject,
         htmlbody: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <h2>New Career Application</h2>
-            <p><strong>Reference:</strong> ${clientReference}</p>
-            <table style="border-collapse: collapse; width: 100%; max-width: 700px;">
+            <h2>Career Application Submission</h2>
+            <table style="border-collapse: separate; border-spacing: 0; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 12px; overflow: hidden;">
               <tbody>
                 ${rowsHtml}
               </tbody>

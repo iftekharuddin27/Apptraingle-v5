@@ -5,7 +5,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { PageHero } from "@/components/page-blocks"
+import { PageHero, ServiceCta } from "@/components/page-blocks"
 import { TiltCard } from "@/components/tilt-card"
 
 import newsThree from "../../Images/News and Events Images/285a31ee0fbd58dcc2e7b7ad99c0fdf7.jpg"
@@ -157,13 +157,13 @@ export default function NewsPage() {
                           {n.title}
                         </h3>
                         <p className="mt-2 text-sm text-muted-foreground">{n.desc}</p>
-                        <Link
-                          href="/contact-us"
-                          className="group mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary"
+                        <span
+                          className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary/70"
+                          aria-disabled="true"
                         >
                           Read More{" "}
-                          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
-                        </Link>
+                          <ArrowUpRight className="h-4 w-4" />
+                        </span>
                       </div>
                     </article>
                   )}
@@ -172,6 +172,8 @@ export default function NewsPage() {
             </div>
           </div>
         </section>
+
+        <ServiceCta title="Meet With Our Expertise!" cta="Schedule a Call" />
 
       </main>
       <SiteFooter />

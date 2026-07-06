@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 import {
   ArrowUpRight,
   BookOpen,
@@ -43,6 +44,23 @@ const lifeMoments = [
 ]
 
 export default function CareerPage() {
+  const [activeMoment, setActiveMoment] = useState<(typeof lifeMoments)[number] | null>(null)
+
+  useEffect(() => {
+    if (!activeMoment) {
+      return
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveMoment(null)
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [activeMoment])
+
   return (
     <>
       <SiteHeader />
@@ -119,12 +137,17 @@ export default function CareerPage() {
             </StaggerGroup>
 
             <StaggerGroup className="mt-20 sm:mt-24 lg:mt-28" staggerChildren={0.04}>
-              <div className="overflow-hidden rounded-[2rem] border-[10px] border-[#4a2d19] bg-[#8f6032] p-4 shadow-[0_30px_80px_-35px_rgba(0,0,0,0.75)] sm:p-6 lg:p-8">
-                <div className="rounded-[1.5rem] border border-black/20 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_24%),repeating-radial-gradient(circle_at_center,rgba(70,42,20,0.2)_0_1px,transparent_1px_7px),linear-gradient(135deg,#a97342_0%,#8f6032_42%,#74491f_100%)] p-4 sm:p-5 lg:p-6">
+              <div className="overflow-hidden rounded-[2rem] border-[10px] border-[#2c170d] bg-[#1a0f09] p-4 shadow-[0_34px_90px_-38px_rgba(0,0,0,0.92)] sm:p-6 lg:p-8">
+                <div className="rounded-[1.5rem] border border-[#6f4729] bg-[radial-gradient(circle_at_top_left,rgba(255,224,187,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(84,45,17,0.22),transparent_30%),repeating-linear-gradient(90deg,rgba(84,50,25,0.14)_0_2px,rgba(112,69,34,0.04)_2px_6px),linear-gradient(135deg,#7b4c26_0%,#6a4020_38%,#4d2a14_100%)] p-4 sm:p-5 lg:p-6">
                   <div className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-10">
               {lifeMoments.map((moment) => (
                 <StaggerItem key={moment.id}>
-                  <div className={`relative mx-auto w-full max-w-[250px] ${moment.rotation} transition-transform duration-300`}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveMoment(moment)}
+                    className={`relative mx-auto block w-full max-w-[250px] cursor-pointer text-left ${moment.rotation} transition-transform duration-300 hover:scale-[1.03]`}
+                    aria-label={`Open Apptriangle group photo ${moment.id}`}
+                  >
                     <div className={`absolute left-1/2 top-0 z-20 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border shadow-[0_2px_5px_rgba(0,0,0,0.35)] ${moment.pinColor}`} />
                     <div className="rounded-[0.4rem] bg-white p-2 pb-5 shadow-[0_14px_20px_rgba(0,0,0,0.28)]">
                       <div className="relative aspect-square w-full overflow-hidden bg-black shadow-inner shadow-black/50">
@@ -137,7 +160,7 @@ export default function CareerPage() {
                         />
                       </div>
                     </div>
-                  </div>
+                  </button>
                 </StaggerItem>
               ))}
                   </div>
@@ -147,6 +170,39 @@ export default function CareerPage() {
           </div>
         </section>
 
+        {activeMoment && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/78 px-4 py-10 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Expanded Apptriangle group photo ${activeMoment.id}`}
+            onClick={() => setActiveMoment(null)}
+          >
+            <div
+              className="relative w-full max-w-6xl rounded-[1.75rem] border border-white/15 bg-[#120b07] p-3 shadow-[0_30px_100px_-30px_rgba(0,0,0,0.95)] sm:p-4"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveMoment(null)}
+                className="absolute right-3 top-3 z-10 rounded-full bg-black/55 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-black/75"
+                aria-label="Close image preview"
+              >
+                Close
+              </button>
+              <div className="relative h-[min(78vh,900px)] w-full overflow-hidden rounded-[1.1rem] bg-black">
+                <Image
+                  src={activeMoment.image}
+                  alt={`Apptriangle group photo ${activeMoment.id}`}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </main>
       <SiteFooter />
     </>

@@ -5,7 +5,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { PageHero } from "@/components/page-blocks"
+import { PageHero, ServiceCta } from "@/components/page-blocks"
 import { TiltCard } from "@/components/tilt-card"
 import { posts } from "@/lib/blog-posts"
 
@@ -63,6 +63,8 @@ export default function BlogPage() {
             </div>
           </div>
         </section>
+
+        <ServiceCta title="Meet With Our Expertise!" cta="Schedule a Call" />
 
       </main>
       <SiteFooter />

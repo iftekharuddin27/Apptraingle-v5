@@ -110,24 +110,23 @@ export async function POST(req: Request) {
         subject: `New Contact Message from ${name}`,
         htmlbody: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <h2>New Contact Form Message</h2>
-            <p><strong>Reference:</strong> ${clientReference}</p>
-            <table style="border-collapse: collapse; width: 100%; max-width: 700px;">
+            <h2>Contact Form Submission</h2>
+            <table style="border-collapse: separate; border-spacing: 0; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 12px; overflow: hidden;">
               <tbody>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">${safeName}</td>
+                  <td style="padding: 12px 12px 6px 16px; width: 88px; font-size: 12px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #666; vertical-align: top;">Name</td>
+                  <td style="padding: 12px 16px 6px 8px; color: #111;">${safeName}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">${safeEmail}</td>
+                  <td style="padding: 6px 12px 6px 16px; width: 88px; font-size: 12px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #666; vertical-align: top;">Email</td>
+                  <td style="padding: 6px 16px 6px 8px; color: #111;">${safeEmail}</td>
                 </tr>
                 ${
                   safePhone
                     ? `
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Phone</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">${safePhone}</td>
+                  <td style="padding: 6px 12px 6px 16px; width: 88px; font-size: 12px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #666; vertical-align: top;">Phone</td>
+                  <td style="padding: 6px 16px 6px 8px; color: #111;">${safePhone}</td>
                 </tr>
                 `
                     : ""
@@ -136,15 +135,15 @@ export async function POST(req: Request) {
                   safeCompany
                     ? `
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Company</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">${safeCompany}</td>
+                  <td style="padding: 6px 12px 6px 16px; width: 88px; font-size: 12px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #666; vertical-align: top;">Company</td>
+                  <td style="padding: 6px 16px 6px 8px; color: #111;">${safeCompany}</td>
                 </tr>
                 `
                     : ""
                 }
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Message</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">${safeMessage}</td>
+                  <td style="padding: 6px 12px 12px 16px; width: 88px; font-size: 12px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #666; vertical-align: top;">Message</td>
+                  <td style="padding: 6px 16px 12px 8px; color: #111;">${safeMessage}</td>
                 </tr>
               </tbody>
             </table>

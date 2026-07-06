@@ -32,7 +32,7 @@ export function SiteFooter() {
                 aria-label="Facebook"
                 className="flex h-9 w-9 items-center justify-center transition hover:opacity-80 relative bottom-px"
               >
-                <Image src="/images/logo/facebook.png" alt="Facebook" width={24} height={24} className="h-6 w-6" />
+                <Image src="/images/logo/facebook.png" alt="Facebook" width={26} height={26} className="h-6 w-6" />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/apptriangle/"
@@ -41,7 +41,7 @@ export function SiteFooter() {
                 aria-label="LinkedIn" 
                 className="flex h-9 w-9 items-center justify-center transition hover:opacity-80"
               >
-                <Image src="/images/logo/Linkedin.png" alt="LinkedIn" width={28} height={28} className="h-7 w-7" />
+                <Image src="/images/logo/Linkedin.png" alt="LinkedIn" width={29} height={29} className="h-8 w-8" />
               </Link>
               <Link
                 href="https://www.youtube.com/@apptriangle6251"
@@ -96,6 +96,7 @@ export function SiteFooter() {
                 <p className="font-medium text-foreground">Bangladesh</p>
                 <p className="mt-1 flex items-start gap-2"><MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />House 54, Road 8, Block D, Niketan, Gulshan-1, Dhaka-1212</p>
                 <p className="mt-1 flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-primary" />+880 1717 888 388</p>
+                <p className="mt-1 flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-primary" />+880 1712 152 715</p>
                 <p className="mt-1 flex items-center gap-2">
                   <Mail className="h-3.5 w-3.5 text-primary" />
                   <span className="text-white">info@apptriangle.com</span>

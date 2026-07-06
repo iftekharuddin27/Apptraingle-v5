@@ -124,7 +124,9 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center gap-3"
           >
             <Link
-              href="/contact-us"
+              href="https://bookings.cloud.microsoft/book/MeetwithApptriangle@apptriangle.com/?ismsaljsauthenabled"
+              target="_blank"
+              rel="noopener noreferrer"
               className=" group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground  transition-all duration-300 hover:scale-[1.03] hover:shadow-[10_10px_10px_-5px_rgba(41,179,255,1)]"
             >
               <span className="relative z-10">Get a Consultation</span>
