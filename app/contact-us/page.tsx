@@ -30,7 +30,7 @@ function SubmitButton({ isSending }: { isSending: boolean }) {
     <button
       type="submit"
       disabled={isSending}
-      className="mt-6 w-full inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_30px_-10px_rgba(41,179,255,0.7)] transition-transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+      className="mt-6 w-full inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {isSending ? "Sending..." : "Submit"}
     </button>

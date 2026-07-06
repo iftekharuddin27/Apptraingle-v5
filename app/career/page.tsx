@@ -185,10 +185,13 @@ export default function CareerPage() {
               <button
                 type="button"
                 onClick={() => setActiveMoment(null)}
-                className="absolute right-3 top-3 z-10 rounded-full bg-black/55 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-black/75"
+                className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center transition-opacity hover:opacity-80"
                 aria-label="Close image preview"
               >
-                Close
+                <span className="relative block h-5 w-5">
+                  <span className="absolute left-1/2 top-1/2 h-[2px] w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white rotate-45" />
+                  <span className="absolute left-1/2 top-1/2 h-[2px] w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white -rotate-45" />
+                </span>
               </button>
               <div className="relative h-[min(78vh,900px)] w-full overflow-hidden rounded-[1.1rem] bg-black">
                 <Image

@@ -347,7 +347,7 @@ function SubmitButton({ isSubmitting }: { isSubmitting: boolean }) {
     <button
       type="submit"
       disabled={isSubmitting}
-      className="w-full rounded-full bg-[linear-gradient(90deg,#2fa8f5_0%,#39b3ff_100%)] px-8 py-3.5 text-base font-semibold text-slate-950 shadow-[0_14px_34px_-14px_rgba(57,179,255,0.95),0_0_28px_-12px_rgba(57,179,255,0.7)] transition-all duration-300 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+      className="w-full rounded-full bg-[linear-gradient(90deg,#2fa8f5_0%,#39b3ff_100%)] px-8 py-3.5 text-base font-semibold text-slate-950 transition-all duration-300 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
     >
       {isSubmitting ? "Submitting..." : "Submit"}
     </button>

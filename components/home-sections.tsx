@@ -127,7 +127,7 @@ export function Hero() {
               href="https://bookings.cloud.microsoft/book/MeetwithApptriangle@apptriangle.com/?ismsaljsauthenabled"
               target="_blank"
               rel="noopener noreferrer"
-              className=" group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground  transition-all duration-300 hover:scale-[1.03] hover:shadow-[10_10px_10px_-5px_rgba(41,179,255,1)]"
+              className=" group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.03]"
             >
               <span className="relative z-10">Get a Consultation</span>
               <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45" />
@@ -372,7 +372,7 @@ export function AboutSection() {
             <div className="mt-9">
               <Link
                 href="/about-us"
-                className="shine-sweep group inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_rgba(41,179,255,0.8)] transition-transform hover:scale-[1.03]"
+                className="shine-sweep group inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
               >
                 <span className="relative z-10">Learn More</span>
                 <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
@@ -583,7 +583,7 @@ export function HomeBottomCta() {
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                   <Link
                     href="/contact-us"
-                    className="shine-sweep group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_rgba(41,179,255,0.8)] transition-transform hover:scale-[1.03]"
+                    className="shine-sweep group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
                   >
                     <span className="relative z-10">Contact Us</span>
                     <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/btn:rotate-45 group-hover/btn:translate-x-1" />
@@ -631,7 +631,7 @@ export function CtaSection() {
                 </div>
                 <Link
                   href="/contact-us"
-                  className="shine-sweep group/btn relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_rgba(41,179,255,0.8)] transition-transform hover:scale-[1.03]"
+                  className="shine-sweep group/btn relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
                 >
                   <span className="relative z-10">Get Started</span>
                   <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/btn:rotate-45 group-hover/btn:translate-x-1" />
