@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   description:
     "Apptriangle is a global technology service provider delivering Managed IT, Staff Augmentation, Business Process Automation, App Development, Power Platform, and Technology Consulting.",
   generator: "v0.app",
+  icons: {
+    icon: "/images/fav%20icon.png",
+    shortcut: "/images/fav%20icon.png",
+  },
 }
 
 export const viewport = {

@@ -144,7 +144,7 @@ function buildRowsHtml(fields: Map<string, string>) {
       return `
         <tr>
           <td style="padding: ${topPadding} 12px ${bottomPadding} 16px; width: 88px; font-size: 16px; font-weight: 400; color: #111; vertical-align: top;">${label}</td>
-          <td style="padding: ${topPadding} 16px ${bottomPadding} 8px; font-size: 18px; color: #111;">${safeValue}</td>
+          <td style="padding: ${topPadding} 12px ${bottomPadding} 8px; font-size: 16px; color: #111;">${safeValue}</td>
         </tr>
       `
     })
@@ -279,7 +279,7 @@ export async function POST(req: Request) {
           {
             email_address: {
               address: receiverEmail,
-              name: "AppTriangle Careers",
+              name: "Apptriangle Careers",
             },
           },
         ],
@@ -292,7 +292,7 @@ export async function POST(req: Request) {
         subject,
         htmlbody: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <h2 style="margin: 0 0 14px; font-size: 24px; font-weight: 700; color: #111;">Career Application Submission</h2>
+            <h2 style="margin: 0 0 14px; font-size: 16px; font-weight: 700; color: #111;">Career Application Submission</h2>
             <table style="border-collapse: separate; border-spacing: 0; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 12px; overflow: hidden;">
               <tbody>
                 ${rowsHtml}
