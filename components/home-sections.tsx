@@ -190,7 +190,7 @@ function ServiceCard({ s }: { s: (typeof services)[number] & { description?: str
         <h3 className="relative mt-8 font-display text-lg font-semibold leading-tight text-primary">
           {s.title}
         </h3>
-        <p className="relative mt-2 text-sm leading-relaxed text-white line-clamp-2 transition-all duration-300 group-hover:line-clamp-none">{s.short}</p>
+        <p className="relative mt-2 text-left text-sm leading-relaxed text-white line-clamp-2 transition-all duration-300 group-hover:line-clamp-none">{s.short}</p>
 
         <div className="relative mt-6 flex items-center justify-between">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary">

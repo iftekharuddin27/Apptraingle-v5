@@ -62,7 +62,7 @@ export default function ServicesIndex() {
                       {s.title}
                     </h3>
                     <p
-                      className="mt-2 text-sm leading-relaxed text-white"
+                      className="mt-2 text-left text-sm leading-relaxed text-white"
                     >
                       {s.short}
                     </p>

@@ -8,9 +8,9 @@ export function SiteFooter() {
     <footer className="relative border-t border-border/40 bg-card/30">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <div className="lg:max-w-sm">
+          <div className="lg:max-w-xs">
             <Logo size="header" className="lg:-mt-2" />
-            <p className="mt-4 max-w-sm text-sm text-justify text-muted-foreground">
+            <p className="mt-4 max-w-xs text-sm text-muted-foreground">
               Apptriangle is a global technology service provider delivering Managed IT, Staff Augmentation,
               Business Process Automation, App Development, Power Platform, and Technology Consulting.
             </p>

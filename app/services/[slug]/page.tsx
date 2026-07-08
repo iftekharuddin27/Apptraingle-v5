@@ -704,8 +704,8 @@ function BenefitsCardsGrid({ title, items }: { title: string; items: StepItem[] 
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--sky),rgba(41,179,255,0.2))] text-(--blue)">
                   <Icon size={28} />
                 </div>
-                <p className="mt-3 text-xs font-semibold text-foreground sm:text-sm">{item.title}</p>
-                {item.desc && <p className="mt-2 text-[11px] text-muted-foreground">{item.desc}</p>}
+                <p className="mt-3 text-center text-xs font-semibold text-foreground sm:text-sm">{item.title}</p>
+                {item.desc && <p className="mt-2 text-center text-[11px] text-muted-foreground">{item.desc}</p>}
               </div>
               </TiltCard>
             )

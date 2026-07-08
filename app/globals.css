@@ -91,14 +91,7 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
-  p,
-  li,
-  dd,
-  figcaption,
-  blockquote {
-    text-align: justify;
-    text-justify: inter-word;
-  }
+  
 }
 
 

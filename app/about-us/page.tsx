@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div className="grid items-stretch gap-10 lg:grid-cols-[1.2fr_1.05fr]">
               <div className="flex h-full flex-col rounded-2xl bg-card/60 p-8 backdrop-blur">
                 <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Our <span className="text-primary">Story</span></h2>
-                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground text-justify">
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
                   <p>
                     Every great idea begins with a spark — and for <strong>Apptriangle Limited</strong>, that spark ignited in <strong>2018</strong>, when three passionate engineers — <span className="text-primary">Ali Mortuza <strong>Bilash</strong></span>, <span className="text-primary">Moshiur Rahman <strong>Oly</strong></span>, and another like-minded colleague — shared a common dream: <strong>To deliver world-class apps and technology services that transform how businesses work.</strong> All three came from strong engineering backgrounds, with years of experience working with multinational tech companies serving enterprise clients. But soon, <strong>Bilash</strong> &amp; <strong>Moshiur</strong> took the bold step of leaving their secure jobs, stepping out of their comfort zones to bring the <strong>Apptriangle</strong> vision to life. The third co-founder chose to continue his professional journey elsewhere, but his place in the original idea remained — symbolized in the name itself, <strong>Apptriangle</strong> — representing the three points of innovation that sparked the journey.
                   </p>
@@ -82,7 +82,7 @@ export default function AboutPage() {
               </div>
               <div className="rounded-2xl bg-card/60 p-8 backdrop-blur">
                 <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">The <span className="text-primary">Beginning</span></h2>
-                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground text-justify">
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
                   <p>
                     Apptriangle&apos;s first product, <strong>ShopManager</strong>, was built to empower small retailers with tools for managing inventory, tracking sales, and generating automated SMS invoices. They personally visited local markets, listened to shop owners, and refined the product through real-world feedback — proving that genuine innovation starts with understanding real customer needs.
                   </p>
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <div className="grid gap-10 lg:grid-cols-[1.2fr_1.05fr] lg:items-center">
               <div className="rounded-2xl bg-card/60 p-8 backdrop-blur">
                 <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Global <span className="text-primary">Breakthrough</span></h2>
-                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground text-justify">
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
                   <p>
                     In <strong>2020</strong>, amid the global pandemic, an opportunity arrived that changed everything. Microsoft&apos;s global support team reached out to Bilash with an offer to provide remote assistance for <strong>Microsoft 365 customers</strong>. With Oly joining in, Apptriangle secured its first international contract — one that continues to this day.
                   </p>
@@ -141,7 +141,7 @@ export default function AboutPage() {
               </div>
               <div className="rounded-2xl bg-card/60 p-8 backdrop-blur">
                 <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">Expanding <span className="text-primary">Horizons</span></h2>
-                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground text-justify">
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
                   <p>
                     Today, <strong>Apptriangle Limited</strong> proudly serves <strong>200+ unique customers</strong> across <strong>Bangladesh, USA, Australia, Canada, UAE, and Brunei</strong> — providing top-tier <strong>AI, BI, Automation, Staff Augmentation, Consulting</strong>, and <strong>Managed IT Services</strong>.
                   </p>
