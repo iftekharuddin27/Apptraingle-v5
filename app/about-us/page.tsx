@@ -185,6 +185,9 @@ export default function AboutPage() {
                       fill
                       data-floating="true"
                       className="object-cover"
+                      style={{
+                        objectPosition: m.name === "Ali Mortuza Bilash" ? "center 5%" : "center",
+                      }}
                       sizes="96px"
                     />
                   </div>

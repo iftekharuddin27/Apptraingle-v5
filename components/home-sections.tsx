@@ -390,6 +390,7 @@ export function AboutSection() {
 }
 
 export function PartnersSection() {
+  const [isMarqueePaused, setIsMarqueePaused] = useState(false)
   const partners = [
     { name: "Microsoft",    logo: "/images/Company%20Profile%20Images/Microsoft-Logo.wine.png", logoClassName: "scale-380" },
     { name: "IceWarp",      logo: "/images/Company%20Profile%20Images/IceWarp.png", logoClassName: "scale-125" },
@@ -421,12 +422,17 @@ export function PartnersSection() {
       </div>
       <div
         className="mt-12 overflow-hidden"
+        onMouseEnter={() => setIsMarqueePaused(true)}
+        onMouseLeave={() => setIsMarqueePaused(false)}
         style={{
           maskImage: "linear-gradient(90deg,transparent,black 10%,black 90%,transparent)",
           WebkitMaskImage: "linear-gradient(90deg,transparent,black 10%,black 90%,transparent)",
         }}
       >
-        <div className="marquee-track flex w-max items-center gap-6 px-5 sm:gap-10 sm:px-8">
+        <div
+          className="marquee-track flex w-max items-center gap-6 px-5 sm:gap-10 sm:px-8"
+          style={{ animationPlayState: isMarqueePaused ? "paused" : "running" }}
+        >
           {[...partners, ...partners].map((partner, i) => (
             <div
               key={`${partner.name}-${i}`}

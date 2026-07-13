@@ -134,7 +134,7 @@ const content: Record<string, ProductContent> = {
       { title: "Responsive Design", desc: "Looks and functions beautifully on any screen size, from mobile devices to tablets.", icon: Smartphone },
       { title: "Easy Customization", desc: "A well-organized and documented codebase makes it easy to customize and extend the app to fit your specific business needs.", icon: SlidersHorizontal },
     ],
-    whyTitle: "Why Choose?",
+    whyTitle: "Why choose eShop",
     whyImage: "/images/products/ecommerce/why.webp",
     whyImageMaxWidth: "max-w-md",
     whyChecklist: [
@@ -147,10 +147,10 @@ const content: Record<string, ProductContent> = {
     ctaLabel: "Schedule a Call",
   },
   "rico-ride-connect": {
-    heroTitle: "Rico-Ride Connect - Get There Fast, Safely, and",
+    heroTitle: "Rico Ride Connect - Get There Fast, Safely, and",
     heroHighlight: "In Control",
     heroDesc:
-      "Rico-Ride Connect is a fast, reliable, and secure ride-sharing app for everyday travel. Book in seconds, track your driver live, and enjoy transparent fares and safety features that keep you in control-commuting, hangouts, or quick errands made easy.",
+      "Rico Ride Connect is a fast, reliable, and secure ride-sharing app for everyday travel. Book in seconds, track your driver live, and enjoy transparent fares and safety features that keep you in control-commuting, hangouts, or quick errands made easy.",
     heroImage: "/images/products/rico-ride/hero.webp",
     heroImageMaxWidth: "max-w-md",
     featuresTitle: "Key Features",
@@ -162,7 +162,7 @@ const content: Record<string, ProductContent> = {
       { title: "Built-In Safety", desc: "SOS button, trip-share, OTP pickup verification, and driver ratings for trust.", icon: ShieldCheck },
       { title: "Favorites & Smart Routing", desc: "Save Home/Work, rebook faster, and choose preferred routes for comfort.", icon: Route },
     ],
-    whyTitle: "why Choose Rico-Ride Connect?",
+    whyTitle: "Why Choose Rico Ride Connect?",
     whyImage: "/images/products/rico-ride/why.webp",
     whyImageMaxWidth: "max-w-md",
     whyChecklist: [
@@ -248,7 +248,7 @@ const content: Record<string, ProductContent> = {
       { title: "Task Management", desc: "Create tasks, set due dates, assign owners, add notes and attachments, and track progress with simple status updates.", icon: ListTodo },
       { title: "Approvals, Notifications & Reports", desc: "Managers approve in one tap; employees receive real time notifications and monthly reports for attendance, leave, and expenses.", icon: BellIcon },
     ],
-    whyTitle: "Why Choose?",
+    whyTitle: "Why Choose Treal?",
     whyImage: "/images/products/treal/why.png",
     whyImageMaxWidth: "max-w-md",
     whyChecklist: [
@@ -418,7 +418,7 @@ const content: Record<string, ProductContent> = {
       { title: "Secure, Private, Yours", desc: "Your data stays inside the private knowledge base; it is not public.", icon: Lock },
       { title: "Modern Web Experience", desc: "Clean UI for interacting with documents, files, and query-ready results.", icon: LayoutGrid },
     ],
-    whyTitle: "why Choose BackOffice AI?",
+    whyTitle: "Why Choose BackOffice AI?",
     whyImage: "/images/products/back-office-ai/why.webp",
     whyImageMaxWidth: "max-w-md",
     whyChecklist: [
@@ -526,7 +526,7 @@ const content: Record<string, ProductContent> = {
       { title: "Fleet Health & History", desc: "See service timelines, costs, and downtime per vehicle; compare trends across the fleet.", icon: History },
       { title: "Notifications & Reminders", desc: "Auto-alerts for due services, approvals, warranty expiry, and low inventory critical timing.", icon: BellIcon },
     ],
-    whyTitle: "why Choose Auto Pilot?",
+    whyTitle: "Why Choose Auto Pilot?",
     whyImage: "/images/products/auto-pilot/why.png",
     whyImageMaxWidth: "max-w-md",
     whyChecklist: [
